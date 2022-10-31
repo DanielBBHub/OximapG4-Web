@@ -1,2 +1,3 @@
-# OximapG4-Web
-Repositorio para albergar el codigo relacionado a la web del proyecto
+# BIOMETRIA_BACKEND
+
+# Esta parte del proyecto es la encargada de guardar datos en una base de datos y mostrarlos en una página web gracias a un servidor Node.js
