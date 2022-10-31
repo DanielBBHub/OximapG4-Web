@@ -28,8 +28,8 @@ module.exports = class Logica {
     // insertarMedicion() -->
     // .................................................................
     insertarMedicion(datos) { // Inserta una Medicion en la base de datos
-        var textoSQL = 'insert into Medicion values( $ID, $Medicion);' // SQL
-        var valoresParaSQL = { $ID: datos.ID, $Medicion: datos.Medicion } // Valores para SQL
+        var textoSQL = 'insert into Medicion values( $id, $muestra, $fecha, $usuario);' // SQL
+        var valoresParaSQL = { $id: datos.id, $muestra: datos.muestra, $fecha: datos.fecha, $usuario: datos.usuario } // Valores para SQL
         return new Promise((resolver, rechazar) => { // Promesa
             this.laConexion.run(textoSQL, valoresParaSQL, function (err) { // Consulta
 
@@ -53,9 +53,9 @@ module.exports = class Logica {
     // <--
     // {ID:R, Medicion:N}
     // .................................................................
-    buscarMedicion(ID) { // Busca una Medicion en la base de datos
-        var textoSQL = "select * from Medicion where ID=$ID"; // SQL
-        var valoresParaSQL = { $ID: ID } // Valores para SQL
+    buscarMedicion(id) { // Busca una Medicion en la base de datos
+        var textoSQL = "select * from Medicion where id=$id"; // SQL
+        var valoresParaSQL = { $id: id } // Valores para SQL
         return new Promise((resolver, rechazar) => { // Promesa
             this.laConexion.all(textoSQL, valoresParaSQL, // Consulta
                 (err, res) => {
