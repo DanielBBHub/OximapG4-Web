@@ -12,7 +12,7 @@ module.exports.cargar = function (servidorExpress, laLogica) {
   }); // get /prueba
   // .......................................................
   // .......................................................
-  servidorExpress.get("/medicion", async function (peticion, respuesta){
+  servidorExpress.get("/Medicion", async function (peticion, respuesta){
     console.log(" * GET / Medicion");
     var error = null
     //Llamada a la funcion buscarMedicion() para recoger
@@ -20,23 +20,13 @@ module.exports.cargar = function (servidorExpress, laLogica) {
     try{
       //Buscar la medicion del ultimo id
     
-      var res = await laLogica.buscarMedicion("23")
+      var res = await laLogica.buscarMedicion("2")
     }
 
     catch (e){
       error = e
     }
 
-  /*
-    if (error != null){
-      if( res.length == 0 ) {
-        // 404: not found
-        respuesta.status(404).send( "No encontré la muestra" )
-        return
-      }
-    }
-
-    */
     console.log(res)
     respuesta.send( JSON.stringify( res ) )
 
@@ -48,8 +38,8 @@ module.exports.cargar = function (servidorExpress, laLogica) {
   servidorExpress.post("/alta", async function (peticion, respuesta) {
     console.log(" * POST /alta ");
     var datos = JSON.parse(peticion.body);
-    console.log("ID: " + datos.ID);
-    console.log("Valor de medicion: " + datos.Medicion);
+    console.log("ID: " + datos.id);
+    console.log("Valor de medicion: " + datos.muestra);
 
     try{
 

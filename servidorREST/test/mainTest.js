@@ -29,8 +29,10 @@ describe("Test 1 : Recuerda arrancar el servidor", function () {
   // ....................................................
   it("probar POST /alta", function (hecho) { // Probar Post
     var datosMedicion = { // Datos de la medicion a enviar al servidor REST
-      ID: "10",
-      Medicion: "25.4" ,
+      id: 3, // ID de la medicion
+      muestra: 789, // Muestra de la medicion
+      fecha: "2020-01-01", // Fecha de la medicion
+      usuario: "carlos" // Usuario de la medicion
     };
     request.post(
       {
