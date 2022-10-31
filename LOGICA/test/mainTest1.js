@@ -28,10 +28,16 @@ describe("Test 1: Conectar, añadir, comprobar y cerrar", function () { // Test 
         async function () { // Función asíncrona para insertar valores y comprobar que se han insertado con callback
             await laLogica.insertarMedicion( // Inserta una medicion llamando a la función insertarMedicion de la clase Logica (a la promesa)
                 {
-                    ID: "7", Medicion: 5 // Valores de la medicion
+                    // Valores de la medicion a insertar
+                    id: 2, // ID de la medicion 
+                    muestra: 456, // Muestra de la medicion
+                    fecha: "2020-01-01", // Fecha de la medicion
+                    usuario: "carlos" // Usuario de la medicion
                 })
-            var res = await laLogica.buscarMedicion("7") // Busca la medicion con el ID 5
-            assert.equal(res[0].ID, "7", "¿no es 7?") // Comprueba que el ID debe ser 5
+            //Busca la medicion con el ID 2
+            var medicion = await laLogica.buscarMedicion(2) // Busca la medicion con el ID 2 llamando a la función buscarMedicion de la clase Logica (a la promesa)
+            //Comprueba que el ID debe ser 2
+            assert.equal(medicion[0].id, 2) // Comprueba que el ID de la medicion es 2
             
         }) // it
     // ....................................................
