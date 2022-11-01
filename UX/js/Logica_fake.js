@@ -2,7 +2,6 @@
 // ---------------------------------------------------------------------
 // LogicaFake.js
 // ---------------------------------------------------------------------
-
 const IP_PUERTO = "http://localhost:8080";
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
@@ -76,7 +75,6 @@ export default class LogicaFake {
     // .................................................................
     cargarMedicion( muestra ){
         console.log("EMPIEZA LA EJECUCION DE: cargarMuestra()")
-
         var metodo = this
         var muestra_txt = document.getElementById("valorMuestraTxt");
 		muestra_txt.textContent = "Valor de la muestra: " + muestra;
