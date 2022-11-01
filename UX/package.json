@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "firebase": "^9.13.0",
+    "mocha": "^10.1.0"
+  }
+}
