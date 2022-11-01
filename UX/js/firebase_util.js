@@ -1,4 +1,4 @@
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup,GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
 // .................................................................
 // email,password:str
 // -->
@@ -56,3 +56,37 @@ export async function iniciar_sesion_correo_contrasenya( email, password)
     });
 }
 
+// .................................................................
+// email,password:str
+// -->
+// iniciar_sesion_correo_contrasenya() -->
+// 
+// .................................................................
+export async function iniciar_sesion_proveedor_google()
+{
+    //En esta funcion se llama a signInWithPopup(), funcion de la api de Firebase
+    //que nos permitira entrar con la cuenta de usuario de google siguientes argumentos:
+    //auth:	Autorización	La instancia de autenticación .
+    //provider: GoogleAuthProvider	El proveedor de la autentificación
+    
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth();
+    signInWithPopup(auth, provider)
+    .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // ...
+    }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+    });
+}
