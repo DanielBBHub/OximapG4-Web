@@ -37,7 +37,13 @@
 
         <div class="  justify-content-around" style="margin-top: 2%;">
             <a id="boton_registro" class="btn btn-primary">
-              Entrar
+              Iniciar sesión
+            </a>
+        </div>
+
+        <div class="  justify-content-around" style="margin-top: 2%;">
+            <a id="boton_registro_proveedor_google" class="btn btn-primary">
+              Entrar con google
             </a>
         </div>
 
@@ -72,14 +78,18 @@
             const app = initializeApp(firebaseConfig);
             // Initialize Firebase Authentication and get a reference to the service
             const auth = getAuth(app);
-            import {iniciar_sesion_correo_contrasenya} from "./js/firebase_util.js"
+            import {iniciar_sesion_correo_contrasenya, iniciar_sesion_proveedor_google} from "./js/firebase_util.js"
             document.onreadystatechange = function() {
                 
                 document.getElementById("boton_registro").addEventListener("click" , async function(){
                     var email = document.getElementById("correoUsuarioTxt").value
                     var password = document.getElementById("passUsuarioTxt").value
                     const user = await iniciar_sesion_correo_contrasenya(email,password)
-                    })
+                })
+
+                document.getElementById("boton_registro_proveedor_google").addEventListener("click" , async function(){
+                    const user = await iniciar_sesion_proveedor_google()
+                })
             } 
         </script>   
     </body>
