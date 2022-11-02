@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root{
+    --centrar: 0 auto;
+    --colorPrincipal: #69D4B6;
+    --colorFondo: #E7F8F1;
+    --colorTitulos: #51ADCF;
+    --colorSubTitulos: #0278AE;
+    --letras: #000000;
+    --tamTitulos: 2rem;
+    --tamTexto: 1rem;
+    --fuentePrincipal: Montserrat;
+}
+
+/*Sobre el Proyecto*/
+.proyecto{
+    margin-top: 7rem;
+
+}
+
+.titulo{
+    font-size: var(--tamTitulos);
+    text-align: center;
+    color: var(--colorTitulos);
+    padding-top: 2rem;
+    margin-bottom: 0;
+    font-family: var(--fuentePrincipal);
+}
+
+.texto{
+    font-size: var(--tamTexto);
+    margin: 2rem;
+    font-family: var(--fuentePrincipal);
+}
+
+.ajustar {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 1rem auto;
+    padding: 0 .5rem;
+    flex: 1 1 0;
+    align-items: center;
+}
+
+.imagenes {
+    width: 150px;
+    height: 150px;
+    border-radius: 10%;
+}
