@@ -1,18 +1,36 @@
-// .....................................................................
-// Logica.js
-// .....................................................................
-const sqlite3 = require("sqlite3") // Añadimos
-// .....................................................................
-// .....................................................................
-// Cremos la clase Logica con el constructor que abre la base de datos
-// .....................................................................
-// .....................................................................
+// ....................................................................................................................................
+// ....................................................................................................................................
+/*
+    *   Logica.js
+    *   \brief     Logica.js es una libreria de funciones para el manejo de la logica de la aplicacion
+    *   \details   Contiene los métodos para Insertar, consultar, abrir y cerrar conexion con la base de datos  
+*/
+// ....................................................................................................................................
+// ....................................................................................................................................
+const sqlite3 = require("sqlite3") // Añadimos sqlite3 (gestor de base de datos)
+// ....................................................................................................................................
+// ....................................................................................................................................
 module.exports = class Logica { 
-    // .................................................................
-    // nombreBD (datos.bd): Texto
-    // -->
-    // constructor () -->
-    // .................................................................
+
+    // ....................................................................................................................................
+    // ....................................................................................................................................
+
+    /*
+
+    *   \brief     Constructor de la clase
+    *   \details   Abre la base de datos y la guarda en laConexion 
+    *  \param     nombreDeLaBaseDeDatos:R Nombre de la base de datos
+    * \param     modo:R Modo de apertura de la base de datos
+    * \param     callback:R Funcion que se ejecuta al abrir la base de datos
+    * \return    Devuelve la conexion con la base de datos
+    * \return    Devuelve un error si no se puede abrir la base de datos
+    
+    nombreBD (datos.bd): Texto
+     -->
+    constructor () -->
+
+    */
+   
     constructor(nombreBD, cb) { // El constructor abre la base de datos
         this.laConexion = new sqlite3.Database( nombreBD,
             (err) => { // Callback
@@ -22,11 +40,25 @@ module.exports = class Logica {
                 cb(err) // Sino devuelve el error
             })
     }
-    // .................................................................
-    // datos:{ID:R, Medicion:N}
-    // -->
-    // insertarMedicion() -->
-    // .................................................................
+
+    // ....................................................................................................................................
+    // ....................................................................................................................................
+
+    /*
+
+    *   \brief     Inserta valores en la base de datos 
+    *   \details   Inserta valores en la base de datos correspondientes a los campos de la tabla Medicion
+    * \param     id:R ID de la medicion
+    * \param     medicion:N Medicion
+    * \return    Devuelve la promesa de la insercion
+    * \return    Devuelve un error si no se puede insertar
+
+    datos:{ID:R, Medicion:N}
+    -->
+    insertarMedicion() -->
+    
+    */
+    
     insertarMedicion(datos) { // Inserta una Medicion en la base de datos
         var textoSQL = 'insert into Medicion values( $id, $muestra, $fecha, $usuario);' // SQL
         var valoresParaSQL = { $id: datos.id, $muestra: datos.muestra, $fecha: datos.fecha, $usuario: datos.usuario } // Valores para SQL
@@ -45,14 +77,30 @@ module.exports = class Logica {
                 //(err ? rechazar(err) : resolver()) // Devuelve la promesa
             })
         })
-    } // ()
-    // .................................................................
-    // ID:R
-    // -->
-    // buscarMedicion() <--
-    // <--
-    // {ID:R, Medicion:N}
-    // .................................................................
+    }
+    // ....................................................................................................................................
+    // ....................................................................................................................................
+
+    /*
+
+    *   \brief     Inserta valores en la base de datos
+    *   \details   Inserta valores en la base de datos correspondientes a los campos de la tabla Usuario
+    * \param     id:R ID del usuario
+    * \param     nombre:N Nombre del usuario
+    * \param     apellidos:N Apellidos del usuario
+    * \param     email:N Email del usuario
+    * \param     password:N Password del usuario
+    * \return    Devuelve la promesa de la insercion
+    * \return    Devuelve un error si no se puede insertar
+
+    ID:R
+    -->
+    buscarMedicion() <--
+    <--
+    {ID:R, Medicion:N}
+
+    */
+
     buscarMedicion(id) { // Busca una Medicion en la base de datos
         var textoSQL = "select * from Medicion where id=$id"; // SQL
         var valoresParaSQL = { $id: id } // Valores para SQL
@@ -62,10 +110,18 @@ module.exports = class Logica {
                     (err ? rechazar(err) : resolver(res)) // Devuelve la promesa
                 })
         })
-    } // ()
-    // .................................................................
-    // cerrar() -->
-    // .................................................................
+    }
+    // ................................................................................................................................
+    // ................................................................................................................................
+
+    /*
+    *   \brief     Cerrar conexion con la base de datos
+    *   \details   Cierra la conexion con la base de datos mediante la funcion close de laConexion
+    * \return    Devuelve la promesa del cierre de la conexion
+    * \return    Devuelve un error si no se puede cerrar la conexion
+    * 
+    */
+
     cerrar() { // Cierra la base de datos 
         return new Promise((resolver, rechazar) => { // Promesa
             this.laConexion.close((err) => { // Cierra la base de datos
@@ -73,6 +129,6 @@ module.exports = class Logica {
             })
         })
     } // ()
-} // class
-// .....................................................................
-// .....................................................................
+} 
+// ....................................................................................................................................
+// ....................................................................................................................................
