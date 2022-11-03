@@ -28,14 +28,13 @@ module.exports = class Logica {
     // insertarMedicion() -->
     // .................................................................
     insertarMedicion(datos) { // Inserta una Medicion en la base de datos
-        var textoSQL = 'insert into Medicion values( $id, $muestra, $fecha, $usuario);' // SQL
-        var valoresParaSQL = { $id: datos.id, $muestra: datos.muestra, $fecha: datos.fecha, $usuario: datos.usuario } // Valores para SQL
+        var textoSQL = 'insert into Medicion values( NULL, $muestra, $fecha, $usuario);' // SQL
+        var valoresParaSQL = {$muestra: datos.muestra, $fecha: datos.fecha, $usuario: datos.usuario } // Valores para SQL
         return new Promise((resolver, rechazar) => { // Promesa
             this.laConexion.run(textoSQL, valoresParaSQL, function (err) { // Consulta
 
                 if (err == null) { // Si no hay error
                     resolver() 
-                    console.log("Funciona");
                 } else {
                     console.log("No funciona");
                     console.log(err);
@@ -53,11 +52,10 @@ module.exports = class Logica {
     // <--
     // {ID:R, Medicion:N}
     // .................................................................
-    buscarMedicion(id) { // Busca una Medicion en la base de datos
-        var textoSQL = "select * from Medicion where id=$id"; // SQL
-        var valoresParaSQL = { $id: id } // Valores para SQL
+    buscarMedicion() { // Busca una Medicion en la base de datos
+        var textoSQL = "SELECT * FROM Medicion ORDER BY id DESC LIMIT 1"; // SQL
         return new Promise((resolver, rechazar) => { // Promesa
-            this.laConexion.all(textoSQL, valoresParaSQL, // Consulta
+            this.laConexion.all(textoSQL, [], // Consulta
                 (err, res) => {
                     (err ? rechazar(err) : resolver(res)) // Devuelve la promesa
                 })

@@ -16,7 +16,7 @@ export default class LogicaFake {
 
 		var metodo = this;
         //Se crea la peticion /muestra
-		var url = IP_PUERTO + '/muestra'
+		var url = IP_PUERTO + '/Medicion'
 		await fetch(url , {
             method: 'GET',
             headers: new Headers(
