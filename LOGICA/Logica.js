@@ -22,6 +22,7 @@ module.exports = class Logica {
                 cb(err) // Sino devuelve el error
             })
     }
+    
     // .................................................................
     // datos:{ID:R, Medicion:N}
     // -->
