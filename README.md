@@ -4,7 +4,7 @@
 
 # Este repositorio contiene el programa que se encarga de recoger peticiones rest y realizar consultas a una BD, asi como mostrarla por pantalla mediante una web.
 
-Lo primero que se ha de hacer es instalar las dependencias necesarias para cada paquete del proyecto. Para esto utilizaremos el siguiente comando, tanto en la dirección de la carpeta Logica_negocio como en ServidorREST:
+Lo primero que se ha de hacer es instalar las dependencias necesarias para cada paquete del proyecto. Para esto utilizaremos el siguiente comando, tanto en la dirección de la carpeta LOGICA como en servidorREST:
 
 npm install
 
@@ -18,7 +18,7 @@ npm run servidor.
 
 Este comando se encargara de ejecutar el archivo main_servidor_rest.js, el cual esta escrito para que levante una instancia de Express en el puerto 8080 de la maquina
 
-En cuanto a la parte de la interfaz de la página, sera necesario que se habilite un puerto HTTP para que desde la página se puedan hacer la petición GET al servidor antes descrito. Para esta tarea, en el tiempo de desarrollo, se ha ejecutado el siguiente comando:
+En cuanto a la parte de la interfaz de la página, sera necesario que se habilite un puerto HTTP para que desde la página se puedan hacer la petición GET al servidor antes descrito, desde el directorio UX. Para esta tarea, en el tiempo de desarrollo, se ha ejecutado el siguiente comando:
 
 python -m http.server 8000
 
