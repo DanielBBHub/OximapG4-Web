@@ -9,9 +9,19 @@ const sqlite3 = require("sqlite3") // Añadimos
 // .....................................................................
 module.exports = class Logica { 
     // .................................................................
-    // nombreBD (datos.bd): Texto
-    // -->
-    // constructor () -->
+     /*
+    *   \brief     Constructor de la clase
+    *   \details   Abre la base de datos y la guarda en laConexion 
+    *  \param     nombreDeLaBaseDeDatos:R Nombre de la base de datos
+    * \param     modo:R Modo de apertura de la base de datos
+    * \param     callback:R Funcion que se ejecuta al abrir la base de datos
+    * \return    Devuelve la conexion con la base de datos
+    * \return    Devuelve un error si no se puede abrir la base de datos
+    
+    nombreBD (datos.bd): Texto
+     -->
+    constructor () -->
+    */
     // .................................................................
     constructor(nombreBD, cb) { // El constructor abre la base de datos
         this.laConexion = new sqlite3.Database( nombreBD,
@@ -24,9 +34,19 @@ module.exports = class Logica {
     }
     
     // .................................................................
-    // datos:{ID:R, Medicion:N}
-    // -->
-    // insertarMedicion() -->
+   /*
+    *   \brief     Inserta valores en la base de datos 
+    *   \details   Inserta valores en la base de datos correspondientes a los campos de la tabla Medicion
+    * \param     medicion:N Medicion
+    * \param     fecha: Date fecha
+    * \param     usuario: Str nombre de usuario
+    * \return    Devuelve la promesa de la insercion
+    * \return    Devuelve un error si no se puede insertar
+    datos:{ID:R, Medicion:N}
+    -->
+    insertarMedicion() -->
+    
+    */
     // .................................................................
     insertarMedicion(datos) { // Inserta una Medicion en la base de datos
         var textoSQL = 'insert into Medicion values( NULL, $muestra, $fecha, $usuario);' // SQL
@@ -47,11 +67,16 @@ module.exports = class Logica {
         })
     } // ()
     // .................................................................
-    // ID:R
-    // -->
-    // buscarMedicion() <--
-    // <--
-    // {ID:R, Medicion:N}
+    /*
+    *   \brief     Inserta valores en la base de datos
+    *   \details   Inserta valores en la base de datos correspondientes a los campos de la tabla Usuario
+    * \return    Devuelve el objeto JSON con la informacion de la respuesta
+    * \return    Devuelve un error si no se puede insertar
+    -->
+    buscarMedicion() <--
+    <--
+    {ID:R, Medicion:N}
+    */
     // .................................................................
     buscarMedicion() { // Busca una Medicion en la base de datos
         var textoSQL = "SELECT * FROM Medicion ORDER BY id DESC LIMIT 1"; // SQL
