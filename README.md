@@ -2,7 +2,7 @@
 
 # Repositorio web
 
-# EEste repositorio contiene el programa que se encarga de recoger peticiones rest y realizar consultas a una BD, asi como mostrarla por pantalla mediante una web.
+# Este repositorio contiene el programa que se encarga de recoger peticiones rest y realizar consultas a una BD, asi como mostrarla por pantalla mediante una web.
 
 Lo primero que se ha de hacer es instalar las dependencias necesarias para cada paquete del proyecto. Para esto utilizaremos el siguiente comando, tanto en la dirección de la carpeta Logica_negocio como en ServidorREST:
 
