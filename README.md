@@ -2,14 +2,26 @@
 
 # Repositorio web
 
-# En este repositorio se encuentran los códigos correspondientes al servidor y página web.
-El servidor ha sido mediante reglas REST. Se encuentra diferenciado entre la lógica del negocio y la lógica fake, correspondiente a la parte de UX (donde encontramos el html en el cual se muestra la información).
+# EEste repositorio contiene el programa que se encarga de recoger peticiones rest y realizar consultas a una BD, asi como mostrarla por pantalla mediante una web.
 
-Se encuentra dividido en BD, Logica, servidorRest y UX.
+Lo primero que se ha de hacer es instalar las dependencias necesarias para cada paquete del proyecto. Para esto utilizaremos el siguiente comando, tanto en la dirección de la carpeta Logica_negocio como en ServidorREST:
 
-Para ejecutar cualquiera de los test de cada una de las partes ha de ejecutarse en cada uno de los directorios correspondientes el comando: npm test.
+npm install
 
-Para ejecutar el servidor y poder abrirlo en el puerto http correspondiente se deberá ejecutar en el directorio del servidor: npm run servidor.
+Este comando instalara las dependencias de Mocha y SQLite3 para el paquete de Logica de negocio, que es la que se encargara de las consultas a la base de datos, además de instalar las dependencias de Mocha, CORS, Express, Request y SQLite3
 
+(necesario el uso de los modulos npm y node)
+
+Para poder hacer servir el servicio del servidor REST, uno se ha de colocar en el directorio ServidorREST y ejecutar en la consola el siguiente comando:
+
+npm run servidor.
+
+Este comando se encargara de ejecutar el archivo main_servidor_rest.js, el cual esta escrito para que levante una instancia de Express en el puerto 8080 de la maquina
+
+En cuanto a la parte de la interfaz de la página, sera necesario que se habilite un puerto HTTP para que desde la página se puedan hacer la petición GET al servidor antes descrito. Para esta tarea, en el tiempo de desarrollo, se ha ejecutado el siguiente comando:
+
+python -m http.server 8000
+
+No es necesario que sea precisamente python, con cualquier herramienta que levante un puerto HTTP puede servir
 
 
