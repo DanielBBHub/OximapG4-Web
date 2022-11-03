@@ -16,54 +16,10 @@
                 boton_buscar_muestra.addEventListener("click" , async function(){
                     var res = await logica.buscar_muestra()
                 })
-                //Asignando la funcionladidad al boton de insertar muestra
-                let boton_intoducir_muestra = document.getElementById("boton_introducir_muestra")
-                boton_intoducir_muestra.addEventListener("click" , async function(){
-                    var res = logica.insertarMedicion()
-                })
+                
             }
         }
 
-        // Import the functions you need from the SDKs you need
-        import {initializeApp} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-        import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-            apiKey: "AIzaSyBBGGWQJI519Xm8VM8Ocn0P9RSxdSK-s5I",
-            authDomain: "oximapg4-login.firebaseapp.com",
-            projectId: "oximapg4-login",
-            storageBucket: "oximapg4-login.appspot.com",
-            messagingSenderId: "905799197481",
-            appId: "1:905799197481:web:e136730907ae07b3b90d38",
-            measurementId: "G-KCP6LXPCH5"
-        };
-
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        // Initialize Firebase Authentication and get a reference to the service
-        const auth = getAuth(app);
-        document.onreadystatechange = function () {
-            const auth = getAuth();
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    // User is signed in, see docs for a list of available properties
-                    // https://firebase.google.com/docs/reference/js/firebase.User
-                    console.log(user.getCreationTimestamp)
-                    document.getElementById("nombreUsuarioTxt").textContent = user.displayName
-                    // ...
-                } else {
-                    // User is signed out
-                    // ...
-                }
-            });
-            document.getElementById("boton_editar_perfil").addEventListener("click", function () {
-                window.location.replace("./editar_perfil.html");
-
-            })
-
-        }
     </script>
 </head>
 
@@ -109,6 +65,44 @@
     </footer>
     <!---------------------------------------------------------------------------------->
 </section>
+<!-- <script type="module">
+// Import the functions you need from the SDKs you need
+        import {initializeApp} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+        import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyBBGGWQJI519Xm8VM8Ocn0P9RSxdSK-s5I",
+            authDomain: "oximapg4-login.firebaseapp.com",
+            projectId: "oximapg4-login",
+            storageBucket: "oximapg4-login.appspot.com",
+            messagingSenderId: "905799197481",
+            appId: "1:905799197481:web:e136730907ae07b3b90d38",
+            measurementId: "G-KCP6LXPCH5"
+        };
+
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        // Initialize Firebase Authentication and get a reference to the service
+        const auth = getAuth(app);
+        document.onreadystatechange = function () {
+            const auth = getAuth();
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // User is signed in, see docs for a list of available properties
+                    // https://firebase.google.com/docs/reference/js/firebase.User
+                    console.log(user.getCreationTimestamp)
+                    document.getElementById("nombreUsuarioTxt").textContent = user.displayName
+                    // ...
+                } else {
+                    // User is signed out
+                    // ...
+                }
+            });
+
+        }
+    </script> -->
 </body>
 
 

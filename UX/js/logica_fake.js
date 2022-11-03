@@ -1,7 +1,9 @@
 // ---------------------------------------------------------------------
 // LogicaFake.js
 // ---------------------------------------------------------------------
-
+import {initializeApp} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+import firebaseutil from "./firebase_util.js"
 const IP_PUERTO = "http://localhost:8080";
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
@@ -9,6 +11,10 @@ export default class LogicaFake {
 
     async init() {
         var metodo = this;
+
+        var util = new firebaseutil()
+        util.mostrar_nombre()
+       
     }
 
     async buscar_muestra() {
@@ -50,6 +56,7 @@ export default class LogicaFake {
         console.log("EMPIEZA LA EJECUCION DE: cargarMuestra()")
 
         var metodo = this
+        console.log(data.toString())
 		document.getElementById("valorMuestraTxt").textContent = "Valor de la muestra: " + data[0].muestra  + " : " + data[0].fecha;
 
         console.log("ACABA LA EJECUCION DE: cargarMuestra()")

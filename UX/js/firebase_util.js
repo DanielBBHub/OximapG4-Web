@@ -1,4 +1,4 @@
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateEmail, updatePassword, updateProfile  } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateEmail, updatePassword, updateProfile, onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
 // .................................................................
 // email,password:str
 // -->
@@ -112,7 +112,30 @@ export default class FirebaseUtil{
         });
     }
 
-    
+    async mostrar_nombre()
+    {
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        // Initialize Firebase Authentication and get a reference to the service
+        const auth = getAuth(app);
+        document.onreadystatechange = function () {
+            const auth = getAuth();
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // User is signed in, see docs for a list of available properties
+                    // https://firebase.google.com/docs/reference/js/firebase.User
+                    console.log(user.getCreationTimestamp)
+                    document.getElementById("nombreUsuarioTxt").textContent = user.displayName
+                    // ...
+                } else {
+                    // User is signed out
+                    // ...
+                }
+            });
+
+        }
+    }
+
     async editar_perfil()
     {
         var metodo = this;
