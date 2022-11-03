@@ -8,46 +8,58 @@
     --colorSubTitulos: #0278AE;
     --letras: #000000;
     --tamTitulos: 2rem;
-    --tamSubTitulos: 1.3rem;
     --tamTexto: 1rem;
     --fuentePrincipal: Montserrat;
 }
 
-.PaginaLogin{
+.contenedorUsuario{
+    width: 80%;
+    text-align: center;
+    margin: 4rem auto;
+}
 
-    border: 1px solid black;
-    background-color: white;
-    width: 40%;
-    margin: 8rem auto;
-    border-radius: 40px;
+.imgUsuario{
+    width: 100px;
+    height: 100px;
+    padding-top: 1rem;
+}
+
+.nombreUsuario{
+    font-family: var(--fuentePrincipal);
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: -0rem;
 }
 
 .titulo{
     font-size: var(--tamTitulos);
     text-align: center;
-    color: var(--colorTitulos);
+    color: var(--colorSubTitulos);
+    padding-top: 2rem;
     margin-bottom: 0;
     font-family: var(--fuentePrincipal);
 }
-.PaginaLogin{
-    align-items: center;
-}
-.campos{
-    text-align: center;
-}
-.subtirulo{
-    font-size: var(--tamSubTitulos);
+
+.texto{
+    font-size: var(--tamTexto);
+    margin: 2rem;
     font-family: var(--fuentePrincipal);
 }
 
-.correoUsuarioTxt,
-.passUsuarioTxt{
-    padding: 0.5rem;
+.contenedor{
+    background-color: white;
     width: 50%;
-    border-color: 1px solid var(--colorSubTitulos);
+    margin: auto auto;
+    border-radius: 30px;
+    padding-bottom: 2rem;
 }
 
-.btn-primary{
+.encabezadousuario{
+    border-bottom: 2px solid var(--colorPrincipal);
+}
+
+.btnBD{
     color: white;
     width: 180px;
     height: auto;
@@ -59,30 +71,22 @@
     border-color: 1px solid var(--colorSubTitulos);
 }
 
-.btn-primary:hover{
+.btnBD:hover{
     background-color: var(--colorPrincipal);
 
 }
 
-.btn{
-    text-align: center;
+.loginuser{
+    height: 2.5rem;
 }
 
-.textpRegistro{
-    text-align: center;
+.verPerfil{
+    margin-top: 1rem;
+    text-decoration: none;
+    color: var(--colorSubTitulos);
     font-family: var(--fuentePrincipal);
 }
 
-.aRegistro{
-    text-decoration: none;
-    font-weight: bold;
-    color: var(--colorTitulos)
-}
-
-.aRegistro:hover{
+.verPerfil:hover{
     color: var(--colorPrincipal);
-}
-
-.decoracion{
-
 }

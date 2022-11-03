@@ -8,46 +8,59 @@
     --colorSubTitulos: #0278AE;
     --letras: #000000;
     --tamTitulos: 2rem;
-    --tamSubTitulos: 1.3rem;
     --tamTexto: 1rem;
     --fuentePrincipal: Montserrat;
 }
 
-.PaginaLogin{
+.TxtPerfil{
+    margin-top: 5rem;
+}
 
-    border: 1px solid black;
-    background-color: white;
-    width: 40%;
-    margin: 8rem auto;
-    border-radius: 40px;
+.contenedor{
+    width: 80%;
+    text-align: center;
+    margin: 2rem auto;
 }
 
 .titulo{
+    padding-top: 1rem;
     font-size: var(--tamTitulos);
     text-align: center;
-    color: var(--colorTitulos);
+    color: var(--colorSubTitulos);
     margin-bottom: 0;
     font-family: var(--fuentePrincipal);
 }
-.PaginaLogin{
-    align-items: center;
-}
-.campos{
-    text-align: center;
-}
-.subtirulo{
-    font-size: var(--tamSubTitulos);
+
+.camposPerfil{
     font-family: var(--fuentePrincipal);
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: -0rem;
 }
 
-.correoUsuarioTxt,
-.passUsuarioTxt{
-    padding: 0.5rem;
-    width: 50%;
-    border-color: 1px solid var(--colorSubTitulos);
+.texto{
+    margin-top: 0.5rem;
+    font-size: var(--tamTexto);
+    font-family: var(--fuentePrincipal);
+    color: darkgray;
+}
+.textot{
+    margin-top: 0.5rem;
+    font-size: var(--tamTexto);
+    font-family: var(--fuentePrincipal);
+    color: var(--colorTitulos);
 }
 
-.btn-primary{
+.textot:hover{
+    color: var(--colorPrincipal);
+}
+
+.encabezadousuario{
+    border-bottom: 2px solid var(--colorPrincipal);
+}
+
+.btneditar{
     color: white;
     width: 180px;
     height: auto;
@@ -59,30 +72,12 @@
     border-color: 1px solid var(--colorSubTitulos);
 }
 
-.btn-primary:hover{
-    background-color: var(--colorPrincipal);
-
+.btneditar:hover{
+    background: var(--colorPrincipal);
 }
 
-.btn{
-    text-align: center;
-}
-
-.textpRegistro{
-    text-align: center;
-    font-family: var(--fuentePrincipal);
-}
-
-.aRegistro{
-    text-decoration: none;
-    font-weight: bold;
-    color: var(--colorTitulos)
-}
-
-.aRegistro:hover{
-    color: var(--colorPrincipal);
-}
-
-.decoracion{
-
+.escribir{
+    padding: 0.5rem;
+    width: 20%;
+    border-color: 1px solid var(--colorSubTitulos);
 }

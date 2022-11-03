@@ -34,6 +34,7 @@ export default class FirebaseUtil{
             // Signed in 
             const user = userCredential.user;
             console.log(user)
+            window.location.replace("./usuario.html");
             // ...
         })
         .catch((error) => {
@@ -64,7 +65,7 @@ export default class FirebaseUtil{
             // Signed in 
             const user = userCredential.user;
             console.log(user)
-            window.location.replace("../perfil.html");
+            window.location.replace("./usuario.html");
             // ...
         })
         .catch((error) => {
@@ -97,7 +98,7 @@ export default class FirebaseUtil{
             const token = credential.accessToken;
             // The signed-in user info.
             const user = result.user;
-            window.location.replace("../perfil.html");
+            window.location.replace("./usuario.html");
             // ...
         }).catch((error) => {
             // Handle Errors here.
