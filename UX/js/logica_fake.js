@@ -1,20 +1,26 @@
 // ---------------------------------------------------------------------
 // LogicaFake.js
 // ---------------------------------------------------------------------
-import {initializeApp} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
 import firebaseutil from "./firebase_util.js"
 const IP_PUERTO = "http://localhost:8080";
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
 export default class LogicaFake {
 
+
+    
     async init() {
         var metodo = this;
 
-        var util = new firebaseutil()
-        util.mostrar_nombre()
+            
        
+    }
+    
+    async mostrar_nombre()
+    {
+        console.log("HOLA")
+        var util = new firebaseutil()
+        await util.mostrar_nombre()
     }
 
     async buscar_muestra() {

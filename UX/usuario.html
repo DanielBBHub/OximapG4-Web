@@ -5,22 +5,6 @@
     <title>USUARIO</title>
     <link rel="stylesheet" type="text/css" href="src/app/css/usuario.css">
     <link rel="stylesheet" type="text/css" href="src/app/css/menu.css">
-
-    <script type="module">
-        import logicaFake from "./js/Logica_fake.js"
-        document.onreadystatechange = function() {
-            if( document.readyState === "complete"){
-                let logica = new logicaFake()
-                //Asignando la funcionalidad al boton de buscar muestra
-                let boton_buscar_muestra = document.getElementById("boton_buscar_muestra")
-                boton_buscar_muestra.addEventListener("click" , async function(){
-                    var res = await logica.buscar_muestra()
-                })
-                
-            }
-        }
-
-    </script>
 </head>
 
 <body>
@@ -43,7 +27,7 @@
     <!--------------------------------- USUARIO ---------------------------------------->
     <div class="contenedorUsuario">
         <img class="imgUsuario" src="src/app/img/usuario.png">
-        <h4 id="nombreUsuarioTxt" class="nombreUsuario">Pepito Perez</h4>
+        <h4 id="nombreUsuarioTxt" class="nombreUsuario">Antonio Hermano</h4>
         <a class="verPerfil" href="perfil.html">Ver perfil</a>
 
         <div class="contenedor">
@@ -65,7 +49,7 @@
     </footer>
     <!---------------------------------------------------------------------------------->
 </section>
-<!-- <script type="module">
+  <script type="module">
 // Import the functions you need from the SDKs you need
         import {initializeApp} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
         import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
@@ -86,9 +70,19 @@
         const app = initializeApp(firebaseConfig);
         // Initialize Firebase Authentication and get a reference to the service
         const auth = getAuth(app);
+        import logicaFake from "./js/Logica_fake.js"
         document.onreadystatechange = function () {
             const auth = getAuth();
-            onAuthStateChanged(auth, (user) => {
+            if(document.readyState == "complete")
+            {
+                
+                let logica = new logicaFake()
+                //Asignando la funcionalidad al boton de buscar muestra
+                let boton_buscar_muestra = document.getElementById("boton_buscar_muestra")
+                boton_buscar_muestra.addEventListener("click" , async function(){
+                    var res = await logica.buscar_muestra()
+                })
+                onAuthStateChanged(auth, (user) => {
                 if (user) {
                     // User is signed in, see docs for a list of available properties
                     // https://firebase.google.com/docs/reference/js/firebase.User
@@ -100,9 +94,12 @@
                     // ...
                 }
             });
+            }
+            
 
         }
-    </script> -->
+         
+    </script>  
 </body>
 
 

@@ -114,10 +114,7 @@ export default class FirebaseUtil{
 
     async mostrar_nombre()
     {
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        // Initialize Firebase Authentication and get a reference to the service
-        const auth = getAuth(app);
+        const auth = getAuth();
         document.onreadystatechange = function () {
             const auth = getAuth();
             onAuthStateChanged(auth, (user) => {

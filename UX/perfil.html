@@ -106,7 +106,10 @@
     const auth = getAuth(app);
     document.onreadystatechange = function () {
         const auth = getAuth();
-        onAuthStateChanged(auth, (user) => {
+        if(document.readyState == "complete")
+        {
+            
+            onAuthStateChanged(auth, (user) => {
             if (user) {
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/firebase.User
@@ -120,6 +123,8 @@
                 // ...
             }
         });
+    }
+        
         document.getElementById("boton_editar_perfil").addEventListener("click", function () {
             window.location.replace("./editar_perfil.html");
 
