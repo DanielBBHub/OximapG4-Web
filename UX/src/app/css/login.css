@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root{
+    --centrar: 0 auto;
+    --colorPrincipal: #69D4B6;
+    --colorFondo: #E7F8F1;
+    --colorTitulos: #51ADCF;
+    --colorSubTitulos: #0278AE;
+    --letras: #000000;
+    --tamTitulos: 2rem;
+    --tamSubTitulos: 1.3rem;
+    --tamTexto: 1rem;
+    --fuentePrincipal: Montserrat;
+}
+
+.PaginaLogin{
+
+    border: 1px solid black;
+    background-color: white;
+    width: 40%;
+    margin: 8rem auto;
+    border-radius: 40px;
+}
+
+.titulo{
+    font-size: var(--tamTitulos);
+    text-align: center;
+    color: var(--colorTitulos);
+    margin-bottom: 0;
+    font-family: var(--fuentePrincipal);
+}
+.PaginaLogin{
+    align-items: center;
+}
+.campos{
+    text-align: center;
+}
+.subtirulo{
+    font-size: var(--tamSubTitulos);
+    font-family: var(--fuentePrincipal);
+}
+
+.correoUsuarioTxt,
+.passUsuarioTxt{
+    padding: 0.5rem;
+    width: 50%;
+    border-color: 1px solid var(--colorSubTitulos);
+}
+
+.btn-primary{
+    color: white;
+    width: 180px;
+    height: auto;
+    font-family: var(--fuentePrincipal);
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    border-radius: 12px;
+    background-color: var(--colorTitulos);
+    border-color: 1px solid var(--colorSubTitulos);
+}
+
+.btn-primary:hover{
+    background-color: var(--colorPrincipal);
+
+}
+
+.btn{
+    text-align: center;
+}
+
+.textpRegistro{
+    text-align: center;
+    font-family: var(--fuentePrincipal);
+}
+
+.aRegistro{
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--colorTitulos)
+}
+
+.aRegistro:hover{
+    color: var(--colorPrincipal);
+}
+
+.decoracion{
+
+}

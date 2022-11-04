@@ -22,6 +22,15 @@ describe("Test 1: Conectar, añadir, comprobar y cerrar", function () { // Test 
                 hecho() // Sino, termina
             })
     }) // it
+     // ....................................................
+    // ....................................................
+    it("puedo buscar una medicion", // Puedo buscar la ultimamedicion en la base de datos
+        async function () { // Función asíncrona para insertar valores y comprobar que se han insertado con callback
+            var medicion = await laLogica.buscarMedicion() // Busca la medicion con el ID 2 llamando a la función buscarMedicion de la clase Logica (a la promesa)
+            //Comprueba que el ID debe ser 2
+            assert.equal(medicion[0].muestra, 12345) // Comprueba que el ID de la medicion es 2
+            
+        }) // it
     // ....................................................
     // ....................................................
     it("puedo insertar una medicion", // Puedo insertar una NUEVA medicion en la base de datos
@@ -29,15 +38,14 @@ describe("Test 1: Conectar, añadir, comprobar y cerrar", function () { // Test 
             await laLogica.insertarMedicion( // Inserta una medicion llamando a la función insertarMedicion de la clase Logica (a la promesa)
                 {
                     // Valores de la medicion a insertar
-                    id: 2, // ID de la medicion 
-                    muestra: 456, // Muestra de la medicion
+                    muestra: 12345, // Muestra de la medicion
                     fecha: "2020-01-01", // Fecha de la medicion
-                    usuario: "carlos" // Usuario de la medicion
+                    usuario: "Daniel" // Usuario de la medicion
                 })
             //Busca la medicion con el ID 2
-            var medicion = await laLogica.buscarMedicion(2) // Busca la medicion con el ID 2 llamando a la función buscarMedicion de la clase Logica (a la promesa)
+            var medicion = await laLogica.buscarMedicion() // Busca la medicion con el ID 2 llamando a la función buscarMedicion de la clase Logica (a la promesa)
             //Comprueba que el ID debe ser 2
-            assert.equal(medicion[0].id, 2) // Comprueba que el ID de la medicion es 2
+            assert.equal(medicion[0].muestra, 12345) // Comprueba que el ID de la medicion es 2
             
         }) // it
     // ....................................................

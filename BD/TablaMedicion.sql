@@ -8,3 +8,5 @@ create table Medicion (
     fecha DATE NOT NULL,
     usuario char(12) NOT NULL
 );
+INSERT INTO Medicion VALUES (NULL, "1234", '2022-10-18', "Dani");
+INSERT INTO Medicion VALUES (NULL, "1235", '2022-10-19', "Dani");

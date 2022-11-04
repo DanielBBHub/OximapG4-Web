@@ -24,27 +24,40 @@ const IP_PUERTO = "http://localhost:8080";
         } // callback()
       ); // .get
     }); // it
+
     // ....................................................
     // ....................................................
-    // ....................................................
-    it("probar GET /Medicion", function (hecho) { // Probar Post
-      var datosMedicion = { // Datos de la medicion a enviar al servidor REST
-        id: 3, // ID de la medicion
-        muestra: 789, // Muestra de la medicion
-        fecha: "2020-01-01", // Fecha de la medicion
-        usuario: "carlos" // Usuario de la medicion
-      };
+    it( "probar GET /Medicion", function( hecho ) {
       request.get(
+      { url : IP_PUERTO+"/Medicion",
+      headers : { 'User-Agent' : 'Daniel'}},
+          function( err, respuesta, carga ) {
+              var solucion = JSON.parse(carga)
+              console.log(solucion)
+              assert.equal( solucion[0].muestra, '1225', "¿La muestra no es 1234?" )
+              hecho()
+              } // callback
+          ) // .get
+      }) // it
+
+      // ....................................................
+    // ....................................................
+    it("probar POST /alta", function (hecho) { // Probar Post
+      var datosMedicion = { // Datos de la medicion a enviar al servidor REST
+        muestra: 1225, // Muestra de la medicion
+        fecha: "2020-01-01", // Fecha de la medicion
+        usuario: "Dani" // Usuario de la medicion
+      };
+      request.post(
         {
-          headers: { "User-Agent": "carlos", "Content-Type": "application/json" }, // Cabeceras de la peticion
-          url: IP_PUERTO + "/Medicion", // URL del servidor REST
+          headers: { "User-Agent": "Daniel", "Content-Type": "application/json" }, // Cabeceras de la peticion
+          url: IP_PUERTO + "/alta", // URL del servidor REST
           body: JSON.stringify(datosMedicion), // Datos de la medicion a enviar al servidor REST en formato JSON
         }, 
         function (err, respuesta, carga) { // Callback de la peticion POST al servidor REST 
           //console.log("asserts"); Mensaje de depuracion para ver que se ejecuta el callback
           assert.equal(err, null, "¿ha habido un error?"); // Comprobar que no hay error
           assert.equal(respuesta.statusCode, 200, "¿El código no es 200 (OK)"); // Comprobar que el codigo de respuesta es 200 (OK) 
-          assert.equal
           hecho(); // Indicar que el test ha terminado
         } // callback
       ); // .post

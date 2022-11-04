@@ -9,9 +9,19 @@ const sqlite3 = require("sqlite3") // Añadimos
 // .....................................................................
 module.exports = class Logica { 
     // .................................................................
-    // nombreBD (datos.bd): Texto
-    // -->
-    // constructor () -->
+     /*
+    *   \brief     Constructor de la clase
+    *   \details   Abre la base de datos y la guarda en laConexion 
+    *  \param     nombreDeLaBaseDeDatos:R Nombre de la base de datos
+    * \param     modo:R Modo de apertura de la base de datos
+    * \param     callback:R Funcion que se ejecuta al abrir la base de datos
+    * \return    Devuelve la conexion con la base de datos
+    * \return    Devuelve un error si no se puede abrir la base de datos
+    
+    nombreBD (datos.bd): Texto
+     -->
+    constructor () -->
+    */
     // .................................................................
     constructor(nombreBD, cb) { // El constructor abre la base de datos
         this.laConexion = new sqlite3.Database( nombreBD,
@@ -22,20 +32,30 @@ module.exports = class Logica {
                 cb(err) // Sino devuelve el error
             })
     }
+    
     // .................................................................
-    // datos:{ID:R, Medicion:N}
-    // -->
-    // insertarMedicion() -->
+   /*
+    *   \brief     Inserta valores en la base de datos 
+    *   \details   Inserta valores en la base de datos correspondientes a los campos de la tabla Medicion
+    * \param     medicion:N Medicion
+    * \param     fecha: Date fecha
+    * \param     usuario: Str nombre de usuario
+    * \return    Devuelve la promesa de la insercion
+    * \return    Devuelve un error si no se puede insertar
+    datos:{ID:R, Medicion:N}
+    -->
+    insertarMedicion() -->
+    
+    */
     // .................................................................
     insertarMedicion(datos) { // Inserta una Medicion en la base de datos
-        var textoSQL = 'insert into Medicion values( $id, $muestra, $fecha, $usuario);' // SQL
-        var valoresParaSQL = { $id: datos.id, $muestra: datos.muestra, $fecha: datos.fecha, $usuario: datos.usuario } // Valores para SQL
+        var textoSQL = 'insert into Medicion values( NULL, $muestra, $fecha, $usuario);' // SQL
+        var valoresParaSQL = {$muestra: datos.muestra, $fecha: datos.fecha, $usuario: datos.usuario } // Valores para SQL
         return new Promise((resolver, rechazar) => { // Promesa
             this.laConexion.run(textoSQL, valoresParaSQL, function (err) { // Consulta
 
                 if (err == null) { // Si no hay error
                     resolver() 
-                    console.log("Funciona");
                 } else {
                     console.log("No funciona");
                     console.log(err);
@@ -47,17 +67,21 @@ module.exports = class Logica {
         })
     } // ()
     // .................................................................
-    // ID:R
-    // -->
-    // buscarMedicion() <--
-    // <--
-    // {ID:R, Medicion:N}
+    /*
+    *   \brief     Inserta valores en la base de datos
+    *   \details   Inserta valores en la base de datos correspondientes a los campos de la tabla Usuario
+    * \return    Devuelve el objeto JSON con la informacion de la respuesta
+    * \return    Devuelve un error si no se puede insertar
+    -->
+    buscarMedicion() <--
+    <--
+    {ID:R, Medicion:N}
+    */
     // .................................................................
-    buscarMedicion(id) { // Busca una Medicion en la base de datos
-        var textoSQL = "select * from Medicion where id=$id"; // SQL
-        var valoresParaSQL = { $id: id } // Valores para SQL
+    buscarMedicion() { // Busca una Medicion en la base de datos
+        var textoSQL = "SELECT * FROM Medicion ORDER BY id DESC LIMIT 1"; // SQL
         return new Promise((resolver, rechazar) => { // Promesa
-            this.laConexion.all(textoSQL, valoresParaSQL, // Consulta
+            this.laConexion.all(textoSQL, [], // Consulta
                 (err, res) => {
                     (err ? rechazar(err) : resolver(res)) // Devuelve la promesa
                 })

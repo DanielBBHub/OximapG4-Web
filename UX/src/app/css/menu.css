@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root{
+    --centrar: 0 auto;
+    --colorPrincipal: #69D4B6;
+    --colorFondo: #E7F8F1;
+    --colorTitulos: #51ADCF;
+    --colorSubTitulos: #0278AE;
+    --letras: #000000;
+    --tamTitulos: 2rem;
+    --tamTexto: 1rem;
+    --fuentePrincipal: Montserrat;
+}
+
+/*Hacer que el scroll sea suave*/
+html {
+    scroll-behavior: smooth;
+}
+
+/*Hacer que el contenido de la pagina no se estire demasiado*/
+body {
+    margin: var(--centrar);
+    padding: 0;
+    max-width: 1900px;
+    background: var(--colorFondo);
+}
+
+/*Hacer que se quite el predefinido de los enlaces*/
+.menuEnlace{
+    text-decoration: none;
+    color: var(--letras);
+    font-family: var(--fuentePrincipal);
+}
+
+/*Cambiar el color cuando pasas por encima*/
+.menuEnlace:hover{
+    color: var(--colorPrincipal);
+}
+
+/*Encabezado*/
+.encabezado {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    background: var(--colorFondo);
+}
+
+.divlogoHeader {
+    display: flex;
+    width: fit-content;
+}
+
+.logo {
+    right: 20px;
+    max-width: 3rem;
+    margin-top: 6px;
+    margin-left: 20px;
+    margin-bottom: 6px;
+}
+
+.item {
+    margin: 0 1rem;
+    width: fit-content;
+    max-width: 4rem;
+    height: fit-content;
+}
+
+.login {
+    float: right;
+    width: 2rem;
+    margin-top: 15px;
+    margin-right: 60px;
+}
+
+.MenuHeader{
+
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 65px auto;
+    padding: 0.5rem 5rem;
+    flex: 1 1 0;
+    border-top: 2px solid var(--colorPrincipal);
+    border-bottom: 2px solid var(--colorPrincipal);
+    background: var(--colorFondo);
+}
+
+.separador{
+    justify-items: center;
+    color: var(--letras);
+    font-weight: bold;
+}
+
+
+/*Footer*/
+.copyright {
+    flex: 1 1 0;
+    text-decoration: none;
+    text-align: center;
+    color: darkgrey;
+    font-size: 1rem;
+    padding: 1rem 1rem;
+}
+
+footer{
+    bottom: 5px;
+    text-align: center;
+}
