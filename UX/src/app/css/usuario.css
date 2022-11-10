@@ -8,14 +8,14 @@
     --colorSubTitulos: #0278AE;
     --letras: #000000;
     --tamTitulos: 2rem;
-    --tamTexto: 1rem;
+    --tamTexto: 20px;
     --fuentePrincipal: Montserrat;
 }
 
 .contenedorUsuario{
     width: 80%;
     text-align: center;
-    margin: 4rem auto;
+    margin: 5rem auto;
 }
 
 .imgUsuario{
@@ -64,7 +64,7 @@
     width: 180px;
     height: auto;
     font-family: var(--fuentePrincipal);
-    font-size: 0.8rem;
+    font-size: 1rem;
     padding: 0.5rem;
     border-radius: 12px;
     background-color: var(--colorTitulos);

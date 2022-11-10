@@ -8,7 +8,8 @@
     --colorSubTitulos: #0278AE;
     --letras: #000000;
     --tamTitulos: 2rem;
-    --tamTexto: 1rem;
+    --tamTexto: 20px;
+    --tamMenu: 25px;
     --fuentePrincipal: Montserrat;
 }
 
@@ -30,6 +31,7 @@ body {
     text-decoration: none;
     color: var(--letras);
     font-family: var(--fuentePrincipal);
+    font-size: var(--tamMenu);
 }
 
 /*Cambiar el color cuando pasas por encima*/
@@ -44,7 +46,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    max-height: 4rem;
+    max-height: 6rem;
     display: flex;
     justify-content: space-between;
     background: var(--colorFondo);
@@ -57,7 +59,7 @@ body {
 
 .logo {
     right: 20px;
-    max-width: 3rem;
+    max-width: 4rem;
     margin-top: 6px;
     margin-left: 20px;
     margin-bottom: 6px;
@@ -72,7 +74,7 @@ body {
 
 .login {
     float: right;
-    width: 2rem;
+    width: 3rem;
     margin-top: 15px;
     margin-right: 60px;
 }
@@ -86,8 +88,8 @@ body {
     left: 0;
     display: flex;
     justify-content: space-around;
-    width: 80%;
-    margin: 65px auto;
+    width: 85%;
+    margin: 75px auto;
     padding: 0.5rem 5rem;
     flex: 1 1 0;
     border-top: 2px solid var(--colorPrincipal);
