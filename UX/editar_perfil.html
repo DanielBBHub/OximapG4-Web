@@ -66,6 +66,12 @@
         <br>
         <button id="editarPerfilBoton" class="btneditar">GUARDAR CAMBIOS</button>
 
+
+        <dialog id="modal" class="modal">
+            <p class="texto_negro">Revise el correo para restablecer su contraseña.</p>
+            <button class="btn_cerrar" id="btn_cerrar">Cerrar</button>
+        </dialog>
+
     </div>
 
     <!---------------------------------------------------------------------------------->
@@ -135,7 +141,11 @@
                         // Password reset email sent!
                         // ..
                     })
-                    window.alert('Revisa tu correo para restablecer la contraseña.');
+                    modal.showModal();
+                })
+                btn_cerrar.addEventListener("click", ()=>
+                {
+                    modal.close();
                 })
             } 
         </script>   
