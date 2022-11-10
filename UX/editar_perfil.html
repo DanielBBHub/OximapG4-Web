@@ -84,7 +84,6 @@
             // Import the functions you need from the SDKs you need
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
             import { getAuth, onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
-            
             // Your web app's Firebase configuration
             // For Firebase JS SDK v7.20.0 and later, measurementId is optional
             const firebaseConfig = {
@@ -124,9 +123,8 @@
                 
                 document.getElementById("editarPerfilBoton").addEventListener("click" , async function(){
                     util.editar_perfil()
-                    window.alert('Perfil editado correctamente. Ingrese de nuevo en su cuenta para ver los cambios');
-                    window.location.replace("./index.html");
-
+                    window.alert('Perfil editado correctamente.');
+                    window.location.replace("./perfil.html");
 
 
                 })

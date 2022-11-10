@@ -72,10 +72,6 @@
                 <h4 class="subtirulo" >Contraseña: </h4>
                 <input id="passUsuarioTxt" type="password" class="passUsuarioTxt">
                 </input>
-                <h4 class="subtirulo" >Repite la contraseña: </h4>
-                <input id="passRepetidaUsuarioTxt" type="password" class="passUsuarioTxt">
-                </input>
-                <h4 class="subtirulo" id="error" ></h4>
             </div>
         <br><br>
 
@@ -129,13 +125,7 @@
                 document.getElementById("boton_registro").addEventListener("click" , async function(){
                     var email = document.getElementById("correoUsuarioTxt").value
                     var password = document.getElementById("passUsuarioTxt").value
-                    var passwordRepetida = document.getElementById("passRepetidaUsuarioTxt").value
-                    
-                    if(password == passwordRepetida)
-                    {
-                        var res = await util.registrar_usuario_correo_contrasenya(email,password)
-                        
-                    }
+                    const user = await util.registrar_usuario_correo_contrasenya(email,password)
                     })
             } 
         </script>   

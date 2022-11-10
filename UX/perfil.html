@@ -34,7 +34,7 @@
         </div>
 
         <div class="headerLogin">
-            <a class="item" href="index.html"><img class="login loginuser" id="cerrar_sesion"src="src/app/img/cerrar-sesion.png"
+            <a class="item" href="index.html"><img class="login loginuser" src="src/app/img/cerrar-sesion.png"
                                                    alt="login"></a>
         </div>
 
@@ -86,7 +86,7 @@
 <script type="module">
     // Import the functions you need from the SDKs you need
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-    import {getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+    import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
@@ -128,14 +128,6 @@
         document.getElementById("boton_editar_perfil").addEventListener("click", function () {
             window.location.replace("./editar_perfil.html");
 
-        })
-
-        document.getElementById("cerrar_sesion").addEventListener("click", function(){
-            signOut(auth).then(() => {
-            // Sign-out successful.
-            }).catch((error) => {
-            // An error happened.
-            });
         })
 
     }

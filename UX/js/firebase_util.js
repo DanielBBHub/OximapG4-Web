@@ -1,4 +1,4 @@
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateEmail, updatePassword, updateProfile, onAuthStateChanged, sendEmailVerification} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateEmail, updatePassword, updateProfile, onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
 // .................................................................
 // email,password:str
 // -->
@@ -31,19 +31,17 @@ export default class FirebaseUtil{
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            
             // Signed in 
             const user = userCredential.user;
             console.log(user)
-            window.location.replace("./correo_no_confirmado.html");
+            window.location.replace("./usuario.html");
             // ...
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            escribir_mensaje_error(errorMessage)
-            
-
+            console.log(errorMessage)
+            // ..
         });
     }
 
@@ -64,24 +62,16 @@ export default class FirebaseUtil{
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            if (auth.currentUser.emailVerified) {
-                // Signed in 
-                const user = userCredential.user;
-                console.log(user)
-                window.location.replace("./usuario.html");
-                // ...
-            } else {
-                // User is signed out
-                // ...
-                window.location.replace("./correo_no_confirmado.html");
-            }
-            
+            // Signed in 
+            const user = userCredential.user;
+            console.log(user)
+            window.location.replace("./usuario.html");
+            // ...
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            this.escribir_mensaje_error(errorMessage)
-            return errorMessage
+            console.log(errorMessage)
         });
     }
 
@@ -178,34 +168,6 @@ export default class FirebaseUtil{
         }
        
     } 
-    
-    /* 
-    errorMessage: str
-    escribir_mensaje_error() ->
-    */
-    async escribir_mensaje_error(errorMessage)
-    {
-        var metodo = this;
-        console.log(errorMessage)
-
-        if(errorMessage.includes("email"))
-        {
-            console.log("Mail: " + errorMessage)
-            var email = document.getElementById("error").textContent = "Compruebe que ha introducido bien la direccion de correo"
-            return
-        } 
-        if(errorMessage.includes("password"))
-        {
-            console.log("Pass: " + errorMessage)
-            var email = document.getElementById("error").textContent = "Compruebe que ha introducido bien las contraseñas \n Deben tener 6 caracteres minimo"
-            return
-
-        } 
-        else{
-            var email = document.getElementById("error").textContent = "Rellene los campos correctamente"
-            return
-        }
-    }
 }
 
 
