@@ -1,4 +1,4 @@
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateEmail, updatePassword, updateProfile, onAuthStateChanged, sendEmailVerification} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateEmail, updatePassword, updateProfile, onAuthStateChanged, setPersistence, browserSessionPersistence , sendEmailVerification} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
 // .................................................................
 // email,password:str
 // -->
@@ -9,7 +9,7 @@ import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sig
 export default class FirebaseUtil{
    
 
-    async init()
+    async init(user)
     {
         var metodo = this;
     }   
@@ -62,6 +62,8 @@ export default class FirebaseUtil{
         //Email: str	La dirección de correo electrónico de los usuarios.
         //password: str	La contraseña de los usuarios.
         const auth = getAuth();
+        setPersistence(auth, browserSessionPersistence).
+        then(() => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             if (auth.currentUser.emailVerified) {
@@ -83,6 +85,8 @@ export default class FirebaseUtil{
             this.escribir_mensaje_error(errorMessage)
             return errorMessage
         });
+        })
+        
     }
 
     // .................................................................
@@ -101,7 +105,9 @@ export default class FirebaseUtil{
         
         const provider = new GoogleAuthProvider();
         const auth = getAuth();
-        signInWithPopup(auth, provider)
+        setPersistence(auth, browserSessionPersistence).
+        then(() => {
+            signInWithPopup(auth, provider)
         .then((result) => {
             // This gives you a Google Access Token. You can use it to access the Google API.
             const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -120,6 +126,8 @@ export default class FirebaseUtil{
             const credential = GoogleAuthProvider.credentialFromError(error);
             // ...
         });
+        })
+        
     }
 
     async mostrar_nombre()

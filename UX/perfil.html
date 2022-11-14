@@ -104,25 +104,24 @@
     const app = initializeApp(firebaseConfig);
     // Initialize Firebase Authentication and get a reference to the service
     const auth = getAuth(app);
+    
     document.onreadystatechange = function () {
         const auth = getAuth();
+        const user = auth.currentUser;
+        console.log(user)
         if(document.readyState == "complete")
         {
-            
             onAuthStateChanged(auth, (user) => {
-            if (user) {
-                // User is signed in, see docs for a list of available properties
-                // https://firebase.google.com/docs/reference/js/firebase.User
+                if(user)
+            {
                 console.log(user.getCreationTimestamp)
                 document.getElementById("nombreUsuarioTxt").textContent = user.displayName
                 document.getElementById("correoUsuarioTxt").textContent = user.email
                 document.getElementById("fechaUsuarioTxt").textContent = new Date(user.metadata.creationTime)
                 // ...
-            } else {
-                // User is signed out
-                // ...
             }
-        });
+                });
+            
     }
         
         document.getElementById("boton_editar_perfil").addEventListener("click", function () {
@@ -133,6 +132,7 @@
         document.getElementById("cerrar_sesion").addEventListener("click", function(){
             signOut(auth).then(() => {
             // Sign-out successful.
+            window.location.replace("./index.html");
             }).catch((error) => {
             // An error happened.
             });

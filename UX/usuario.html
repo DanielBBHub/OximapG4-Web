@@ -71,11 +71,25 @@
         // Initialize Firebase Authentication and get a reference to the service
         const auth = getAuth(app);
         import logicaFake from "./js/Logica_fake.js"
+        import firebaseutil from "./js/firebase_util.js"
         document.onreadystatechange = function () {
-            const auth = getAuth();
+            
             if(document.readyState == "complete")
             {
-                
+                const auth = getAuth();
+                const user = auth.currentUser
+                console.log(user)
+                onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // User is signed in, see docs for a list of available properties
+                    // https://firebase.google.com/docs/reference/js/firebase.User
+                    document.getElementById("nombreUsuarioTxt").textContent = user.displayName
+                    // ...
+                } else {
+                    // User is signed out
+                    // ...
+                }
+                });
                 let logica = new logicaFake()
                 //Asignando la funcionalidad al boton de buscar muestra
                 let boton_buscar_muestra = document.getElementById("boton_buscar_muestra")
