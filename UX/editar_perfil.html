@@ -46,7 +46,12 @@
             <h2 class="titulo">PERFIL</h2>
         </div>
         <br>
-
+        <div class="border">
+            <img id="imgUsuario" class="imgUsuario" src="src/app/img/usuario.png" style="height: 80px; width: 80px;" />
+            <br>
+            <br>
+            <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg">
+        </div>
         <h4 class="camposPerfil" >Ingrese tu nuevo nombre:</h4>
         <h4 id="nombreUsuarioTxt" class="texto">
         </h4>
@@ -118,48 +123,64 @@
             document.onreadystatechange = function() {
                 let util = new firebaseutil()
                 const auth = getAuth();
-                onAuthStateChanged(auth, (user) => {
+                const image = document.getElementById('imgUsuario');
+
+                if(document.readyState == "complete")
+                {
+                    onAuthStateChanged(auth, (user) => {
                 
-                if (user) {
-                    // User is signed in, see docs for a list of available properties
-                    // https://firebase.google.com/docs/reference/js/firebase.User
-                    document.getElementById("nombreUsuarioTxt").textContent = user.displayName
-                    document.getElementById("correoUsuarioTxt").textContent = user.email
-                    // ...
-                } else {
-                    // User is signed out
-                    // ...
-                }
-                });
-                
-                document.getElementById("editarPerfilBoton").addEventListener("click" , async function(){
-                    util.editar_perfil()
-                    modal2.showModal();
+                    if (user) {
+                        // User is signed in, see docs for a list of available properties
+                        // https://firebase.google.com/docs/reference/js/firebase.User
+                        document.getElementById("nombreUsuarioTxt").textContent = user.displayName
+                        document.getElementById("correoUsuarioTxt").textContent = user.email
+                        // ...
+                    } else {
+                        // User is signed out
+                        // ...
+                    }
+                    });
+                    
+                    document.getElementById("editarPerfilBoton").addEventListener("click" , async function(){
+                        util.editar_perfil()
+                        modal2.showModal();
 
 
 
 
-                })
-
-                document.getElementById("resetContra").addEventListener("click", async function(){
-                    sendPasswordResetEmail(auth, auth.currentUser.email)
-                    .then(() => {
-                        // Password reset email sent!
-                        // ..
                     })
-                    modal1.showModal();
-                })
+                    
+                    document.getElementById("image-input").addEventListener("change", function() {
+                       
+                        const reader = new FileReader();
+                        reader.addEventListener("load", () => {
+                            const uploaded_image = reader.result;
+                            document.getElementById("imgUsuario").src = uploaded_image;
+                        });
+                        reader.readAsDataURL(this.files[0]);
+                    });
 
-                btn_cerrar.addEventListener("click", ()=>
-                {
-                    modal1.close();
-                })
+                    document.getElementById("resetContra").addEventListener("click", async function(){
+                        sendPasswordResetEmail(auth, auth.currentUser.email)
+                        .then(() => {
+                            // Password reset email sent!
+                            // ..
+                        })
+                        modal1.showModal();
+                    })
 
-                btn_cerrar2.addEventListener("click", ()=>
-                {
-                    modal2.close();
-                    window.location.replace("./perfil.html");
-                })
+                    btn_cerrar.addEventListener("click", ()=>
+                    {
+                        modal1.close();
+                    })
+
+                    btn_cerrar2.addEventListener("click", ()=>
+                    {
+                        modal2.close();
+                        window.location.replace("./perfil.html");
+                    })
+                }
+                
             } 
         </script>   
     </body>
