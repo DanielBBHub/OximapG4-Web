@@ -67,9 +67,13 @@
         <button id="editarPerfilBoton" class="btneditar">GUARDAR CAMBIOS</button>
 
 
-        <dialog id="modal" class="modal">
+        <dialog id="modal1" class="modal">
             <p class="texto_negro">Revise el correo para restablecer su contraseña.</p>
             <button class="btn_cerrar" id="btn_cerrar">Cerrar</button>
+        </dialog>
+        <dialog id="modal2" class="modal">
+            <p class="texto_negro">La información ha sido guardada correctamente.</p>
+            <button class="btn_cerrar" id="btn_cerrar2">Cerrar</button>
         </dialog>
 
     </div>
@@ -130,8 +134,8 @@
                 
                 document.getElementById("editarPerfilBoton").addEventListener("click" , async function(){
                     util.editar_perfil()
-                    window.alert('Perfil editado correctamente. Ingrese de nuevo en su cuenta para ver los cambios');
-                    window.location.replace("./perfil.html");
+                    modal2.showModal();
+
 
 
 
@@ -143,11 +147,18 @@
                         // Password reset email sent!
                         // ..
                     })
-                    modal.showModal();
+                    modal1.showModal();
                 })
+
                 btn_cerrar.addEventListener("click", ()=>
                 {
-                    modal.close();
+                    modal1.close();
+                })
+
+                btn_cerrar2.addEventListener("click", ()=>
+                {
+                    modal2.close();
+                    window.location.replace("./perfil.html");
                 })
             } 
         </script>   
