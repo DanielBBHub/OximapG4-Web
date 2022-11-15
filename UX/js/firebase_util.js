@@ -6,6 +6,9 @@ import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sig
 // 
 // .................................................................
 
+import logica_fake from "./logica_fake.js"
+var logica = new logica_fake();
+
 export default class FirebaseUtil{
    
 
@@ -64,6 +67,11 @@ export default class FirebaseUtil{
         //auth:	Autorización	La instancia de autenticación .
         //Email: str	La dirección de correo electrónico de los usuarios.
         //password: str	La contraseña de los usuarios.
+
+        /*console.log(email)
+        console.log(password)
+        await logica.EsUserAdmin(email); */
+        
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -71,6 +79,10 @@ export default class FirebaseUtil{
                 // Signed in 
                 const user = auth.currentUser.user;
                 console.log(user)
+  
+                var respuesta = logica.EsUserAdmin(email);
+                if(respuesta.rol == "admin"){ console.log("PAGINA ADMIN")} else{console.log("PAGINA USUARIO")}
+
                 window.location.replace("./usuario.html");
                 // ...
             } else {
@@ -114,6 +126,13 @@ export default class FirebaseUtil{
                     // Signed in 
                     const user = auth.currentUser.user;
                     console.log(user)
+
+                    //var respuesta = logica.EsUserAdmin(email);
+                   /* 
+                   var respuesta = await logica.EsUserAdmin(email);
+                    if(respuesta.rol == "admin"){ ejecutar pagina de administrador} else{ pagina de usuaario}
+                    */
+
                     window.location.replace("./usuario.html");
                     // ...
                 } else {
