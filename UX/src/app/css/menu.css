@@ -11,6 +11,7 @@
     --tamTexto: 20px;
     --tamMenu: 25px;
     --fuentePrincipal: Montserrat;
+    --blanco: #ffffff;
 }
 
 /*Hacer que el scroll sea suave*/
@@ -46,10 +47,10 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    max-height: 6rem;
+    height: 7.8rem;
     display: flex;
     justify-content: space-between;
-    background: var(--colorFondo);
+    background: var(--blanco);
 }
 
 .divlogoHeader {
@@ -94,7 +95,7 @@ body {
     flex: 1 1 0;
     border-top: 2px solid var(--colorPrincipal);
     border-bottom: 2px solid var(--colorPrincipal);
-    background: var(--colorFondo);
+    background: var(--blanco);
 }
 
 .separador{
@@ -117,4 +118,8 @@ body {
 footer{
     bottom: 5px;
     text-align: center;
+}
+
+.background{
+    background: var(--blanco);
 }
