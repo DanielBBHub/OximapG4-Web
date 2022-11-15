@@ -88,7 +88,8 @@ export default class FirebaseUtil{
             } else {
                 // User is signed out
                 // ...
-                window.location.replace("./correo_no_confirmado.html");
+                //window.location.replace("./correo_no_confirmado.html");
+                no_confirmado.showModal();
             }
             
         })
@@ -100,6 +101,7 @@ export default class FirebaseUtil{
         });
         
     }
+
 
     // .................................................................
     // email,password:str

@@ -184,5 +184,35 @@ debemos poner definir este valor.
 }
 
 
+.btn_cerrar{
+    background-color: var(--colorTitulos);
+    color: white;
+    border-radius: 12px;
+    border: none;
+    font-family: var(--fuentePrincipal);
+    font-size: 0.8rem;
+    padding: 0.5rem 0.5rem;
+    height: auto;
+}
+
+.btn_cerrar:hover{
+    background: var(--colorPrincipal);
+}
+
+.texto_negro{
+    margin-top: 0.5rem;
+    font-size: var(--tamTexto);
+    font-family: var(--fuentePrincipal);
+    color: var(--letras);
+}
+
+.modal{
+    text-decoration: none;
+    border: none;
+    border-radius: 30px;
+}
+
+
+
 
 

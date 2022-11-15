@@ -96,6 +96,12 @@
                 <a class="aRegistro" href="registro.html">¡Registrate!</a>
             </div>
             <br>
+
+            <dialog id="no_confirmado" class="modal">
+                <p class="texto_negro">El correo no está asociado a ningún usuario.</p>
+                <p class="texto_negro">Compruebe el correo para su verificación.</p>
+                <button class="btn_cerrar" id="btn_cerrar">Cerrar</button>
+            </dialog>
     </section>
     </div>
 
@@ -146,7 +152,15 @@
                 document.getElementById("boton_registro_proveedor_google").addEventListener("click" , async function(){
                     const user = await util.iniciar_sesion_proveedor_google()
                 })
+
+
+                btn_cerrar.addEventListener("click", ()=>
+                {
+                    no_confirmado.close();
+                })
             }
+
+
         </script>
     </body>
 
