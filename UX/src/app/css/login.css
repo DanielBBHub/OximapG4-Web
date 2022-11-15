@@ -85,3 +85,104 @@
 .aRegistro:hover{
     color: var(--colorPrincipal);
 }
+
+.texto_no_terminos{
+    display: none;
+    text-align: center;
+    font-family: var(--fuentePrincipal);
+    color: red;
+}
+
+.content-input input,
+.content-select select{
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+    
+}
+ 
+.content-input input{
+	visibility: hidden;
+	position: absolute;
+	right: 0;
+}
+
+.content-input{
+	position: relative;
+	margin-bottom: 30px;
+	padding:5px 0 5px 60px; /* Damos un padding de 60px para posicionar 
+        el elemento <i> en este espacio*/
+	display: block;
+    font-family: var(--fuentePrincipal);
+}
+ 
+/* Estas reglas se aplicarán a todos las elementos i 
+después de cualquier input*/
+.content-input input + i{
+       background: #f0f0f0;
+       border:2px solid rgba(0,0,0,0.2);
+       position: absolute; 
+       left: 0;
+       top: 0;
+}
+ 
+/* Estas reglas se aplicarán a todos los i despues 
+de un input de tipo checkbox*/
+.content-input input[type=checkbox ] + i{
+	width: 40px;
+	height: 20px;
+	border-radius: 15px;
+}
+
+/*
+Creamos el círculo que aparece encima de los checkbox
+con la etqieta before. Importante aunque no haya contenido
+debemos poner definir este valor.
+*/
+.content-input input[type=checkbox] + i:before{
+	content: ''; /* No hay contenido */
+	width: 19px;
+	height: 20px;
+	background: #fff;
+	border-radius: 50%;
+	position: absolute;
+	z-index: 1;
+	left: 0px;
+	top: 0px;
+	-webkit-box-shadow: 3px 0 3px 0 rgba(0,0,0,0.2);
+	box-shadow: 3px 0 3px 0 rgba(0,0,0,0.2);
+}
+
+.content-input input[type=checkbox]:checked + i:before{
+	left: 22px;
+	-webkit-box-shadow: -3px 0 3px 0 rgba(0,0,0,0.2);
+	box-shadow: 3px 0 -3px 0 rgba(0,0,0,0.2);
+}
+ 
+.content-input input[type=checkbox]:checked + i{
+ background: var(--colorPrincipal)
+}
+
+.hipervinculo{
+    text-align: center;
+    font-family: var(--fuentePrincipal);
+    font-size: 12px;
+    margin-top: -20px;
+}
+
+.hiper:link{
+    color:var(--colorTitulos);
+}
+
+.hiper:visited{
+    color: var(--colorSubTitulos);
+}
+
+.divCheck{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+

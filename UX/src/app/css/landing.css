@@ -49,3 +49,20 @@
     height: 150px;
     border-radius: 10%;
 }
+
+.titulo_peque{
+    text-align: center;
+    color: var(--colorTitulos);
+    padding-top: 2rem;
+    margin-bottom: 0;
+    font-family: var(--fuentePrincipal);
+}
+
+.ajustarTerminos {
+    display: block;
+    width: 80%;
+    margin: 1rem auto;
+    padding: 0 .5rem;
+    flex: 1 1 0;
+    align-items: center;
+}
