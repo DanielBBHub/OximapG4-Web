@@ -1,4 +1,6 @@
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateEmail, updatePassword, updateProfile, onAuthStateChanged, setPersistence, browserSessionPersistence , sendEmailVerification} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-storage.js";
+
 // .................................................................
 // email,password:str
 // -->
@@ -219,7 +221,44 @@ export default class FirebaseUtil{
         }
        
     } 
+
+    async mostrar_info_usuario(user)
+    {
+             console.log(user)
+                if (user) {
+                    console.log("Info puesta")
+                    // User is signed in, see docs for a list of available properties
+                    // https://firebase.google.com/docs/reference/js/firebase.User
+                    document.getElementById("nombreUsuarioTxt").textContent = user.displayName
+                    document.getElementById("correoUsuarioTxt").textContent = user.email
+                    if(document.getElementById("fechaUsuarioTxt")){
+                        document.getElementById("fechaUsuarioTxt").textContent = new Date(user.metadata.creationTime)
+                    }
+                    // ...
+                    
+                } else {
+                    // User is signed out
+                    // ...
+                }
+
+    }
     
+    async mostrar_imagen_usuario(imagesRef)
+    {
+        
+        const storage = getStorage();
+        console.log(imagesRef)
+        getDownloadURL(imagesRef)
+                .then((url) => {
+                    // `url` is the download URL for 'images/{uid}'
+                    console.log("Url final: " + url)
+                    document.getElementById("imgUsuario").setAttribute('src', url);
+                })
+                .catch((error) => {
+                    // Handle any errors
+                });
+    }
+
     /* 
     errorMessage: str
     escribir_mensaje_error() ->

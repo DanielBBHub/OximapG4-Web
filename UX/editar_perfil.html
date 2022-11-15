@@ -135,24 +135,22 @@
                 // Create a reference to 'Imagenes/'
                 
                 const imagesRef = ref(storage, 'Imagenes/');
-                console.log(imagesRef)
                 let imagen;
                 let id_usuario;
                 const image = document.getElementById('imgUsuario');
                 let url = ""
                 if(document.readyState == "complete")
                 {
-                    onAuthStateChanged(auth, (user) => {
+                    onAuthStateChanged(auth, async (user) => {
                 
                     if (user) {
                         // User is signed in, see docs for a list of available properties
                         // https://firebase.google.com/docs/reference/js/firebase.User
-                        id_usuario = user.uid
-                        console.log(id_usuario)
                         
-                        document.getElementById("nombreUsuarioTxt").textContent = user.displayName
-                        document.getElementById("correoUsuarioTxt").textContent = user.email
-                        // ...
+                        const imagesRef = ref(storage, 'Imagenes/' + user.uid);   
+                        await util.mostrar_info_usuario(user) 
+                        util.mostrar_imagen_usuario(imagesRef)
+
                     } else {
                         // User is signed out
                         // ...
@@ -161,7 +159,6 @@
                     
                     document.getElementById("editarPerfilBoton").addEventListener("click" , async function(){
                         const imagesRef = ref(storage, 'Imagenes/' + id_usuario);
-                        console.log(imagesRef)
                         uploadBytes(imagesRef, imagen).then((snapshot) => {
                             console.log('Uploaded a blob or file!');
                             });
@@ -175,7 +172,6 @@
                         const reader = new FileReader();
                         reader.addEventListener("load", () => {
                             const uploaded_image = reader.result;
-                            console.log(uploaded_image  )
                             document.getElementById("imgUsuario").src = uploaded_image;
                             
                            
