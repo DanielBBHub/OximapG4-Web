@@ -62,6 +62,33 @@ module.exports.cargar = function (servidorExpress, laLogica) {
     } 
   }); // post /alta
 
+  servidorExpress.get("/Roles", 
+  async function (peticion, respuesta){
+      console.log(" * GET /Roles");
+      var error = null
+      var email = peticion.query.email
+
+      try{
+        //Buscar la medicion del ultimo id
+      
+        var res = await laLogica.EsUsuarioAdmin(email)
+      }
+
+      catch (e){
+        error = e
+      }
+
+      if (error != null){   
+        if( res.length == 0 ) {
+            // 404: not found
+            respuesta.status(404).send( "No encontré " )
+            return
+        }
+    }
+      console.log(res)
+      respuesta.send( JSON.stringify( res ) )
+  })
+
 }; // ()
 // .....................................................................
 // .....................................................................

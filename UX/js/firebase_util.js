@@ -6,6 +6,9 @@ import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sig
 // 
 // .................................................................
 
+import logica_fake from "./logica_fake.js"
+var logica = new logica_fake();
+
 export default class FirebaseUtil{
    
 
@@ -31,12 +34,15 @@ export default class FirebaseUtil{
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            
-            // Signed in 
-            const user = userCredential.user;
-            console.log(user)
-            window.location.replace("./correo_no_confirmado.html");
-            // ...
+            sendEmailVerification(auth.currentUser)
+            .then(() => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(user)
+                window.location.replace("./correo_no_confirmado.html");
+                // ...
+            });
+           
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -61,15 +67,22 @@ export default class FirebaseUtil{
         //auth:	Autorización	La instancia de autenticación .
         //Email: str	La dirección de correo electrónico de los usuarios.
         //password: str	La contraseña de los usuarios.
+
+        /*console.log(email)
+        console.log(password)
+        await logica.EsUserAdmin(email); */
+        
         const auth = getAuth();
-        setPersistence(auth, browserSessionPersistence).
-        then(() => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             if (auth.currentUser.emailVerified) {
                 // Signed in 
-                const user = userCredential.user;
+                const user = auth.currentUser.user;
                 console.log(user)
+  
+                var respuesta = logica.EsUserAdmin(email);
+                if(respuesta.rol == "admin"){ console.log("PAGINA ADMIN")} else{console.log("PAGINA USUARIO")}
+
                 window.location.replace("./usuario.html");
                 // ...
             } else {
@@ -85,7 +98,6 @@ export default class FirebaseUtil{
             this.escribir_mensaje_error(errorMessage)
             return errorMessage
         });
-        })
         
     }
 
@@ -105,17 +117,31 @@ export default class FirebaseUtil{
         
         const provider = new GoogleAuthProvider();
         const auth = getAuth();
-        setPersistence(auth, browserSessionPersistence).
-        then(() => {
-            signInWithPopup(auth, provider)
+        
+        signInWithPopup(auth, provider)
         .then((result) => {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            // The signed-in user info.
-            const user = result.user;
-            window.location.replace("./usuario.html");
-            // ...
+            sendEmailVerification(auth.currentUser)
+            .then(() => {
+                if (auth.currentUser.emailVerified) {
+                    // Signed in 
+                    const user = auth.currentUser.user;
+                    console.log(user)
+
+                    //var respuesta = logica.EsUserAdmin(email);
+                   /* 
+                   var respuesta = await logica.EsUserAdmin(email);
+                    if(respuesta.rol == "admin"){ ejecutar pagina de administrador} else{ pagina de usuaario}
+                    */
+
+                    window.location.replace("./usuario.html");
+                    // ...
+                } else {
+                    // User is signed out
+                    // ...
+                    window.location.replace("./correo_no_confirmado.html");
+                }
+            });
+            
         }).catch((error) => {
             // Handle Errors here.
             const errorCode = error.code;
@@ -126,7 +152,7 @@ export default class FirebaseUtil{
             const credential = GoogleAuthProvider.credentialFromError(error);
             // ...
         });
-        })
+        
         
     }
 
@@ -151,7 +177,7 @@ export default class FirebaseUtil{
         }
     }
 
-    async editar_perfil()
+    async editar_perfil(url)
     {
         var metodo = this;
         //En esta funcion se llama a updateProfile(),  updateEmail(), updatePassword)() funcion de la 
@@ -171,12 +197,17 @@ export default class FirebaseUtil{
         const auth = getAuth();
         const user = auth.currentUser
         console.log(user)
-        if(nombre.value !== "")
+        if(url == "")
         {
             updateProfile(user, {
                 displayName: nombre.value, photoURL: ""
             })
-            console.log("Nombre cambiado")
+            console.log("Nombre e imagen cambiado")
+        }
+        else{
+            updateProfile(user, {
+                displayName: nombre.value, photoURL: url
+            })
         }
         if(email.value !== "")
         {
