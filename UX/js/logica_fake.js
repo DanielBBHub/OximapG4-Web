@@ -67,6 +67,34 @@ export default class LogicaFake {
 
         console.log("ACABA LA EJECUCION DE: cargarMuestra()")
 	}
+
+    async EsUserAdmin(email) {
+		var metodo = this;
+        //Se crea la peticion /muestra
+		var url = IP_PUERTO + '/Roles?email=' + email
+        console.log(url)
+		await fetch(url , {
+            method: 'GET',
+            headers: new Headers(
+            //Partes del header que se han añadido para 
+            //posibilitar la comunicacion con el servidor REST
+            { 'Users-Agent' : 'Carlos',
+            'Access-Control-Allow-Origin': '*',
+            'Content-type': 'application/json'}),
+            mode: "cors"
+            
+
+        }) 
+        //Se recoge el JSON de la cabecera de la respuesta 
+        .then(response => {console.log(response.json())})
+        /*
+        //Una vez recogida se pasa la muestra y la fecha de esta a la funcion cargar_muestra()
+        .then(data => 
+            this.cargarMuestra(data)
+            )
+        .catch(err => console.error(err));
+         */
+    }
 }
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
