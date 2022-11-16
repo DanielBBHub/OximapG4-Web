@@ -140,7 +140,7 @@
                 // Create a reference to 'Imagenes/'
                 const imagesRef = ref(storage, 'Imagenes/' + user.uid);                
                
-                util.mostrar_imagen_usuario(imagesRef)
+                await util.mostrar_imagen_usuario(imagesRef)
                 await util.mostrar_info_usuario(user) 
              
             }

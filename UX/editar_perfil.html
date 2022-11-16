@@ -134,7 +134,7 @@
 
                 // Create a reference to 'Imagenes/'
                 
-                const imagesRef = ref(storage, 'Imagenes/');
+                let imagesRef = ref(storage, 'Imagenes/');
                 let imagen;
                 let id_usuario;
                 const image = document.getElementById('imgUsuario');
@@ -147,7 +147,8 @@
                         // User is signed in, see docs for a list of available properties
                         // https://firebase.google.com/docs/reference/js/firebase.User
                         
-                        const imagesRef = ref(storage, 'Imagenes/' + user.uid);   
+                        imagesRef = ref(storage, 'Imagenes/' + user.uid);  
+                        id_usuario = user.uid 
                         await util.mostrar_info_usuario(user) 
                         util.mostrar_imagen_usuario(imagesRef)
 
@@ -159,6 +160,7 @@
                     
                     document.getElementById("editarPerfilBoton").addEventListener("click" , async function(){
                         const imagesRef = ref(storage, 'Imagenes/' + id_usuario);
+                        console.log(id_usuario)
                         uploadBytes(imagesRef, imagen).then((snapshot) => {
                             console.log('Uploaded a blob or file!');
                             });

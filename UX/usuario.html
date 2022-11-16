@@ -26,7 +26,7 @@
 
     <!--------------------------------- USUARIO ---------------------------------------->
     <div class="contenedorUsuario">
-        <img class="imgUsuario" src="src/app/img/usuario.png">
+        <img id="imgUsuario" class="imgUsuario" src="src/app/img/usuario.png">
         <h4 id="nombreUsuarioTxt" class="nombreUsuario">Antonio Hermano</h4>
         <a class="verPerfil" href="perfil.html">Ver perfil</a>
 
@@ -53,6 +53,8 @@
 // Import the functions you need from the SDKs you need
         import {initializeApp} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
         import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+        import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-storage.js";
+
         // Your web app's Firebase configuration
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         const firebaseConfig = {
@@ -78,12 +80,16 @@
             {
                 const auth = getAuth();
                 const user = auth.currentUser
-                console.log(user)
-                onAuthStateChanged(auth, (user) => {
+                let util = new firebaseutil()
+                onAuthStateChanged(auth, async (user) => {
                 if (user) {
+                    console.log(user)
                     // User is signed in, see docs for a list of available properties
                     // https://firebase.google.com/docs/reference/js/firebase.User
                     document.getElementById("nombreUsuarioTxt").textContent = user.displayName
+                    const storage = getStorage();
+                    const imagesRef = ref(storage, 'Imagenes/' + user.uid); 
+                    await util.mostrar_imagen_usuario(imagesRef)
                     // ...
                 } else {
                     // User is signed out

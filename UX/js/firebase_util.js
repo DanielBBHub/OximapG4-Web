@@ -198,22 +198,23 @@ export default class FirebaseUtil{
 
         const auth = getAuth();
         const user = auth.currentUser
-        console.log(user)
-        if(url == "")
+        if(!document.getElementById("imgUsuario").src)
         {
             updateProfile(user, {
-                displayName: nombre.value, photoURL: ""
+                displayName: nombre.value
             })
-            console.log("Nombre e imagen cambiado")
-        }
-        else{
-            updateProfile(user, {
-                displayName: nombre.value, photoURL: url
-            })
+            console.log("Nombre cambiado")
         }
         if(email.value !== "")
         {
-            updateEmail(user, email.value)
+            updateEmail(user, email.value).then((result) => {
+                sendEmailVerification(auth.currentUser)
+                .then(() => {
+                        window.location.replace("./index.html");
+                        // ...
+                });
+                
+            })
             console.log("Email cambiado")
 
         }
@@ -245,11 +246,9 @@ export default class FirebaseUtil{
     {
         
         const storage = getStorage();
-        console.log(imagesRef)
         getDownloadURL(imagesRef)
                 .then((url) => {
                     // `url` is the download URL for 'images/{uid}'
-                    console.log("Url final: " + url)
                     document.getElementById("imgUsuario").setAttribute('src', url);
                 })
                 .catch((error) => {
