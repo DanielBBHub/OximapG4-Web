@@ -22,7 +22,7 @@
     font-size: var(--tamTitulos);
     text-align: center;
     color: var(--colorTitulos);
-    padding-top: 2rem;
+    /*padding-top: 2rem;*/
     margin-bottom: 0;
     font-family: var(--fuentePrincipal);
 }

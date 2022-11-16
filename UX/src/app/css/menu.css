@@ -50,7 +50,19 @@ body {
     height: 7.8rem;
     display: flex;
     justify-content: space-between;
-    background: var(--blanco);
+    background: var(--colorFondo);
+}
+
+.encabezadousuario{
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    background: var(--colorFondo);
 }
 
 .divlogoHeader {
@@ -95,7 +107,7 @@ body {
     flex: 1 1 0;
     border-top: 2px solid var(--colorPrincipal);
     border-bottom: 2px solid var(--colorPrincipal);
-    background: var(--blanco);
+    background: var(--colorFondo);
 }
 
 .separador{
@@ -121,5 +133,5 @@ footer{
 }
 
 .background{
-    background: var(--blanco);
+    background: var(--colorFondo);
 }
