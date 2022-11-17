@@ -31,6 +31,7 @@
     font-size: var(--tamTexto);
     margin: 2rem;
     font-family: var(--fuentePrincipal);
+    text-align: justify;
 }
 
 .textoblanco{
@@ -38,6 +39,7 @@
     margin: 2rem;
     font-family: var(--fuentePrincipal);
     color: var(--blanco);
+    text-align: justify;
 }
 
 .ajustar {
@@ -45,7 +47,7 @@
     justify-content: space-around;
     width: 80%;
     margin: auto auto;
-    padding: 0 .5rem;
+    padding-bottom: 4rem;
     flex: 1 1 0;
     align-items: center;
 }
