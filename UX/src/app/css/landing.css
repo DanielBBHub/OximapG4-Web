@@ -11,16 +11,27 @@
     --tamSubTitulos: 25px;
     --tamTexto: 20px;
     --fuentePrincipal: Montserrat;
+    --GirarPortada: skewY(3deg);
+    --GiraNo: skewY(-3deg);
 }
 
 /*Sobre el Proyecto*/
-.proyecto{+
+.proyecto{
     padding-top: 80px;
 }
 
 .titulo{
     padding-top:4rem;
     font-size: var(--tamTitulos);
+    text-align: center;
+    color: var(--colorSubTitulos);
+    margin-bottom: 0;
+    font-family: var(--fuentePrincipal);
+}
+
+.titulo2{
+    padding-top:4rem;
+    font-size: 1.75rem;
     text-align: center;
     color: var(--colorSubTitulos);
     margin-bottom: 0;
@@ -42,19 +53,10 @@
     text-align: justify;
 }
 
-.ajustar {
-    display: flex;
-    justify-content: space-around;
-    width: 80%;
-    margin: auto auto;
-    padding-bottom: 4rem;
-    flex: 1 1 0;
-    align-items: center;
-}
-
 .imagenes {
     width: 200px;
     height: 200px;
+    padding-left: 1rem;
 }
 
 .img_landing{
@@ -76,7 +78,7 @@
     flex: 1 1 auto;
     display: flex;
    justify-content: center;
-    margin-top: 22%;
+    margin-top: 20%;
 }
 
 .tituloLanding{
@@ -126,6 +128,9 @@
     align-items: center;
 }
 
+.ajustar{
+    display: flex;
+}
 
 
 .texto-encabezado{
@@ -156,7 +161,96 @@
     flex-direction: column;
 }
 
-.cuadrado{
-    background: var(--colorSubTitulos);
+.PortadaGira{
+    background-color: var(--colorSubTitulos);
+    height: 21rem;
+    position: relative;
+    transform: var(--GirarPortada);
+    margin-top: 6rem;
 }
 
+.NoGira{
+    transform: var(--GiraNo);
+    position: absolute;
+    font-family: var(--fuentePrincipal);
+}
+
+.textoUNO{
+    font-size: var(--tamTexto);
+    font-family: var(--fuentePrincipal);
+    text-align: justify;
+    padding: 1rem 2rem;
+    color: white;
+}
+
+.textodos{
+    font-size: var(--tamTexto);
+    font-family: var(--fuentePrincipal);
+    text-align: justify;
+    padding: 1rem 2rem;
+    color: black;
+    object-fit: cover;
+}
+
+.slider_section{
+    background: rgba(15, 106, 180, 0.4);
+    border-radius: 30px;
+    width: 100%;
+    margin: auto auto;
+    margin-top: 2rem;
+    flex: 1 1 0;
+    height: 20rem;
+
+
+}
+
+
+.TituloTarjeta{
+    text-align: center;
+    font-size: var(--tamTexto);
+    font-family: var(--fuentePrincipal);
+    padding-top: 2rem;
+    object-fit: cover;
+}
+
+.container-slider{
+    border-radius: 30px;
+    width: 85%;
+    height: 20rem;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+}
+
+.slider{
+    display: flex;
+    width: 200%;
+    margin-left: -100%;
+}
+
+.slider_btn{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.7);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    font-family: monospace;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider_btn:hover{
+    background: #fff;
+}
+
+.slider_btn-right{
+    right: 10px;
+}
+
+.slider_btn-left{
+    left: 10px;
+}
