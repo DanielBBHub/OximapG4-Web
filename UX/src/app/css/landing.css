@@ -3,7 +3,7 @@
 :root{
     --centrar: 0 auto;
     --colorPrincipal: #69D4B6;
-    --colorFondo: #E7F8F1;
+    --colorFondo: #fffff;
     --colorTitulos: #51ADCF;
     --colorSubTitulos: #0278AE;
     --letras: #000000;
@@ -14,15 +14,15 @@
 }
 
 /*Sobre el Proyecto*/
-.proyecto{
-    margin-top: -10rem;
+.proyecto{+
+    padding-top: 80px;
 }
 
 .titulo{
+    padding-top:4rem;
     font-size: var(--tamTitulos);
     text-align: center;
-    color: var(--colorTitulos);
-    /*padding-top: 2rem;*/
+    color: var(--colorSubTitulos);
     margin-bottom: 0;
     font-family: var(--fuentePrincipal);
 }
@@ -33,20 +33,26 @@
     font-family: var(--fuentePrincipal);
 }
 
+.textoblanco{
+    font-size: var(--tamTexto);
+    margin: 2rem;
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+}
+
 .ajustar {
     display: flex;
     justify-content: space-around;
     width: 80%;
-    margin: 1rem auto;
+    margin: auto auto;
     padding: 0 .5rem;
     flex: 1 1 0;
     align-items: center;
 }
 
 .imagenes {
-    width: 150px;
-    height: 150px;
-    border-radius: 10%;
+    width: 200px;
+    height: 200px;
 }
 
 .img_landing{
@@ -54,25 +60,37 @@
     height: 700px;
 }
 
-.flecha_bajar {
+
+.flecha_bajar{
     position: relative;
     top: -5rem;
     max-width: 5rem;
     animation: flecha-bajar-animacion 2s ease-in-out infinite;
+    justify-content: center;
 }
 
+.flecha_bajar:hover{
+
+}
+
+
 .centrar_flecha {
-    text-align: center;
+    flex: 1 1 auto;
+    display: flex;
+   justify-content: center;
+    margin-top: 10rem;
 }
 
 .tituloLanding{
     position: relative;
     color: var(--blanco);
-    bottom: -15rem;
     font-size: 5rem;
     text-align: center;
     font-family: var(--fuentePrincipal);
+    margin-top: 3rem;
 }
+
+
 
 
 /*Animacion*/
@@ -104,3 +122,37 @@
     flex: 1 1 0;
     align-items: center;
 }
+
+
+
+.texto-encabezado{
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.texto-encabezado .display-4 {
+    margin-top: 3rem;
+}
+
+.display-4 {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.bienvenidos {
+    background: url("../img/planeta-tierra.jpg") no-repeat center top;
+    background-size: cover;
+    color: var(--blanco);
+    height: 100vh; /*Para hacer que ocupe toda la pantalla*/
+    display: flex;
+    flex-direction: column;
+}
+
+.cuadrado{
+    background: var(--colorSubTitulos);
+}
+

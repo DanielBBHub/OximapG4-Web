@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>OXIMAP</title>
@@ -11,60 +11,47 @@
 <body>
 
 <div id="top"></div>
-<section class="LandingPage" id="inicio">
+<section class="bienvenidos">
 
     <!--------------------------------- ENCABEZADO ------------------------------------->
-    <header class="encabezado" id="encabezado_">
-        <div class="divlogoHeader">
-            <a class="item" href="index.html"><img class="logo" src="src/app/img/logoredondo.png" alt="Logo OXIMAP"></a>
-        </div>
+    <header>
+        <section class="wrapper">
+            <nav>
+                <li><a href="./index.html"><img src="./src/app/img/logo2.png" class="logo"></a></li>
+                <ul>
 
-        <div class="headerLogin">
-            <a class="item" href="login.html"><img class="login" src="src/app/img/login.png" alt="login"></a>
-        </div>
+                    <li><a href="#">Mapa</a></li>
+                    <li><a href="#">Senseros</a></li>
+                    <li><a href="./acercade.html">Conocenos</a></li>
+
+                </ul>
+                <li><a href="./login.html"><img src="./src/app/img/blanco.png" class="login"></a></li>
+            </nav>
+        </section>
 
     </header>
     <!---------------------------------------------------------------------------------->
-
-    <!---------------------------------- MENÚ ------------------------------------------>
-    <div class="background">
-        <div class="MenuHeader">
-            <div class="menu">
-                <a class="menuEnlace" href="index.html" alt="Inicio">Inicio</a>
-            </div>
-            <div class="separador"><span>|</span></div>
-            <div class="menu">
-                <a class="menuEnlace" href="index.html" alt="Mapas">Mapas</a>
-            </div>
-            <div class="separador"><span>|</span></div>
-            <div class="menu">
-                <a class="menuEnlace" href="index.html" alt="Sensores">Sensores</a>
-            </div>
-            <div class="separador"><span>|</span></div>
-            <div class="menu">
-                <a class="menuEnlace" href="acercade.html" alt="Acerca de">Acerca de</a>
-            </div>
+    <!------------------------------ LANDING PAGE -------------------------------------->
+    <div class="texto-encabezado text-center">
+        <div class="container">
+            <h1 class="tituloLanding">OXIMAP</h1>
+            <br>
+            <p class="texto">Dime que respiras y te diré quien eres :)</p>
         </div>
     </div>
+
+    <div class="centrar_flecha">
+        <div><a href="#qso"><img class="flecha_bajar" src="./src/app/img/flecha.png" alt="flechaBajar"></a>
+        </div>
+    </div>
+
     <!---------------------------------------------------------------------------------->
+</section>
+<!---------------------------------- INFO ------------------------------------------>
 
-    <!---------------------------------- INFO ------------------------------------------>
-
-
-    <div>
-        <section class="proyecto">
-            <div>
-                <h1 class="tituloLanding">OXIMAP</h1>
-                <img class="img_landing" src="./src/app/img/planeta-tierra.jpg" alt="Capa de Ozono">
-                <div class="centrar_flecha">
-                    <a href="#qso" id="qso"><img class="flecha_bajar" src="./src/app/img/flecha.png" alt="flechaBajar"></a>
-                </div>
-
-            </div>
-
-            <h4 class="titulo" href="#qso">Sobre nosotros:</h4>
-            <span class="ajustar">
-			        <img class="imagenes" src="src/app/img/sensor.jpg" alt="sensor">
+<h4 class="titulo" id="qso">SOBRE NOSOTROS:</h4>
+<span class="ajustar">
+			        <img class="imagenes" src="src/app/img/ozono.jpg" alt="sensor">
                     <p class="texto">
                         Somos una empresa de control ambiental, cuyo objetivo es la monitorización de gases contaminantes tales como el
                         ozono.
@@ -78,8 +65,11 @@
                     </p>
 		        </span>
 
-            <span class="ajustar">
-                    <p class="texto">
+<!--Poner aqui los cuadrados de información-->
+<div class="cuadrado">
+        <span class="ajustar">
+
+                    <p class="textoblanco">
 
                         INFORMACION SOBRE GASES CONTAMINANTES
                         <br>
@@ -152,13 +142,11 @@
                         aire.
 
                     </p>
-                    <img class="imagenes" src="src/app/img/plantea.jpg" alt="sensor">
-		        </span>
-        </section>
-    </div>
 
+        </span>
+</div>
+</div>
 
-</section>
 
 <!--------------------------------- FOOTER ----------------------------------------->
 <footer id="foter">

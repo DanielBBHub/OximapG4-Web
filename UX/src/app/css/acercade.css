@@ -11,17 +11,17 @@
     --tamSubTitulos: 25px;
     --tamTexto: 20px;
     --fuentePrincipal: Montserrat;
+    --blanco: #fffff;
 }
 
 .acercade{
-    margin-top: 7rem;
 }
 
 .titulo{
     font-size: var(--tamTitulos);
     text-align: center;
-    color: var(--colorTitulos);
-    padding-top: 2rem;
+    color: var(--colorSubTitulos);
+    padding-top: 6rem;
     margin-bottom: 0;
     font-family: var(--fuentePrincipal);
 }
@@ -57,8 +57,12 @@
 }
 
 .contenedor{
-    background-color: white;
+    background-color: var(--colorFondo);
     width: 80%;
     margin: auto auto;
     border-radius: 30px;
+}
+
+body{
+    background: var(--blanco);
 }
