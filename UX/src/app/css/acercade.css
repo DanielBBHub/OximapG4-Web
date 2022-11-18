@@ -20,9 +20,8 @@
 .titulo{
     font-size: var(--tamTitulos);
     text-align: center;
-    color: var(--colorSubTitulos);
-    padding-top: 6rem;
-    margin-bottom: 0;
+    color: var(--colorTitulos);
+    padding-top: 7rem;
     font-family: var(--fuentePrincipal);
 }
 
@@ -57,9 +56,9 @@
 }
 
 .contenedor{
-    background-color: var(--colorFondo);
+    background: rgba(15, 106, 180, 0.4);
     width: 80%;
-    margin: auto auto;
+    margin: 2rem auto;
     border-radius: 30px;
 }
 

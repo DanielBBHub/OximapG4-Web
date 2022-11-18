@@ -16,12 +16,13 @@
 .PaginaLogin{
     background-color: white;
     width: 40%;
-    margin: 9rem auto;
+    margin: auto auto;
     border-radius: 40px;
+    padding-top: 7rem;
 }
 
 .titulo{
-    padding-top: 1rem;
+    padding: 1rem 1rem;
     font-size: var(--tamTitulos);
     text-align: center;
     color: var(--colorTitulos);
@@ -37,6 +38,7 @@
 .subtirulo{
     font-size: var(--tamSubTitulos);
     font-family: var(--fuentePrincipal);
+    padding: 1rem 1rem;
 }
 
 .correoUsuarioTxt,

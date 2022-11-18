@@ -130,7 +130,10 @@
 
 .ajustar{
     display: flex;
+    margin: auto 3rem;
 }
+
+
 
 
 .texto-encabezado{
@@ -179,7 +182,7 @@
     font-size: var(--tamTexto);
     font-family: var(--fuentePrincipal);
     text-align: justify;
-    padding: 1rem 2rem;
+    padding: 1rem 4rem;
     color: white;
 }
 
@@ -187,7 +190,7 @@
     font-size: var(--tamTexto);
     font-family: var(--fuentePrincipal);
     text-align: justify;
-    padding: 1rem 2rem;
+    padding: 1rem 4rem;
     color: black;
     object-fit: cover;
 }
@@ -200,8 +203,6 @@
     margin-top: 2rem;
     flex: 1 1 0;
     height: 20rem;
-
-
 }
 
 
@@ -244,7 +245,7 @@
 }
 
 .slider_btn:hover{
-    background: #fff;
+    background: #ffffff;
 }
 
 .slider_btn-right{
