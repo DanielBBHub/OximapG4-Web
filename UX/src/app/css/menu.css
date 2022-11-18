@@ -71,31 +71,6 @@ body {
 
 
 
-.MenuHeader{
-
-    z-index: 100;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    display: flex;
-    justify-content: space-around;
-    width: 85%;
-    margin: 75px auto;
-    padding: 0.5rem 5rem;
-    flex: 1 1 0;
-    border-top: 2px solid var(--colorPrincipal);
-    border-bottom: 2px solid var(--colorPrincipal);
-    background: var(--colorFondo);
-}
-
-.separador{
-    justify-items: center;
-    color: var(--letras);
-    font-weight: bold;
-}
-
-
 /*Footer*/
 .copyright {
     flex: 1 1 0;
