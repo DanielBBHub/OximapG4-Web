@@ -13,6 +13,7 @@
     --fuentePrincipal: Montserrat;
     --GirarPortada: skewY(3deg);
     --GiraNo: skewY(-3deg);
+    --colorTransparente:rgba(15, 106, 180, 0.4);
 }
 
 /*Sobre el Proyecto*/
@@ -196,7 +197,7 @@
 }
 
 .slider_section{
-    background: rgba(15, 106, 180, 0.4);
+    background: var(--colorTransparente);
     border-radius: 30px;
     width: 100%;
     margin: auto auto;
@@ -225,7 +226,7 @@
 
 .slider{
     display: flex;
-    width: 200%;
+    width: 400%;
     margin-left: -100%;
 }
 

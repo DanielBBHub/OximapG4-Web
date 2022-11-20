@@ -11,23 +11,27 @@
     --tamSubTitulos: 25px;
     --tamTexto: 20px;
     --fuentePrincipal: Montserrat;
+    --colorTransparente:rgba(15, 106, 180, 0.4);
 }
 
 .PaginaLogin{
-    background-color: white;
+    background-color: var(--colorTransparente);
     width: 40%;
     margin: auto auto;
     border-radius: 40px;
+
+}
+.decoracion{
     padding-top: 7rem;
 }
-
 .titulo{
     padding: 1rem 1rem;
     font-size: var(--tamTitulos);
     text-align: center;
-    color: var(--colorTitulos);
+    color: var(--blanco);
     margin-bottom: 0;
     font-family: var(--fuentePrincipal);
+    text-shadow: 3px 3px 3px #0278AE, 2px 2px 1px #000000;
 }
 .PaginaLogin{
     align-items: center;
@@ -45,30 +49,34 @@
 .passUsuarioTxt{
     padding: 0.5rem;
     width: 50%;
+    border-radius: 12px;
     border-color: 1px solid var(--colorSubTitulos);
     font-size: var(--tamTexto);
     font-family: var(--fuentePrincipal);
 }
 
 .btn-primary{
-    color: white;
+    cursor: pointer;
+    color: black;
     width: auto;
     height: auto;
     font-family: var(--fuentePrincipal);
     padding: 0.5rem;
     border-radius: 12px;
-    background-color: var(--colorTitulos);
+    background-color: var(--blanco);
     border-color: 1px solid var(--colorSubTitulos);
     font-size: 16px;
+    font-weight: bold;
 }
 
 .btn-primary:hover{
-    background-color: var(--colorPrincipal);
+    background: rgba(255, 255, 255, 0.5);
 
 }
 
 .btn{
     text-align: center;
+
 }
 
 .textpRegistro{
@@ -80,12 +88,12 @@
 .aRegistro{
     text-decoration: none;
     font-weight: bold;
-    color: var(--colorTitulos);
+    color: black;
     font-size: var(--tamTexto);
 }
 
 .aRegistro:hover{
-    color: var(--colorPrincipal);
+    color: var(--blanco);
 }
 
 .texto_no_terminos{
@@ -214,6 +222,21 @@ debemos poner definir este valor.
     border-radius: 30px;
 }
 
+.google{
+    height: 1.5rem;
+    border-radius: 100%;
+    margin-left: 0.5rem;
+}
+
+.btngogle{
+    display:flex;
+    align-items: center;
+    margin: auto auto;
+}
+
+.textoGoogle{
+    align-self: center;
+}
 
 
 
