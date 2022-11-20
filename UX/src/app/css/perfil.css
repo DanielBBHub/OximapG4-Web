@@ -2,7 +2,7 @@
 
 :root{
     --centrar: 0 auto;
-    --colorPrincipal: #69D4B6;
+    --colorPrincipal: #008d6e;
     --colorFondo: #E7F8F1;
     --colorTitulos: #51ADCF;
     --colorSubTitulos: #0278AE;
@@ -21,7 +21,7 @@
 .contenedorUsuario{
     width: 80%;
     text-align: center;
-    margin: 4rem auto;
+    margin: auto auto;
 }
 
 .encabezadousuario{
@@ -37,7 +37,6 @@
 }
 
 .titulo{
-    padding-top: 2rem;
     font-size: var(--tamTitulos);
     text-align: center;
     color: var(--colorSubTitulos);

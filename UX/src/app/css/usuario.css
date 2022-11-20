@@ -15,8 +15,10 @@
 .contenedorUsuario{
     width: 80%;
     text-align: center;
-    margin: 5rem auto;
+    margin: auto auto;
 }
+
+
 
 .imgUsuario{
     width: 100px;
@@ -76,9 +78,7 @@
 
 }
 
-.loginuser{
-    height: 2.5rem;
-}
+
 
 .verPerfil{
     margin-top: 1rem;
