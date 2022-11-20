@@ -1,5 +1,7 @@
 // ---------------------------------------------------------------------
+// ---------------------------------------------------------------------
 // LogicaFake.js
+// ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
 import firebaseutil from "./firebase_util.js"
 const IP_PUERTO = "http://localhost:8080";
@@ -7,21 +9,36 @@ const IP_PUERTO = "http://localhost:8080";
 // ---------------------------------------------------------------------
 export default class LogicaFake {
 
-
-    
+    // ---------------------------------------------------------
+    // ---------------------------------------------------------
     async init() {
         var metodo = this;
-
-            
-       
+   
     }
-    
+    // ---------------------------------------------------------
+    // ---------------------------------------------------------
+
+    /*
+    * brief: Muestra el nombre del usuario
+    * @returns mostrarNombre: string
+    */
+
     async mostrar_nombre()
     {
         console.log("HOLA")
         var util = new firebaseutil()
         await util.mostrar_nombre()
     }
+
+    // ---------------------------------------------------------
+    // ---------------------------------------------------------
+
+    /*
+    * brief:Busca la muestra en la base de datos
+    * @param {JSON}: {error: string, mediciones: Medicion[]}
+    * @returns Muestra
+    * @throws {Error}: Si hay un error en la peticion
+    */
 
     async buscar_muestra() {
         console.log("EMPIEZA LA EJECUCION DE: buscar_muestra()")
@@ -52,12 +69,16 @@ export default class LogicaFake {
 		console.log("ACABA LA EJECUCION DE: buscar_muestra()")
     }
 
+    // ---------------------------------------------------------
+    // ---------------------------------------------------------
 	
-    // .................................................................
-    // muestra,fecha:Texto
-    // -->
-    // cargarMuestra() -->
-    // .................................................................
+    /*
+    * brief: Carga la muestra en la base de datos
+    * @param {JSON}: {error: string, mediciones: Medicion[]}
+    * @returns {void}
+    * @throws {Error}: Si hay un error en la peticion
+    */
+
     cargarMuestra( data ){
         console.log("EMPIEZA LA EJECUCION DE: cargarMuestra()")
 
@@ -67,6 +88,19 @@ export default class LogicaFake {
 
         console.log("ACABA LA EJECUCION DE: cargarMuestra()")
 	}
+
+    // ---------------------------------------------------------
+    // ---------------------------------------------------------
+
+    
+    /*
+    * brief: Determina si el usuario es administrador 
+    * @param {string}: email
+    * @returns {boolean}    
+    * @throws {Error}: Si hay un error en la peticion
+    * @throws {Error}: Si el usuario no existe
+    */
+
 
     async EsUserAdmin(email) {
 		var metodo = this;
@@ -95,6 +129,9 @@ export default class LogicaFake {
         .catch(err => console.error(err));
          */
     }
+
+    // ---------------------------------------------------------
+    // ---------------------------------------------------------
 }
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------

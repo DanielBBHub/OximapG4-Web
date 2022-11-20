@@ -3,16 +3,41 @@
 // .....................................................................
 
 module.exports.cargar = function (servidorExpress, laLogica) {
+
+  // .......................................................
   // .......................................................
   // GET /prueba
   // .......................................................
+  // .......................................................
+
+  /*
+   * brief: Devuelve un mensaje de prueba
+   * @param {express.Request} req
+   * @param {express.Response} res
+   * @param {express.NextFunction} next
+   * @returns {void}
+  */
+
   servidorExpress.get("/prueba/", function (peticion, respuesta) {
     console.log(" * GET /prueba ");
     respuesta.send("¡Funciona!");
   }); // get /prueba
+
+
   // .......................................................
   // .......................................................
-  
+  // GET /Medicion
+  // .......................................................
+  // .......................................................
+
+  /*
+   * brief: Devuelve todas la medicion
+   * @param {express.Request} req
+   * @param {express.Response} res
+   * @param {express.NextFunction} next
+   * @returns {JSON}: {error: string, mediciones: Medicion[]}
+  */
+
   servidorExpress.get("/Medicion", 
     async function (peticion, respuesta){
         console.log(" * GET /Medicion");
@@ -40,10 +65,19 @@ module.exports.cargar = function (servidorExpress, laLogica) {
         respuesta.send( JSON.stringify( res ) )
 
   }) // get /Medicion
+
   // .......................................................
   // .......................................................
   // POST /alta
   // .......................................................
+  // .......................................................
+
+  /*
+   * brief: Recibe los datos de una nueva medicion
+   * @param {express.Request} req
+   * @param {express.Response} res
+   * @param {express.NextFunction} next
+  */
   
   servidorExpress.post("/alta", async function (peticion, respuesta) {
     console.log(" * POST /alta ");
@@ -61,6 +95,20 @@ module.exports.cargar = function (servidorExpress, laLogica) {
       console.log(e);
     } 
   }); // post /alta
+
+  // .......................................................
+  // .......................................................
+  // POST /login
+  // .......................................................
+  // .......................................................
+
+  /*
+    * brief: Recibe los datos de un usuario y devuelve su rol
+    * @param {express.Request} req
+    * @param {express.Response} res
+    * @param {express.NextFunction} next
+    * @returns {JSON}: {error: string, rol: string}
+  */
 
   servidorExpress.get("/Roles", 
   async function (peticion, respuesta){
@@ -88,6 +136,9 @@ module.exports.cargar = function (servidorExpress, laLogica) {
       console.log(res)
       respuesta.send( JSON.stringify( res ) )
   })
+
+  // .......................................................
+  // .......................................................
 
 }; // ()
 // .....................................................................
