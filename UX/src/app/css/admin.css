@@ -14,56 +14,52 @@
     --blanco: #fffff;
 }
 
-.acercade{
+.decoracion{
+    padding-top: 7rem;
 }
 
-.titulo{
+.contenedorAdmin{
+    text-align: center;
+    margin: auto auto;
+}
+
+.nombreAdministracion{
     font-size: var(--tamTitulos);
     text-align: center;
     color: var(--colorSubTitulos);
-    padding-top: 7rem;
     font-family: var(--fuentePrincipal);
     text-shadow: 3px 3px 3px #a3e1f4, 2px 2px 1px #000000;
 }
 
-.subtirulo{
-    font-family: var(--fuentePrincipal);
+.subtitulo{
     font-size: var(--tamSubTitulos);
     text-align: center;
-    padding-top: 1rem ;
-    margin-bottom: -1rem;
-    font-weight: bold;
-}
-
-.imagenes {
-    width: 100px;
-    height: 100px;
-    border-radius: 10%;
-}
-
-.ajustar {
-    display: flex;
-    justify-content: space-around;
-    width: 80%;
-    margin: 1rem auto;
-    padding: 0 .5rem;
-    flex: 1 1 0;
-    align-items: center;
-}
-
-.texto{
-    font-size: var(--tamTexto);
-    margin: 2rem;
+    color: var(--colorSubTitulos);
     font-family: var(--fuentePrincipal);
+    margin-top: 2em;
 }
 
-.contenedor{
-    background: rgba(15, 106, 180, 0.4);
-    width: 80%;
-    margin: 2rem auto;
-    border-radius: 30px;
+.tabla{
+    width: 90%;
+    margin: auto auto;
 }
 
-body{
-    background: var(--blanco);
+table th{
+    width: 15em;
+}
+
+table{
+    margin: 2em auto;
+    border-collapse: collapse;
+}
+
+td, th{
+    font-family: var(--fuentePrincipal);
+    text-align: center;
+    padding: 1rem;
+    font-size: 18px;
+}
+
+tr:nth-of-type(1) > th{
+    font-size: 23px;
 }
