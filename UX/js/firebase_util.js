@@ -109,7 +109,7 @@ export default class FirebaseUtil{
                 var respuesta = logica.EsUserAdmin(email);
                 if(respuesta.rol == "admin"){ console.log("PAGINA ADMIN")} else{console.log("PAGINA USUARIO")}
 
-                window.location.replace("./usuario.html");
+                window.location.replace("./admin.html");
                 // ...
             } else {
                 // User is signed out
