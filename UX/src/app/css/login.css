@@ -15,14 +15,17 @@
 }
 
 .PaginaLogin{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    margin: auto auto;
     background-color: var(--colorTransparente);
     width: 40%;
-    margin: auto auto;
     border-radius: 40px;
+    align-items: center;
 
-}
-.decoracion{
-    padding-top: 7rem;
 }
 .titulo{
     padding: 1rem 1rem;
@@ -32,9 +35,6 @@
     margin-bottom: 0;
     font-family: var(--fuentePrincipal);
     text-shadow: 3px 3px 3px #0278AE, 2px 2px 1px #000000;
-}
-.PaginaLogin{
-    align-items: center;
 }
 .campos{
     text-align: center;
@@ -166,7 +166,7 @@ debemos poner definir este valor.
 .content-input input[type=checkbox]:checked + i:before{
 	left: 22px;
 	-webkit-box-shadow: -3px 0 3px 0 rgba(0,0,0,0.2);
-	box-shadow: 3px 0 -3px 0 rgba(0,0,0,0.2);
+	box-shadow: 3px 0 3px 0 rgba(0,0,0,0.2);
 }
  
 .content-input input[type=checkbox]:checked + i{
