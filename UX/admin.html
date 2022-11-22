@@ -5,6 +5,18 @@
     <title>ADMINISTRADOR</title>
     <link rel="stylesheet" type="text/css" href="src/app/css/admin.css">
     <link rel="stylesheet" type="text/css" href="src/app/css/menu.css">
+
+    <script type="module">
+        import logicaFake from "./JS/Logica_fake.js"
+        document.onreadystatechange = async function() {
+            if( document.readyState === "complete"){
+                let logica = new logicaFake()
+                //Asignando la funcionalidad al boton de buscar muestra
+                await logica.buscar_micro();
+            }
+        }
+    </script>
+
 </head>
 
 <body>

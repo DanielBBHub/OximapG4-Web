@@ -132,6 +132,42 @@ export default class LogicaFake {
 
     // ---------------------------------------------------------
     // ---------------------------------------------------------
+
+    
+    /*
+    * brief:Busca la muestra en la base de datos
+    * @param {JSON}: {error: string, mediciones: Medicion[]}
+    * @returns Muestra
+    * @throws {Error}: Si hay un error en la peticion
+    */
+
+    async buscar_micro() {
+        console.log("EMPIEZA LA EJECUCION DE: Micros()")
+
+		var metodo = this;
+        //Se crea la peticion /muestra
+		var url = IP_PUERTO + '/Micros'
+		await fetch(url , {
+            method: 'GET',
+            headers: new Headers(
+            //Partes del header que se han añadido para 
+            //posibilitar la comunicacion con el servidor REST
+            { 'Users-Agent' : 'Daniel',
+            'Access-Control-Allow-Origin': '*',
+            'Content-type': 'application/json'}),
+            mode: "cors"
+            
+
+        }) 
+        //Se recoge el JSON de la cabecera de la respuesta 
+        .then(response => console.log(response.json()) )
+        
+        //Una vez recogida se pasa la muestra y la fecha de esta a la funcion obtenerMicrosActivos()
+        .catch(err => console.error(err));
+         
+		console.log("ACABA LA EJECUCION DE: buscar_micro()")
+    }
+
 }
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
