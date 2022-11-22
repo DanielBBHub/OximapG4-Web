@@ -19,14 +19,13 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    margin: auto auto;
+    margin: 2rem auto;
     background-color: var(--colorTransparente);
     width: 40%;
     border-radius: 40px;
     align-items: center;
-
 }
+
 .titulo{
     padding: 1rem 1rem;
     font-size: var(--tamTitulos);
@@ -216,6 +215,7 @@ debemos poner definir este valor.
     color: var(--letras);
 }
 
+
 .modal{
     text-decoration: none;
     border: none;
@@ -238,6 +238,13 @@ debemos poner definir este valor.
     align-self: center;
 }
 
-
+#error{
+    margin: auto auto;
+    height: 30px;
+    width: 350px;
+    font-family: var(--fuentePrincipal);
+    font-size: 14px;
+    color: red;
+}
 
 

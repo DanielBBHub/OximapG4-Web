@@ -63,3 +63,22 @@ td, th{
 tr:nth-of-type(1) > th{
     font-size: 23px;
 }
+
+.btn_tabla{
+    cursor: pointer;
+    color: black;
+    width: auto;
+    height: auto;
+    font-family: var(--fuentePrincipal);
+    padding: 0.5rem;
+    border-radius: 12px;
+    background-color: var(--blanco);
+    border-color: 1px solid var(--colorSubTitulos);
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+.btn_tabla:hover{
+    background: rgba(15, 106, 180, 0.4);
+}

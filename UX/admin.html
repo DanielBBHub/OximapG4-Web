@@ -25,21 +25,31 @@
     <div class="contenedorAdmin">
         <h2 id="nombreAdministracion" class="nombreAdministracion">AYUNTAMIENTO DE VALENCIA</h2>
         <h4 class="subtitulo">Tabla de sensores</h4>
+
+        <button class="btn_tabla" id="btn_tabla">Actualizar Tabla</button>
+
         <div class="tabla">
             <table border="1">
                 <tr>
-                    <th>CORREO USUARIO</th>
                     <th>ID SENSOR</th>
-                    <th>DISPONIBILIDAD</th>
+                    <th>CORREO USUARIO</th>
                     <th>ÚLTIMA VEZ ACTIVO</th>
+                    <th>DISPONIBILIDAD</th>
+                </tr>
+
+                <tr>
+                    <th>2</th>
+                    <th>albaprueba@gmail.com</th>
+                    <th>21/11/2021 18:30</th>
+                    <th>Activo</th>
                 </tr>
 
                 <!-- Está tabla tiene que salir de la base de datos -->
                 <tr>
-                    <th>albaprueba@gmail.com</th>
-                    <th>2</th>
-                    <th>Activo</th>
-                    <th>21/11/2021 18:30</th>
+                    <th class="idSensor">  </th>
+                    <th class="correoUsuario">  </th>
+                    <th class="ultimaVez">  </th>
+                    <th class="disponibilidad">  </th>
                 </tr>
 
 
@@ -50,5 +60,26 @@
 </div>
 <!---------------------------------------------------------------------------------->
 
+<script type="module">
+    import logicaFake from "./js/Logica_fake.js"
+    document.onreadystatechange = function() {
+        if( document.readyState === "complete"){
+            let logica = new logicaFake()
+
+            //Asignando la funcionalidad al boton de buscar muestra
+            let boton_buscar_muestra = document.getElementById("boton_buscar_muestra")
+            boton_buscar_muestra.addEventListener("click" , async function(){
+                var res = await logica.buscar_muestra()
+            })
+
+
+            //Asignando la funcionladidad al boton de insertar muestra
+            let boton_intoducir_muestra = document.getElementById("boton_introducir_muestra")
+            boton_intoducir_muestra.addEventListener("click" , async function(){
+                var res = logica.insertarMedicion()
+            })
+        }
+    }
+</script>
 </body>
 </html>
