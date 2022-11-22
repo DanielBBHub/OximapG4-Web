@@ -101,7 +101,7 @@ module.exports = class Logica {
     * 
     */
 
-    EsUsuarioAdmin(email) {
+    esUsuarioAdmin(email) {
         var textoSQL = "SELECT rol FROM Roles WHERE CorreoUsuario=$email"; // SQL
         var valores = {$email: email}
         return new Promise((resolver, rechazar) => { // Promesa
