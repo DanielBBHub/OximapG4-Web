@@ -25,25 +25,22 @@
     <body>
 
     <!--------------------------------- ENCABEZADO ------------------------------------->
-    <header class="encabezadousuario" id="encabezado_">
-        <div class="divlogoHeader">
-            <a class="item" href="usuario.html"><img class="logo" src="src/app/img/logoredondo.png"
-                                                     alt="Logo OXIMAP"></a>
-        </div>
-
-        <div class="headerLogin">
-            <a class="item" href="index.html"><img class="login loginuser" src="src/app/img/cerrar-sesion.png"
-                                                   alt="login"></a>
-        </div>
+    <header>
+        <section class="wrapper">
+            <nav>
+                <li><a href="./usuario.html"><img src="./src/app/img/logo2-removebg-preview.png" class="logo"></a></li>
+                <li><a href="./index.html"><img src="./src/app/img/cerrar-sesionblanco.png" class="loginuser"></a></li>
+            </nav>
+        </section>
 
     </header>
     <!---------------------------------------------------------------------------------->
 
     <!------------------------------------ Editar Perfil ------------------------------->
-
+    <div class="decoracion">
     <div class="contenedor">
         <div class="TxtPerfil">
-            <h2 class="titulo">PERFIL</h2>
+            <h2 class="titulo">EDITA TU PERFIL</h2>
         </div>
         <br>
         <div class="border">
@@ -56,8 +53,6 @@
         <h4 id="nombreUsuarioTxt" class="texto">
         </h4>
         <input id="cambiarNombreTXT" class="escribir"></input>
-        <br>
-        <br>
         <br>
         <h4 class="camposPerfil" >Ingrese tu nuevo correo:</h4>
         <h4 id="correoUsuarioTxt" class="texto">
@@ -82,7 +77,7 @@
         </dialog>
 
     </div>
-
+    </div>
     <!---------------------------------------------------------------------------------->
 
     <!--------------------------------- FOOTER ----------------------------------------->
@@ -107,7 +102,7 @@
                 apiKey: "AIzaSyBBGGWQJI519Xm8VM8Ocn0P9RSxdSK-s5I",
                 authDomain: "oximapg4-login.firebaseapp.com",
                 projectId: "oximapg4-login",
-                storageBucket: "oximapg4-login.appspot.com",
+                //storageBucket: "oximapg4-login.appspot.com",
                 messagingSenderId: "905799197481",
                 appId: "1:905799197481:web:e136730907ae07b3b90d38",
                 measurementId: "G-KCP6LXPCH5",

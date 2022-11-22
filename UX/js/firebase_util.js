@@ -1,18 +1,23 @@
+
+// ...............................................................................................................
+// ...............................................................................................................
+
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateEmail, updatePassword, updateProfile, onAuthStateChanged, setPersistence, browserSessionPersistence , sendEmailVerification} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
 import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-storage.js";
 
-// .................................................................
-// email,password:str
-// -->
-// registrar_usuario_correo_contrasenya() -->
-// 
-// .................................................................
+// ...............................................................................................................
+// ............................................................................................................... 
 
 import logica_fake from "./logica_fake.js"
 var logica = new logica_fake();
 
+// ...............................................................................................................
+// ...............................................................................................................
+
 export default class FirebaseUtil{
    
+    // .................................................................
+    // .................................................................
 
     async init(user)
     {
@@ -20,19 +25,28 @@ export default class FirebaseUtil{
     }   
     
     // .................................................................
+    // .................................................................
     // email,password:str
     // -->
     // registrar_usuario_correo_contrasenya() -->
-    // 
-    // .................................................................
-    async registrar_usuario_correo_contrasenya( email, password)
-    {
-        var metodo = this;
-        //En esta funcion se llama a createUserWithEmailAndPassword(), funcion de la api de Firebase
+    //En esta funcion se llama a createUserWithEmailAndPassword(), funcion de la api de Firebase
         //que nos permitira crear un usuario nuevo con los siguientes argumentos:
         //auth:	Autorización	La instancia de autenticación .
         //Email: str	La dirección de correo electrónico de los usuarios.
         //password: str	La contraseña de los usuarios. 
+    // .................................................................
+    // .................................................................
+
+    /*
+        @biref: Funcion que se encarga de cerrar la sesion del usuario
+        @param {string} email
+        @param {string} password
+        @return {string} mensaje de error
+
+    */
+    async registrar_usuario_correo_contrasenya( email, password)
+    {
+        var metodo = this;
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -56,19 +70,29 @@ export default class FirebaseUtil{
     }
 
     // .................................................................
+    // .................................................................
     // email,password:str
     // -->
     // iniciar_sesion_correo_contrasenya() -->
-    // 
-    // .................................................................
-    async iniciar_sesion_correo_contrasenya( email, password)
-    {
-        var metodo = this;
-        //En esta funcion se llama a signInWithEmailAndPassword(), funcion de la api de Firebase
+    // En esta funcion se llama a signInWithEmailAndPassword(), funcion de la api de Firebase
         //que nos permitira iniciar la sesion de un usuario registrado con los siguientes argumentos:
         //auth:	Autorización	La instancia de autenticación .
         //Email: str	La dirección de correo electrónico de los usuarios.
         //password: str	La contraseña de los usuarios.
+    // .................................................................
+    // .................................................................
+
+    /*
+
+        @biref: Funcion que se encarga de iniciar sesion con el correo y la contrasenya
+        @param {string} email
+        @param {string} password
+        @return {string} mensaje de error
+    */
+
+    async iniciar_sesion_correo_contrasenya( email, password)
+    {
+        var metodo = this;
 
         /*console.log(email)
         console.log(password)
@@ -85,7 +109,7 @@ export default class FirebaseUtil{
                 var respuesta = logica.EsUserAdmin(email);
                 if(respuesta.rol == "admin"){ console.log("PAGINA ADMIN")} else{console.log("PAGINA USUARIO")}
 
-                window.location.replace("./usuario.html");
+                window.location.replace("./admin.html");
                 // ...
             } else {
                 // User is signed out
@@ -104,21 +128,31 @@ export default class FirebaseUtil{
         
     }
 
-
+    // .................................................................
     // .................................................................
     // email,password:str
     // -->
     // iniciar_sesion_correo_contrasenya() -->
-    // 
+    //En esta funcion se llama a updateProfile(),  updateEmail(), updatePassword)() funcion de la 
+        //api de Firebase que nos permitira entrar con la cuenta de usuario de google siguientes argumentos:
+        //updateProfile()
+        //user:	currentUser	La instancia del usuario con sesion activa .
+        //displayName: str	Nombre del usuario
+        //photoURL: str Referencia a la imagen de usuario
+        //updateEmail()
+        //user:	currentUser	La instancia del usuario con sesion activa .
+        //email: str Correo nuevo
     // .................................................................
+    // .................................................................
+
+    /*
+        @biref: Funcion que se encarga de iniciar sesion con la cuenta de google
+        @return {string} mensaje de error
+    */
     async iniciar_sesion_proveedor_google()
     {
         var metodo = this;
-        //En esta funcion se llama a signInWithPopup(), funcion de la api de Firebase
-        //que nos permitira entrar con la cuenta de usuario de google siguientes argumentos:
-        //auth:	Autorización	La instancia de autenticación .
-        //provider: GoogleAuthProvider	El proveedor de la autentificación
-        
+
         const provider = new GoogleAuthProvider();
         const auth = getAuth();
         
@@ -160,6 +194,17 @@ export default class FirebaseUtil{
         
     }
 
+    // .................................................................
+    // .................................................................
+    // mostrar_nombre() --> nombre:str
+    // .................................................................
+    // .................................................................
+
+    /*
+        @biref: Funcion que se encarga de mostrar el nombre del usuario
+        @return {string} nombre del usuario
+    */
+
     async mostrar_nombre()
     {
         const auth = getAuth();
@@ -181,20 +226,22 @@ export default class FirebaseUtil{
         }
     }
 
+    // .................................................................
+    // .................................................................
+    // url --> editar_perfil() --> url:str
+    // .................................................................
+    // .................................................................
+
+    /*
+        @biref: Funcion que se encarga de actualizar el perfil
+        @param {string} url
+        @return {string} mensaje de error
+
+    */
+
     async editar_perfil(url)
     {
         var metodo = this;
-        //En esta funcion se llama a updateProfile(),  updateEmail(), updatePassword)() funcion de la 
-        //api de Firebase que nos permitira entrar con la cuenta de usuario de google siguientes argumentos:
-        //updateProfile()
-        //user:	currentUser	La instancia del usuario con sesion activa .
-        //displayName: str	Nombre del usuario
-        //photoURL: str Referencia a la imagen de usuario
-        //updateEmail()
-        //user:	currentUser	La instancia del usuario con sesion activa .
-        //email: str Correo nuevo 
-        
-
         let nombre = document.getElementById("cambiarNombreTXT")
         let email = document.getElementById("cambiarCorreoTXT")
 
@@ -223,6 +270,19 @@ export default class FirebaseUtil{
        
     } 
 
+    // .................................................................
+    // .................................................................
+    // url --> mostrar_info_usuario() --> url:str
+    // .................................................................
+    // .................................................................
+
+    /*
+        @biref: Funcion que se encarga de mostrar la informacion del usuario
+        @param {string} url
+        @return {string} mensaje de error
+
+    */
+
     async mostrar_info_usuario(user)
     {
              console.log(user)
@@ -243,6 +303,19 @@ export default class FirebaseUtil{
                 }
 
     }
+
+    // .................................................................
+    // .................................................................
+    // imagesref --> mostrar_imagen_usuario() --> url:str
+    // .................................................................
+    // .................................................................
+
+    /*
+        @biref: Funcion que se encarga de mostrar la imagen del usuario
+        @param {string} url
+        @return {string} mensaje de error
+
+    */
     
     async mostrar_imagen_usuario(imagesRef)
     {
@@ -258,10 +331,19 @@ export default class FirebaseUtil{
                 });
     }
 
-    /* 
-    errorMessage: str
-    escribir_mensaje_error() ->
+    // .................................................................
+    // .................................................................
+    // error --> mostrar_error() --> error:str
+    // .................................................................
+    // .................................................................
+
+    /*
+        @biref: Funcion que se encarga de mostrar el error
+        @param {string} error
+        @return {string} mensaje de error
+
     */
+   
     async escribir_mensaje_error(errorMessage)
     {
         var metodo = this;

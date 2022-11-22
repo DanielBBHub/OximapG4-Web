@@ -12,18 +12,14 @@
     --fuentePrincipal: Montserrat;
 }
 
-.TxtPerfil{
-    margin-top: 5rem;
-}
 
 .contenedor{
     width: 80%;
     text-align: center;
-    margin: 2rem auto;
+    margin: auto auto;
 }
 
 .titulo{
-    padding-top: 1rem;
     font-size: var(--tamTitulos);
     text-align: center;
     color: var(--colorSubTitulos);
@@ -35,17 +31,18 @@
     font-family: var(--fuentePrincipal);
     font-size: 1.3rem;
     text-align: center;
-    margin-top: 3px;
+    margin-top: 2rem;
     margin-bottom: -0rem;
 }
 
 .texto{
-    margin-top: 0.5rem;
+    margin: 0.5rem;
     font-size: var(--tamTexto);
     font-family: var(--fuentePrincipal);
     color: darkgray;
 }
 .textot{
+    cursor: pointer;
     margin-top: 0.5rem;
     font-size: var(--tamTexto);
     font-family: var(--fuentePrincipal);
@@ -56,11 +53,9 @@
     color: var(--colorPrincipal);
 }
 
-.encabezadousuario{
-    border-bottom: 2px solid var(--colorPrincipal);
-}
 
 .btneditar{
+    cursor: pointer;
     color: white;
     width: 180px;
     height: auto;
@@ -87,6 +82,7 @@
 }
 
 .btn_cerrar{
+    cursor: pointer;
     background-color: var(--colorTitulos);
     color: white;
     border-radius: 12px;
@@ -112,5 +108,11 @@
     text-decoration: none;
     border: none;
     border-radius: 30px;
+    margin: auto auto;
+    padding: 2rem 2rem;
 }
 
+
+.decoracion{
+    padding-top: 7rem;
+}

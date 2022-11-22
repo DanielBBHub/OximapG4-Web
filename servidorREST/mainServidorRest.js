@@ -1,6 +1,15 @@
 // .....................................................................
 // mainServidorREST.js
 // .....................................................................
+/*
+ *  \brief     mainServidorREST.js
+ * \details   mainServidorREST.js es el punto de entrada de la aplicacion
+ * \details   Carga la logica y la base de datos y arranca el servidor REST
+ * \details   Carga las reglas REST
+ * \details   Arranca el servidor REST
+ * \details   Captura control-c para cerrar el servicio ordenadamente
+*/
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const Logica = require( "../logica/Logica.js" ) // Importar la logica y el objeto Logica
@@ -8,6 +17,14 @@ const LogicaMicros = require( "../logica/LogicaMicros.js" ) // Importar la logic
 const cors = require('cors') // Importo el cors para el servidor
 // .....................................................................
 // .....................................................................
+
+/*
+ * 
+ * @param {GuardarLogica} fichero 
+ * @returns Objeto Logica
+ * @throws Error
+ */
+
 function cargarLogica( fichero ) { // Metodo para cargar la logica
   return new Promise( (resolver, rechazar) => { // Creo una promesa para cargar la logica 
 

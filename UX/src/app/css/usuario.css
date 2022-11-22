@@ -12,10 +12,17 @@
     --fuentePrincipal: Montserrat;
 }
 
+
+.decoracion{
+    padding-top: 7rem;
+}
+
 .contenedorUsuario{
     width: 80%;
     text-align: center;
-    margin: 5rem auto;
+    margin: auto auto;
+
+
 }
 
 .imgUsuario{
@@ -60,6 +67,7 @@
 }
 
 .btnBD{
+    cursor: pointer;
     color: white;
     width: 180px;
     height: auto;
@@ -76,9 +84,7 @@
 
 }
 
-.loginuser{
-    height: 2.5rem;
-}
+
 
 .verPerfil{
     margin-top: 1rem;

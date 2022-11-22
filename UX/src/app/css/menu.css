@@ -98,6 +98,10 @@ footer{
 p {
     margin-bottom: 20px;
 }
+
+header{
+    width: 100%;
+}
 .wrapper {
     width: 80%;
     margin: auto;
@@ -146,5 +150,10 @@ nav ul li a:hover {
 
 .login {
     width: 2rem;
+    padding: 20px;
+}
+
+.loginuser{
+    height: 2.4rem;
     padding: 20px;
 }
