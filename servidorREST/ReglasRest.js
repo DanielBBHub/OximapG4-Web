@@ -140,6 +140,56 @@ module.exports.cargar = function (servidorExpress, laLogica, laLogicaMicros) {
   // .......................................................
   // .......................................................
 
+  /*
+    * brief: Regla que extraiga todos los campos de la bbdd
+    * @param {express.Request} req
+    * @param {express.Response} res
+    * @param {express.NextFunction} next
+    * @returns {JSON}: {error: string, rol: string}
+  */
+
+  servidorExpress.get("/Micros", 
+  async function (peticion, respuesta){
+      console.log(" * GET /Micros");
+      var error = null
+
+      try{
+        
+        //buscar todos los registros de la base
+        var res = await laLogicaMicros.obtenerMicrosActivos();
+        console.log(res);
+        
+      }
+
+
+      catch (e){
+        error = e
+      }
+
+      if (error != null){   
+        if( res.length == 0 ) {
+            // 404: not found
+            respuesta.status(404).send( "No encontré registros" )
+            return
+        }
+    }
+
+    console.log(res)
+    respuesta.send( JSON.stringify( res ) )
+
+  })
+
+  // .......................................................
+  // .......................................................
+
+  /*
+    * brief: Regla que extraiga todos los registros de un micro en concreto
+    * @param {express.Request} req
+    * @param {express.Response} res
+    * @param {express.NextFunction} next
+    * @returns {JSON}: {error: string, rol: string}
+  */
+
 }; // ()
 // .....................................................................
 // .....................................................................

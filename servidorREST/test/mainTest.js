@@ -63,5 +63,21 @@ const IP_PUERTO = "http://localhost:8080";
       ); // .post
       //console.log("llega?");
     })//it
+
+    // ....................................................
+    // ....................................................
+    it( "probar GET /Micros", function( hecho ) {
+      request.get(
+      { url : IP_PUERTO+"/Micros",
+      headers : { 'User-Agent' : 'Daniel'}},
+          function( err, respuesta, carga ) {
+            console.log(carga)
+              var solucion = JSON.parse(carga)
+              console.log(solucion)
+              assert.equal( solucion[0].correoUser, 'prueba23@gmail.com', "¿El registro no coincide?" )
+              hecho()
+              } // callback
+          ) // .get
+      }) // it
   }); // describe
 
