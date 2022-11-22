@@ -161,7 +161,6 @@ module.exports.cargar = function (servidorExpress, laLogica, laLogicaMicros) {
         
       }
 
-
       catch (e){
         error = e
       }
