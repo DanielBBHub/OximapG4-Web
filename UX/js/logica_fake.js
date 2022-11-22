@@ -160,13 +160,29 @@ export default class LogicaFake {
 
         }) 
         //Se recoge el JSON de la cabecera de la respuesta 
-        .then(response => console.log(response.json()) )
-        
-        //Una vez recogida se pasa la muestra y la fecha de esta a la funcion obtenerMicrosActivos()
+        .then(response => response.json())
+        //Una vez recogida se pasa la muestra y la fecha de esta a la funcion cargar_muestra()
+        .then(data => 
+            this.cargarMicro(data)
+            )
         .catch(err => console.error(err));
          
 		console.log("ACABA LA EJECUCION DE: buscar_micro()")
     }
+
+    cargarMicro( data ){
+        console.log("EMPIEZA LA EJECUCION DE: cargarMuestra()")
+
+        var metodo = this
+        console.log(data) // data es un array que tiene 3 objetos
+        
+		document.getElementById("idSensor").textContent = data[0].IdMicro;
+        document.getElementById("correoUsuario").textContent = data[0].correoUser;
+        document.getElementById("ultimaVez").textContent = data[0].UltimaVezActivo;
+        document.getElementById("disponibilidad").textContent = data[0].Disponibilidad;
+
+        console.log("ACABA LA EJECUCION DE: cargarMuestra()")
+	}
 
 }
 // ---------------------------------------------------------------------
