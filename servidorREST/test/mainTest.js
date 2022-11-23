@@ -79,5 +79,25 @@ const IP_PUERTO = "http://localhost:8080";
               } // callback
           ) // .get
       }) // it
+
+      it("probar POST /ActualizarDisponibilidad", function (hecho) { // Probar Post
+        var datos = { // Datos de la medicion a enviar al servidor REST
+          IdMicro: 123456 // Muestra de la medicion
+        };
+        request.post(
+          {
+            headers: { "User-Agent": "Daniel", "Content-Type": "application/json" }, // Cabeceras de la peticion
+            url: IP_PUERTO + "/ActualizarDisponibilidad", // URL del servidor REST
+            body: JSON.stringify(datos), // Datos de la medicion a enviar al servidor REST en formato JSON
+          }, 
+          function (err, respuesta, carga) { // Callback de la peticion POST al servidor REST 
+            //console.log("asserts"); Mensaje de depuracion para ver que se ejecuta el callback
+            assert.equal(err, null, "¿ha habido un error?"); // Comprobar que no hay error
+            assert.equal(respuesta.statusCode, 200, "¿El código no es 200 (OK)"); // Comprobar que el codigo de respuesta es 200 (OK) 
+            hecho(); // Indicar que el test ha terminado
+          } // callback
+        ); // .post
+        //console.log("llega?");
+      })//it
   }); // describe
 

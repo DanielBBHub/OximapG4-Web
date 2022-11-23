@@ -58,6 +58,7 @@ describe("Test 2: Conectar, añadir, comprobar y cerrar [Micros]", function () {
     // ....................................................
     // ....................................................
 
+    
     it("cerrar conexión a la base de datos", // Cierra la conexión a la base de datos 
         async function () { // Función asíncrona para cerrar la conexión a la base de datos
             try { // Intenta cerrar la conexión a la base de datos

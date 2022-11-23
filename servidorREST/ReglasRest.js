@@ -181,13 +181,23 @@ module.exports.cargar = function (servidorExpress, laLogica, laLogicaMicros) {
   // .......................................................
   // .......................................................
 
-  /*
-    * brief: Regla que extraiga todos los registros de un micro en concreto
-    * @param {express.Request} req
-    * @param {express.Response} res
-    * @param {express.NextFunction} next
-    * @returns {JSON}: {error: string, rol: string}
-  */
+  servidorExpress.post("/ActualizarDisponibilidad", 
+  async function (peticion, respuesta) {
+    console.log(" * POST /ActualizarDisponibilidad ");
+    var datos = JSON.parse(peticion.body);
+    console.log( datos.IdMicro);
+
+    try{
+
+      var ret = await laLogicaMicros.obtenerMicrosActivos(datos.idMicro);
+      respuesta.json(ret)
+      
+    }
+    catch (e){
+      error = e
+      console.log(e);
+    } 
+  }); // post /alta
 
 }; // ()
 // .....................................................................
