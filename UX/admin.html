@@ -15,7 +15,11 @@
                 
                 let btn_tabla = document.getElementById("btn_tabla")
                     btn_tabla.addEventListener("click" , async function(){
-                    var res = await logica.buscar_micro();
+                        //borrar la tabla anterior
+                        let tabla = document.getElementById("tablaBD")
+                        tabla.innerHTML = ""
+                        var res = await logica.buscar_micro();
+
                     })
             }
 
@@ -45,18 +49,18 @@
         <h2 id="nombreAdministracion" class="nombreAdministracion">AYUNTAMIENTO DE VALENCIA</h2>
         <h4 class="subtitulo">Tabla de sensores</h4>
 
-        <button class="btn_tabla" id="btn_tabla">Actualizar Tabla</button>
+        <button class="btn_tabla" id="btn_tabla">GENERAR TABLA</button>
 
-        <div class="tabla">
-            <table border="1" id="tablaBD">
-                <tr>
+        <div class="tablaBD">
+            <table border="1" >
+                <tbody>
                     <th>ID SENSOR</th>
                     <th>CORREO USUARIO</th>
                     <th>ÚLTIMA VEZ ACTIVO</th>
                     <th>DISPONIBILIDAD</th>
-                </tr>
-   
-            </table>
+                </tbody>
+            </table> 
+            <table class="tablaBD" id="tablaBD"></table>
         </div>
     </div>
 </div>
