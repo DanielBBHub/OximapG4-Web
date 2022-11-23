@@ -18,8 +18,11 @@
                     var res = await logica.buscar_micro();
                     })
             }
+
         }
+
     </script>
+
 
 </head>
 
@@ -45,24 +48,14 @@
         <button class="btn_tabla" id="btn_tabla">Actualizar Tabla</button>
 
         <div class="tabla">
-            <table border="1">
+            <table border="1" id="tablaBD">
                 <tr>
                     <th>ID SENSOR</th>
                     <th>CORREO USUARIO</th>
                     <th>ÚLTIMA VEZ ACTIVO</th>
                     <th>DISPONIBILIDAD</th>
                 </tr>
-
-                <!-- Está tabla tiene que salir de la base de datos -->
-                <tr>
-                    <th id="idSensor">  </th>
-                    <th id="correoUsuario">  </th>
-                    <th id="ultimaVez">  </th>
-                    <th id="disponibilidad">  </th>
-                </tr>
-
-
-                
+   
             </table>
         </div>
     </div>
