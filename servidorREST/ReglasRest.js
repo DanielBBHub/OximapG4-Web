@@ -157,7 +157,7 @@ module.exports.cargar = function (servidorExpress, laLogica, laLogicaMicros) {
         
         //buscar todos los registros de la base
         var res = await laLogicaMicros.obtenerMicrosActivos();
-        console.log(res);
+        
         
       }
 

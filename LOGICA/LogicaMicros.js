@@ -163,6 +163,24 @@ module.exports = class LogicaMicros {
                     })
             })
     }
+    /*
+     * 
+     * @returns Devuelve la promesa de la consulta
+     * @returns Devuelve un error si no se puede consultar
+     * buscarMedicion() --> {IdMicro:R}
+     */
+    
+    // .................................................................
+    actualizarDisponibilidad(IdMicro) { // Busca una Medicion en la base de datos
+        var textoSQL = "UPDATE Micros SET Disponibilidad = 0 WHERE IdMicro=$IdMicro"; // SQL
+        var valoresParaSQL = {$IdMicro:IdMicro}
+        return new Promise((resolver, rechazar) => { // Promesa
+            this.laConexion.all(textoSQL, valoresParaSQL, // Consulta
+                (err, res) => {
+                    (err ? rechazar(err) : resolver(res)) // Devuelve la promesa
+                })
+        })
+    }
 
     // .................................................................
     obtenerMicrosPorCorreo(correo) { // Obtiene los micros activos de la base de datos
