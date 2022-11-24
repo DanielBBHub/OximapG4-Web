@@ -119,7 +119,7 @@ module.exports.cargar = function (servidorExpress, laLogica, laLogicaMicros) {
       try{
         //Buscar la medicion del ultimo id
       
-        var res = await laLogica.EsUsuarioAdmin(email)
+        var res = await laLogica.esUsuarioAdmin(email)
       }
 
       catch (e){
