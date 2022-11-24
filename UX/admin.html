@@ -86,23 +86,31 @@
         <h2 id="nombreAdministracion" class="nombreAdministracion">AYUNTAMIENTO DE VALENCIA</h2>
         <h4 class="subtitulo">Tabla de sensores</h4>
 
-        <input type="submit" class="btn_tabla" id="btn_tabla" value="GENERAR TABLA">
+        <input type="submit" class="generar" id="btn_tabla" value="GENERAR TABLA">
+        <div class="filtro">
+
+            <input class="escribir"  type="search" id="Buscarid" placeholder="Introduce el ID">
+            <input class="btn_tabla espacio" style="margin-right: 3rem" id="buscarid" type="submit" value="Buscar ID">
+            <input class="escribir" type="search" id="Buscarcorreo" placeholder="Introduce el correo a buscar">
+            <input class="btn_tabla" id="buscarcorreo" type="submit" value="Buscar correo">
+
+
+            <input class="btn_tabla" style="margin-left: 2rem" id="filtro_disponibilidad" type="submit" value="Mostrar Disponibilidad">
+        </div>
         <div class="tablaBD">
             <table border="1" >
                 <tbody>
                     <th>ID SENSOR</th>
                     <th>CORREO USUARIO</th>
                     <th>ÚLTIMA VEZ ACTIVO</th>
-                    <th id="filtro_disponibilidad">DISPONIBILIDAD</th>
+                    <th>DISPONIBILIDAD</th>
                 </tbody>
             </table> 
             <table border="1" class="tablaBD" id="tablaBD"></table>
         </div>
     </div>
 </div>
-<input type="search" id="Buscarcorreo" placeholder="Introduce el correo a buscar"> <input class="btn_tabla" id="buscarcorreo" type="submit" value="Buscar correo">
 
-<input type="search" id="Buscarid" placeholder="Introduce el ID"> <input class="btn_tabla" id="buscarid" type="submit" value="Buscar ID">
 <!---------------------------------------------------------------------------------->
 </body>
 </html>
