@@ -352,18 +352,18 @@ export default class FirebaseUtil{
         if(errorMessage.includes("email"))
         {
             console.log("Mail: " + errorMessage)
-            var email = document.getElementById("error").textContent = "Compruebe que ha introducido bien la direccion de correo"
+            var email = document.getElementById("error").textContent = "Compruebe que ha introducido bien la direccion de correo."
             return
         } 
         if(errorMessage.includes("password"))
         {
             console.log("Pass: " + errorMessage)
-            var email = document.getElementById("error").textContent = "Compruebe que ha introducido bien las contraseñas \n Deben tener 6 caracteres minimo"
+            var email = document.getElementById("error").textContent = "Compruebe que ha introducido bien las contraseñas. \n Deben tener 6 caracteres minimo"
             return
 
-        } 
+        }
         else{
-            var email = document.getElementById("error").textContent = "Rellene los campos correctamente"
+            var email = document.getElementById("error").textContent = "Rellene los campos correctamente."
             return
         }
     }
