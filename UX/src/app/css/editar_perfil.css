@@ -116,3 +116,45 @@
 .decoracion{
     padding-top: 7rem;
 }
+
+
+
+
+.profile-img {
+    width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+    margin: auto auto;
+  position: relative;
+}
+
+.profile-img img {
+  position: absolute;
+  width: 150%;
+  left: -25%;
+}
+
+.profile-img .file {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  font-size: 15px;
+  background: rgba(33, 37, 41, 0.5);
+  color: #fff;
+  text-align: center;
+  padding: 10px 0 25px;
+    font-family: var(--fuentePrincipal);
+
+}
+
+.profile-img .file input {
+  position: absolute;
+  display: block;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  cursor: pointer;
+}

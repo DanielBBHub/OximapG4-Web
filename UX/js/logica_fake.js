@@ -208,6 +208,13 @@ export default class LogicaFake {
       // Crea las hileras de la tabla
       var hilera = document.createElement("tr");
 
+      if((i+1) % 2 != 0){
+        hilera.bgColor = "#eaf4fb";
+        console.log(hilera);
+      }else{
+        hilera.bgColor = "#cdefff";
+      }
+
       for (var j = 0; j < 4; j++) {
 
         var celda = document.createElement("td");

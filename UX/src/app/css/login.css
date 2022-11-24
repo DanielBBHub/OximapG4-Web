@@ -245,6 +245,14 @@ debemos poner definir este valor.
     font-family: var(--fuentePrincipal);
     font-size: 14px;
     color: red;
+    position: relative;
 }
 
+.modal{
+    text-decoration: none;
+    border: none;
+    border-radius: 30px;
+    margin: auto auto;
+    padding: 2rem 2rem;
+}
 

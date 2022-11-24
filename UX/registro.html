@@ -81,6 +81,11 @@
     </p>
     <br>
     <br>
+
+    <dialog id="modal3" class="modal">
+                <p class="texto_negro">Revise el correo para restablecer su contraseña.</p>
+                <button class="btn_cerrar" id="btn_cerrar">Cerrar</button>
+    </dialog>
     
     <!------------------------------------------------------------------------------------------->
 
@@ -139,7 +144,7 @@
 
                     if (!document.getElementById("checkbox").checked) {
                             document.getElementById('texto_no_terminos').style.display = 'block';
-                        } 
+                        }
                     else {
                         document.getElementById('texto_no_terminos').style.display = 'none';
                         if(password == passwordRepetida)
@@ -147,7 +152,12 @@
                             var res = await util.registrar_usuario_correo_contrasenya(email,password)
                         }
                     }
- 
+
+                    btn_cerrar.addEventListener("click", ()=>
+                    {
+                        modal3.close();
+                    })
+
                 })
             } 
         </script>   

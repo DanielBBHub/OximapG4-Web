@@ -44,10 +44,18 @@
         </div>
         <br>
         <div class="border">
-            <img id="imgUsuario" class="imgUsuario" src="src/app/img/usuario.png" style="height: 80px; width: 80px;" />
+
             <br>
             <br>
-            <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg">
+
+            <div class="profile-img">
+                <img src="src/app/img/usuario.png" id="imgUsuario" alt="" />
+                <div class="file btn btn-lg btn-primary">
+                    Cambiar foto
+                    <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg" name="file" />
+                </div>
+            </div>
+
         </div>
         <h4 class="camposPerfil" >Ingrese tu nuevo nombre:</h4>
         <h4 id="nombreUsuarioTxt" class="texto">
