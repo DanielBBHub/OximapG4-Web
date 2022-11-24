@@ -138,7 +138,7 @@
                 // Create a reference to 'Imagenes/'
                 
                 let imagesRef = ref(storage, 'Imagenes/');
-                let imagen;
+                let imagen = "";
                 let id_usuario;
                 const image = document.getElementById('imgUsuario');
                 let url = ""
@@ -162,17 +162,24 @@
                     });
                     
                     document.getElementById("editarPerfilBoton").addEventListener("click" , async function(){
-                        const imagesRef = ref(storage, 'Imagenes/' + id_usuario);
-                        console.log(id_usuario)
-                        uploadBytes(imagesRef, imagen).then((snapshot) => {
-                            console.log('Uploaded a blob or file!');
+                        
+                        if(imagen === "")
+                        {
+                            util.editar_perfil(url)
+                            modal2.showModal();
+                        }
+                        else{
+                            const imagesRef = ref(storage, 'Imagenes/' + id_usuario);
+                            console.log(id_usuario)
+                            uploadBytes(imagesRef, imagen).then((snapshot) => {
+                                console.log('Uploaded a blob or file!');
                             });
-                        util.editar_perfil(url)
-                        modal2.showModal();
+                        }
+
 
                     })
                     
-                    document.getElementById("image-input").addEventListener("change", function() {
+                    document.getElementById("image-input").addEventListener("input", function() {
                        
                         const reader = new FileReader();
                         reader.addEventListener("load", () => {

@@ -239,7 +239,7 @@ export default class FirebaseUtil{
 
     */
 
-    async editar_perfil(url)
+    async editar_perfil()
     {
         var metodo = this;
         let nombre = document.getElementById("cambiarNombreTXT")
@@ -247,7 +247,8 @@ export default class FirebaseUtil{
 
         const auth = getAuth();
         const user = auth.currentUser
-        if(!document.getElementById("imgUsuario").src)
+        console.log(nombre.value)
+        if(nombre.value !== "")
         {
             updateProfile(user, {
                 displayName: nombre.value
@@ -266,7 +267,7 @@ export default class FirebaseUtil{
             })
             console.log("Email cambiado")
 
-        }
+        } 
        
     } 
 
