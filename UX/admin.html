@@ -15,6 +15,8 @@
                 
                 let btn_tabla = document.getElementById("btn_tabla")
                     btn_tabla.addEventListener("click" , async function(){
+
+
                         //borrar la tabla anterior
                         let tabla = document.getElementById("tablaBD")
                         tabla.innerHTML = ""
@@ -22,6 +24,10 @@
 
                     })
             }
+
+            document.getElementById("btn_tabla").addEventListener("click",function(){
+                this.value="ACTUALIZAR TABLA";
+            });
 
         }
 
@@ -49,7 +55,7 @@
         <h2 id="nombreAdministracion" class="nombreAdministracion">AYUNTAMIENTO DE VALENCIA</h2>
         <h4 class="subtitulo">Tabla de sensores</h4>
 
-        <button class="btn_tabla" id="btn_tabla">GENERAR TABLA</button>
+        <input type="submit" class="btn_tabla" id="btn_tabla" value="GENERAR TABLA">
 
         <div class="tablaBD">
             <table border="1" >
