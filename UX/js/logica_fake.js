@@ -174,8 +174,22 @@ export default class LogicaFake {
     filtro_tabla.filtrar_por_disponibilidad(this.data)
   }
 
+  filtrar_tabla_correo(correo_buscar)
+  {
+    console.log(correo_buscar)
+    let filtro_tabla = new filtro()
+    filtro_tabla.filtrar_por_correo(this.data, correo_buscar)
+  }
+
+  filtrar_tabla_id(id_buscar)
+  {
+    console.log(id_buscar)
+    let filtro_tabla = new filtro()
+    filtro_tabla.filtrar_por_idMicro(this.data, id_buscar)
+  }
+
   cargarMicro(data) {
-    console.log("EMPIEZA LA EJECUCION DE: cargarMuestra()");
+    console.log("EMPIEZA LA EJECUCION DE: cargarMicros()");
 
     var metodo = this;
     this.data = data
@@ -222,7 +236,7 @@ export default class LogicaFake {
 
     body.appendChild(tabla);
 
-    console.log("ACABA LA EJECUCION DE: cargarMuestra()");
+    console.log("ACABA LA EJECUCION DE: cargarMicros()");
   }
 
 }

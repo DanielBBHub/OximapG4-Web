@@ -18,7 +18,6 @@
                 let btn_tabla = document.getElementById("btn_tabla")
                     btn_tabla.addEventListener("click" , async function(){
 
-
                         //borrar la tabla anterior
                         let tabla = document.getElementById("tablaBD")
                         tabla.innerHTML = ""
@@ -30,12 +29,36 @@
                 this.value="ACTUALIZAR TABLA";
                  });
 
-                document.getElementById("filtro_disponibilidad").addEventListener("click",function(){
-                    logica.filtrar_tabla()
-                });
-            }
+                let btn_filtrar = document.getElementById("filtro_disponibilidad")
+                    btn_filtrar.addEventListener("click" , async function(){
+   
+                        let tabla = document.getElementById("tablaBD")
+                        tabla.innerHTML = ""
+                        logica.filtrar_tabla()
 
-          
+                    })
+
+                    let lookcorreo = document.getElementById("buscarcorreo")
+                    lookcorreo.addEventListener("click" , async function(){
+                        let correo_buscar = document.getElementById("Buscarcorreo").value
+                        console.log(correo_buscar)
+                        let tabla = document.getElementById("tablaBD")
+                        tabla.innerHTML = ""
+                        logica.filtrar_tabla_correo(correo_buscar)
+
+                    })
+
+                    let lookid = document.getElementById("buscarid")
+                    lookid.addEventListener("click" , async function(){
+
+                        let id_buscar = document.getElementById("Buscarid").value
+                        console.log(id_buscar)
+                        let tabla = document.getElementById("tablaBD")
+                        tabla.innerHTML = ""
+                        logica.filtrar_tabla_id(id_buscar)
+
+                    })
+            }
 
         }
 
@@ -64,20 +87,22 @@
         <h4 class="subtitulo">Tabla de sensores</h4>
 
         <input type="submit" class="btn_tabla" id="btn_tabla" value="GENERAR TABLA">
-        <input type="submit" class="btn_tabla" id="filtro_disponibilidad" value="filtrar por disponibilidad">
         <div class="tablaBD">
             <table border="1" >
                 <tbody>
                     <th>ID SENSOR</th>
                     <th>CORREO USUARIO</th>
                     <th>ÚLTIMA VEZ ACTIVO</th>
-                    <th>DISPONIBILIDAD</th>
+                    <th id="filtro_disponibilidad">DISPONIBILIDAD</th>
                 </tbody>
             </table> 
             <table border="1" class="tablaBD" id="tablaBD"></table>
         </div>
     </div>
 </div>
+<input type="search" id="Buscarcorreo" placeholder="Introduce el correo a buscar"> <input class="btn_tabla" id="buscarcorreo" type="submit" value="Buscar correo">
+
+<input type="search" id="Buscarid" placeholder="Introduce el ID"> <input class="btn_tabla" id="buscarid" type="submit" value="Buscar ID">
 <!---------------------------------------------------------------------------------->
 </body>
 </html>
