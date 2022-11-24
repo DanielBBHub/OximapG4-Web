@@ -31,7 +31,7 @@
     <section class="wrapper">
         <nav>
             <li><a href="./usuario.html"><img src="./src/app/img/logo2-removebg-preview.png" class="logo"></a></li>
-            <li><a href="./index.html"><img src="./src/app/img/cerrar-sesionblanco.png" class="loginuser"></a></li>
+            <li><a id="cerrar_sesion" href="./index.html"><img src="./src/app/img/cerrar-sesionblanco.png" class="loginuser"></a></li>
         </nav>
     </section>
 
@@ -116,33 +116,33 @@
         if(document.readyState == "complete")
         {
             
-        document.getElementById("cerrar_sesion").addEventListener("click", function(){
-            signOut(auth).then(() => {
-            // Sign-out successful.
-            window.location.replace("./index.html");
-            }).catch((error) => {
-            // An error happened.
+            document.getElementById("cerrar_sesion").addEventListener("click", function(){
+                signOut(auth).then(() => {
+                // Sign-out successful.
+                window.location.replace("./index.html");
+                }).catch((error) => {
+                // An error happened.
+                });
+            })
+
+            document.getElementById("boton_editar_perfil").addEventListener("click", function () {
+                window.location.replace("./editar_perfil.html");
+
+            })
+
+            onAuthStateChanged(auth, async (user) => {
+                    if(user)
+                {
+                    // Create a root reference
+                    const storage = getStorage();
+                    // Create a reference to 'Imagenes/'
+                    const imagesRef = ref(storage, 'Imagenes/' + user.uid);                
+                
+                    await util.mostrar_imagen_usuario(imagesRef)
+                    await util.mostrar_info_usuario(user) 
+                
+                }
             });
-        })
-
-        document.getElementById("boton_editar_perfil").addEventListener("click", function () {
-            window.location.replace("./editar_perfil.html");
-
-        })
-
-        onAuthStateChanged(auth, async (user) => {
-                if(user)
-            {
-                // Create a root reference
-                const storage = getStorage();
-                // Create a reference to 'Imagenes/'
-                const imagesRef = ref(storage, 'Imagenes/' + user.uid);                
-               
-                await util.mostrar_imagen_usuario(imagesRef)
-                await util.mostrar_info_usuario(user) 
-             
-            }
-        });
     }
     }
 </script>
