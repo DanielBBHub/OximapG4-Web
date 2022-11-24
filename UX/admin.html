@@ -8,9 +8,11 @@
 
     <script type="module">
         import logicaFake from "./JS/Logica_fake.js"
+        
         document.onreadystatechange = async function() {
             if( document.readyState === "complete"){
                 let logica = new logicaFake()
+                
                 //Asignando la funcionalidad al boton de buscar muestra
                 
                 let btn_tabla = document.getElementById("btn_tabla")
@@ -23,11 +25,17 @@
                         var res = await logica.buscar_micro();
 
                     })
+
+                document.getElementById("btn_tabla").addEventListener("click",function(){
+                this.value="ACTUALIZAR TABLA";
+                 });
+
+                document.getElementById("filtro_disponibilidad").addEventListener("click",function(){
+                    logica.filtrar_tabla()
+                });
             }
 
-            document.getElementById("btn_tabla").addEventListener("click",function(){
-                this.value="ACTUALIZAR TABLA";
-            });
+          
 
         }
 
@@ -56,7 +64,7 @@
         <h4 class="subtitulo">Tabla de sensores</h4>
 
         <input type="submit" class="btn_tabla" id="btn_tabla" value="GENERAR TABLA">
-
+        <input type="submit" class="btn_tabla" id="filtro_disponibilidad" value="filtrar por disponibilidad">
         <div class="tablaBD">
             <table border="1" >
                 <tbody>

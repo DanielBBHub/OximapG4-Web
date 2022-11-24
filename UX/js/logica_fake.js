@@ -4,6 +4,7 @@
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
 import firebaseutil from "./firebase_util.js";
+import filtro from "./filtro.js"
 const IP_PUERTO = "http://localhost:8080";
 // ---------------------------------------------------------------------
 // ---------------------------------------------------------------------
@@ -12,6 +13,7 @@ export default class LogicaFake {
   // ---------------------------------------------------------
   async init() {
     var metodo = this;
+    var data;
   }
   // ---------------------------------------------------------
   // ---------------------------------------------------------
@@ -166,11 +168,18 @@ export default class LogicaFake {
     console.log("ACABA LA EJECUCION DE: buscar_micro()");
   }
 
+  filtrar_tabla()
+  {
+    let filtro_tabla = new filtro()
+    filtro_tabla.filtrar_por_disponibilidad(this.data)
+  }
+
   cargarMicro(data) {
     console.log("EMPIEZA LA EJECUCION DE: cargarMuestra()");
 
     var metodo = this;
-    console.log(data); // data es un array que tiene 3 objetos
+    this.data = data
+    console.log(this.data); // data es un array que tiene 3 objetos
     var tam = data.length;
 
     // Obtener la referencia del elemento body
