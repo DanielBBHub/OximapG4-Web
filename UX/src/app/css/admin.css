@@ -39,17 +39,24 @@
     margin-top: 2em;
 }
 
-.tabla{
+.tablaBD{
     width: 90%;
     margin: auto auto;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
 }
 
-table th{
+.tablaBD td{
     width: 15em;
 }
 
+.tablaBD th{
+    width: 15em;
+
+
+}
+
 table{
-    margin: 2em auto;
     border-collapse: collapse;
 }
 
@@ -76,7 +83,7 @@ tr:nth-of-type(1) > th{
     border-color: 1px solid var(--colorSubTitulos);
     font-size: 14px;
     font-weight: bold;
-    margin-top: 1em;
+    margin: 2em;
 }
 
 .btn_tabla:hover{

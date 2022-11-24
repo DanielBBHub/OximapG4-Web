@@ -163,6 +163,29 @@ module.exports = class LogicaMicros {
                     })
             })
     }
+
+     // .................................................................
+    /*
+        *  \brief     Obtener los micros activos de la bbdd
+        * \details   Obtener los micros activos de la bbdd
+        * @param     callback
+        * @param     Dispobibilidad
+        * @return    Devuelve un error si no se puede obtener los datos
+        * @return    Devuelve la promesa
+        * @return    Devuelve la consulta
+        * --> ObtenerMicrosActivos()
+    */
+    // .................................................................
+    obtenerMicros() { // Obtiene los micros activos de la base de datos
+        var textoSQL = "SELECT * FROM Micros"
+            return new Promise((resolver, rechazar) => { // Promesa
+                this.laConexion.all(textoSQL, [], // Consulta
+                    (err, res) => {
+                        (err ? rechazar(err) : resolver(res)) // Devuelve la promesa
+                    })
+            })
+    }
+    // .................................................................
     /*
      * 
      * @returns Devuelve la promesa de la consulta

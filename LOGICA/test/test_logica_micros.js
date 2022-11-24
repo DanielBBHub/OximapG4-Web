@@ -41,7 +41,7 @@ describe("Test 2: Conectar, añadir, comprobar y cerrar [Micros]", function () {
         async function () { // Función asíncrona para insertar valores y comprobar que se han insertado con callback
             var micro = await laLogicaMicros.obtenerMicrosActivos() // Busca la medicion con el ID 2 llamando a la función buscarMedicion de la clase Logica (a la promesa)
             //Comprueba que el ID debe ser 2
-            assert.equal(micro[0].IdMicro, 123456) // Comprueba que el ID de la medicion es 2
+            assert.equal(micro[0].IdMicro, 123456)
             
         }) // it
     // ....................................................
