@@ -55,7 +55,7 @@ export default class FirebaseUtil{
                 // Signed in 
                 const user = userCredential.user;
                 console.log(user)
-                window.location.replace("./correo_no_confirmado.html");
+                modal3.showModal();
                 // ...
             });
            
