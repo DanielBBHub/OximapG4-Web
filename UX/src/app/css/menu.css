@@ -131,6 +131,7 @@ nav ul li {
     font-family: var(--fuentePrincipal);
     font-size: 16px;
     margin-top: 0.7rem;
+    margin-right: 3rem;
 }
 nav ul li a {
     display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
@@ -144,7 +145,8 @@ nav ul li a:hover {
 }
 
 .logo {
-    max-width: 4rem;
+    margin-top: 0.5rem;
+    max-width: 8rem;
     padding-top: 10px;
 }
 
