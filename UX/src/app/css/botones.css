@@ -1,0 +1,69 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+a {
+    position: relative;
+    padding: 20px 50px;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 200px;
+    overflow: hidden;
+    border-radius: 40px;
+}
+
+a span{
+    position: relative;
+    color: white;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    letter-spacing: 8px;
+    z-index: 1;
+}
+
+a .liquid{
+    position: absolute;
+    top: -80;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: #0278AE;
+    box-shadow: inset 0 0 50 rgba(0,0,0,0.5);
+    transition: 0.5s;
+}
+
+a .liquid::after, a .liquid::before{
+    content: '';
+    width:200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -75%);
+    background: #000;
+}
+
+a .liquid::after{
+    border-radius: 40%;
+    background: rgba(20,20,20,0.5);
+    animation: animate 10s linear infinite;
+}
+
+a .liquid::before{
+    border-radius: 45%;
+    background: rgba(20,20,20,1);
+    animation: animate 5s linear infinite;
+}
+
+a:hover .liquid{
+    top: -120px;
+}
+
+@keyframes animate{
+    0%{
+        transform: translate(-50%, -75%) rotate(0deg);
+    }
+    100%{
+        transform: translate(-50%, -75%) rotate(360deg);
+    }
+}
