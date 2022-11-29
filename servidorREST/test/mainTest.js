@@ -34,7 +34,7 @@ const IP_PUERTO = "http://localhost:8080";
           function( err, respuesta, carga ) {
               var solucion = JSON.parse(carga)
               console.log(solucion)
-              assert.equal( solucion[0].muestra, '1225', "¿La muestra no es 1234?" )
+              assert.equal( solucion[0].muestra, '12345', "¿La muestra no es 1234?" )
               hecho()
               } // callback
           ) // .get
@@ -44,9 +44,11 @@ const IP_PUERTO = "http://localhost:8080";
     // ....................................................
     it("probar POST /alta", function (hecho) { // Probar Post
       var datosMedicion = { // Datos de la medicion a enviar al servidor REST
-        muestra: 1225, // Muestra de la medicion
+        muestra: 12345, // Muestra de la medicion
         fecha: "2020-01-01", // Fecha de la medicion
-        usuario: "Dani" // Usuario de la medicion
+        usuario: "Daniel", // Usuario de la medicion
+        latitud: 38.999794344442414,
+        longitud: -0.16320239995270047
       };
       request.post(
         {
@@ -74,7 +76,7 @@ const IP_PUERTO = "http://localhost:8080";
             console.log(carga)
               var solucion = JSON.parse(carga)
               console.log(solucion)
-              assert.equal( solucion[0].correoUser, 'prueba23@gmail.com', "¿El registro no coincide?" )
+              assert.equal( solucion[0].correoUser, 'alba.olivern@gmail.com', "¿El registro no coincide?" )
               hecho()
               } // callback
           ) // .get

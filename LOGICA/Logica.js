@@ -52,8 +52,8 @@ module.exports = class Logica {
     */
     // .................................................................
     insertarMedicion(datos) { // Inserta una Medicion en la base de datos
-        var textoSQL = 'insert into Medicion values( NULL, $muestra, $fecha, $usuario);' // SQL
-        var valoresParaSQL = {$muestra: datos.muestra, $fecha: datos.fecha, $usuario: datos.usuario } // Valores para SQL
+        var textoSQL = 'insert into Medicion values( NULL, $muestra, $fecha, $usuario, $latitud, $longitud);' // SQL
+        var valoresParaSQL = {$muestra: datos.muestra, $fecha: datos.fecha, $usuario: datos.usuario , $latitud: datos.latitud, $longitud: datos.longitud} // Valores para SQL
         return new Promise((resolver, rechazar) => { // Promesa
             this.laConexion.run(textoSQL, valoresParaSQL, function (err) { // Consulta
 

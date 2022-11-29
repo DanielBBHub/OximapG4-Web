@@ -40,7 +40,9 @@ describe("Test 1: Conectar, añadir, comprobar y cerrar [Muestras]", function ()
                     // Valores de la medicion a insertar
                     muestra: 12345, // Muestra de la medicion
                     fecha: "2020-01-01", // Fecha de la medicion
-                    usuario: "Daniel" // Usuario de la medicion
+                    usuario: "Daniel", // Usuario de la medicion
+                    latitud: 38.999794344442414,
+                    longitud: -0.16320239995270047
                 })
             //Busca la medicion con el ID 2
             var medicion = await laLogica.buscarMedicion() // Busca la medicion con el ID 2 llamando a la función buscarMedicion de la clase Logica (a la promesa)
