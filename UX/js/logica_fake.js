@@ -118,16 +118,22 @@ export default class LogicaFake {
       mode: "cors",
     })
       //Se recoge el JSON de la cabecera de la respuesta
-      .then((response) => {
-        console.log(response.json());
-      });
-    /*
-        //Una vez recogida se pasa la muestra y la fecha de esta a la funcion cargar_muestra()
-        .then(data => 
-            this.cargarMuestra(data)
-            )
-        .catch(err => console.error(err));
-         */
+      .then((response) => response.json())
+      .then((data) => this.cargarPagina(data));
+   
+  }
+
+  cargarPagina(data){
+    console.log(data[0].rol)
+    if (data[0].rol == "admin") {
+      console.log("PAGINA ADMIN");
+      window.location.replace("./admin.html");
+    } else {
+      console.log("PAGINA USUARIO");
+      window.location.replace("./usuario.html");
+    }
+   
+    
   }
 
   // ---------------------------------------------------------

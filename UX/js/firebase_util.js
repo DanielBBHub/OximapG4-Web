@@ -100,21 +100,13 @@ export default class FirebaseUtil{
         
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
+        .then(async (userCredential) => {
             if (auth.currentUser.emailVerified) {
                 // Signed in 
                 const user = auth.currentUser.user;
-                console.log(user)
   
-                var respuesta = logica.EsUserAdmin(email);
-                if (respuesta.rol == "admin") {
-                  console.log("PAGINA ADMIN");
-                  window.location.replace("./admin.html");
-                } else {
-                  console.log("PAGINA USUARIO");
-                }
-
-                window.location.replace("./usuario.html");
+                var respuesta = await logica.EsUserAdmin(email);
+                
                 // ...
             } else {
                 // User is signed out
