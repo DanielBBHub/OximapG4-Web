@@ -123,6 +123,31 @@ export default class LogicaFake {
    
   }
 
+  async asignarRol(correo)
+  {
+    var metodo = this;
+    //Se crea la peticion /muestra
+    var url = IP_PUERTO + "/asignarRol";
+    console.log(url);
+    var datos_muestra = {correo: correo, rol: "user"}
+    await fetch(url, {
+      method: "POST",
+      headers: new Headers(
+        //Partes del header que se han añadido para
+        //posibilitar la comunicacion con el servidor REST
+        {
+          "Users-Agent": "Carlos",
+          "Access-Control-Allow-Origin": "*",
+          "Content-type": "application/json",
+        }
+      ),
+      body: JSON.stringify(datos_muestra),
+      mode: "cors",
+    })
+     
+  }
+
+
   cargarPagina(data){
     console.log(data[0].rol)
     if (data[0].rol == "admin") {

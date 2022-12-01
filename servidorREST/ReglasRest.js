@@ -3,7 +3,7 @@
 // .....................................................................
 
 
-module.exports.cargar = function (servidorExpress, laLogica, laLogicaMicros) {
+module.exports.cargar = function (servidorExpress, laLogica, laLogicaMicros,laLogicaRol) {
   // .......................................................
   // .......................................................
   // GET /prueba
@@ -96,6 +96,22 @@ module.exports.cargar = function (servidorExpress, laLogica, laLogicaMicros) {
     } 
   }); // post /alta
 
+  servidorExpress.post("/asignarRol", async function (peticion, respuesta) {
+    console.log(" * POST /asignarRol ");
+    var datos = JSON.parse(peticion.body);
+
+    try{
+
+      var ret = await laLogicaRol.asignarRol(datos);
+      respuesta.json(ret)
+      
+    }
+    catch (e){
+      error = e
+      console.log(e);
+    } 
+  }); // post /alta
+
   // .......................................................
   // .......................................................
   // POST /login
@@ -119,7 +135,7 @@ module.exports.cargar = function (servidorExpress, laLogica, laLogicaMicros) {
       try{
         //Buscar la medicion del ultimo id
       
-        var res = await laLogica.esUsuarioAdmin(email)
+        var res = await laLogicaRol.esUsuarioAdmin(email)
       }
 
       catch (e){

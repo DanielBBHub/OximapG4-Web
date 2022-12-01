@@ -94,22 +94,7 @@ module.exports = class Logica {
     // ................................................................................................................................
 
 
-    /*
-     * 
-     * @param {email} email 
-     * @returns 
-     */
-
-    esUsuarioAdmin(email) {
-        var textoSQL = "SELECT rol FROM Roles WHERE CorreoUsuario=$email"; // SQL
-        var valores = {$email: email}
-        return new Promise((resolver, rechazar) => { // Promesa
-            this.laConexion.all(textoSQL, valores, // Consulta
-                (err, res) => {
-                    (err ? rechazar(err) : resolver(res)) // Devuelve la promesa
-                })
-        })
-    }
+    
 
     // ................................................................................................................................
     // ................................................................................................................................

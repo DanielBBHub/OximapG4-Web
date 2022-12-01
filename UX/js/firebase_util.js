@@ -55,6 +55,7 @@ export default class FirebaseUtil{
                 // Signed in 
                 const user = userCredential.user;
                 console.log(user)
+                logica.asignarRol(email)
                 modal3.showModal();
                 // ...
             });
@@ -93,10 +94,6 @@ export default class FirebaseUtil{
     async iniciar_sesion_correo_contrasenya( email, password)
     {
         var metodo = this;
-
-        /*console.log(email)
-        console.log(password)
-        await logica.EsUserAdmin(email); */
         
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
