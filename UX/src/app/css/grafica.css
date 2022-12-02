@@ -1,0 +1,123 @@
+html {
+    margin: 0px;
+    background-color: #f1f1f1;
+    font-size: 16px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body{
+    margin:0;
+    padding: 0;
+}
+h1{
+    color: white;
+    margin-bottom: 2rem;
+    margin-left:5%;
+}
+h2{
+    color: #2b0124;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 4vw;
+    border-bottom: 1px solid rgba(43, 1, 36, .30);
+}
+.saludo {
+    margin:auto auto;
+}
+header {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: minmax(0, 4rem);
+    position: sticky;
+    top: 0;
+    background-color: #f1f1f1;
+    z-index: 98;
+    border-bottom: 1px solid rgba(43, 1, 36, .15);
+}
+.cabecera{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.contenedorMenu {
+    margin-right: 1rem;
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.iniciasesion {
+    padding: 10px;
+    height: 60%;
+
+}
+.text{
+    font-family: 'Source Sans Pro', sans-serif;
+    color:#2B0124;
+}
+.logoGti {
+    padding: 5px;
+    height: 80%;
+
+}
+.boton {
+margin:auto 1rem auto auto;
+    font-family: Helvetica;
+    color: white;
+    border: white;
+    width: 10%;
+    height: 2.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    position: relative;
+    background-color: #633B54;
+
+}
+
+canvas {
+    max-height: 80vh;
+}
+.aviso{
+    color: #2B0124;
+    font-size: 13px;
+    margin-left: 5%;
+}
+
+.movilgirar {
+    height: 2rem;
+    animation: movil-girar 2s ease-in-out infinite;
+
+}
+.iconomovil{
+    margin:5px;
+    display: flex;
+    justify-content: center;
+}
+@keyframes movil-girar {
+    from {
+        transform: rotate(0);
+    }
+    50% {
+        transform:rotate(90deg);
+    }
+    to {
+        transform: rotate(0);
+    }
+}
+@media (min-width: 650px){
+    .iconomovil{
+        display: none;
+    }
+    h2 {
+        font-size: 1.6rem;
+
+    }
+    .nombre {
+
+        font-size: 1.6rem;
+    }
+    .aviso{
+        color: #f1f1f1;
+        font-size: 1.6rem;
+    }
+}
+
