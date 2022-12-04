@@ -23,6 +23,7 @@ h2{
 .saludo {
     margin:auto auto;
 }
+
 header {
     display: grid;
     grid-template-columns: 33% 33% 33%;
@@ -53,11 +54,7 @@ header {
     font-family: 'Source Sans Pro', sans-serif;
     color:#2B0124;
 }
-.logoGti {
-    padding: 5px;
-    height: 80%;
 
-}
 .boton {
 margin:auto 1rem auto auto;
     font-family: Helvetica;

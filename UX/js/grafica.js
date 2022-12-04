@@ -2,7 +2,7 @@
 
 var ctx = document.getElementById('graph');
 var myChart = new Chart(ctx,{ 
-    type: 'bar',
+    type: 'line',
     //data: data,
     options: {
         scales:{ 
@@ -15,7 +15,7 @@ var myChart = new Chart(ctx,{
     }
 });
 
-const labels = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'];
+const labels = ['00h', '01h', '02h', '03h', '04h', '05h', '06h', '07h', '08h', '09h', '10h', '11h', '12h', '13h', '14h', '15h', '16h', '17h', '18h', '19h', '20h', '21h', '22h', '23h'];
  
 const dataset1 = {
     label: "Peligro",
@@ -28,7 +28,7 @@ const dataset1 = {
 const dataset2 = {
     label: "Concentración elevada",
     data: [5, 44, 55, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 5, 4, 3, 2, 1, 90, 80, 70, 0, 0, 0],
-    borderColor: 'rgba(69, 248, 84, 0.8)',
+    borderColor: 'rgb(247,126,0.8)',
     fill: false,
     tension: 0.1
 };
@@ -44,7 +44,7 @@ const dataset3 = {
 const dataset4 = {
     label: "Concentración sin riesgo",
     data: [18, 40, 20, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 5, 4, 3, 2, 1, 0, 90, 80, 70, 0, 0],
-    borderColor: 'rgba(245, 40, 145, 0.8)',
+    borderColor: 'rgb(111,245,0.8)',
     fill: false,
     tension: 0.1
 };
