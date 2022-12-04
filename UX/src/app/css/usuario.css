@@ -21,7 +21,15 @@
     width: 80%;
     text-align: center;
     margin: auto auto;
+}
 
+.contenedorGrafica{
+    margin: auto auto;
+    width: 80%;
+}
+
+#grafica{
+    margin-top: 2rem;
 
 }
 
