@@ -3,6 +3,7 @@
 // ........................................................
 const Logica = require("../Logica.js") // Añadimos la clase Logica 
 var assert = require("assert") // Añadimos assert para hacer pruebas
+const { randomInt } = require("crypto")
 // ........................................................
 // main ()
 // ........................................................
@@ -35,15 +36,16 @@ describe("Test 1: Conectar, añadir, comprobar y cerrar [Muestras]", function ()
     // ....................................................
     it("puedo insertar una medicion", // Puedo insertar una NUEVA medicion en la base de datos
         async function () { // Función asíncrona para insertar valores y comprobar que se han insertado con callback
+            for(let i = 0; i<20; i++){
             await laLogica.insertarMedicion( // Inserta una medicion llamando a la función insertarMedicion de la clase Logica (a la promesa)
                 {
-                    // Valores de la medicion a insertar
-                    muestra: 12345, // Muestra de la medicion
-                    fecha: "2020-01-01", // Fecha de la medicion
+                   // Valores de la medicion a insertar
+                    muestra: 53, // Muestra de la medicion
+                    fecha: "2020-01-02", // Fecha de la medicion
                     usuario: "Daniel", // Usuario de la medicion
-                    latitud: 38.999794344442414,
-                    longitud: -0.16320239995270047
-                })
+                    latitud: 38.999512724144 + 0.01125,
+                    longitud: -0.1640109 + 0.12125
+                })}
             //Busca la medicion con el ID 2
             var medicion = await laLogica.buscarMedicion() // Busca la medicion con el ID 2 llamando a la función buscarMedicion de la clase Logica (a la promesa)
             //Comprueba que el ID debe ser 2

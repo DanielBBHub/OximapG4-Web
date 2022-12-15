@@ -15,14 +15,15 @@
         <!-- Importando la logica fake en html para darle funcionalidad a los botones -->
 
         <script type="module">
-            import logicaFake from "./JS/Logica_fake.js"
+            import logicaFake from "./js/logica_fake.js"
             document.onreadystatechange = function() {
                 if( document.readyState === "complete"){
                     let logica = new logicaFake()
                     //Asignando la funcionalidad al boton de buscar muestra
                     let boton_buscar_muestra = document.getElementById("boton_buscar_muestra")
                     boton_buscar_muestra.addEventListener("click" , async function(){
-                        var res = await logica.buscar_muestra()
+                        //var res = await logica.buscar_muestra()
+                        console.log(await logica.buscar_muestra());
                     })
                     //Asignando la funcionladidad al boton de insertar muestra 
                     let boton_intoducir_muestra = document.getElementById("boton_introducir_muestra")

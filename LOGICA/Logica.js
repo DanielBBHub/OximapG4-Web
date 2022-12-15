@@ -78,7 +78,7 @@ module.exports = class Logica {
      */
     // .................................................................
     buscarMedicion() { // Busca una Medicion en la base de datos
-        var textoSQL = "SELECT * FROM Medicion ORDER BY id DESC LIMIT 1"; // SQL
+        var textoSQL = "SELECT muestra, latitud, longitud FROM Medicion"; // SQL
         return new Promise((resolver, rechazar) => { // Promesa
             this.laConexion.all(textoSQL, [], // Consulta
                 (err, res) => {
