@@ -104,3 +104,13 @@
 .verPerfil:hover{
     color: var(--colorPrincipal);
 }
+
+.alerta {
+    margin: auto auto;
+    text-align: center;
+    width: 50%;
+    margin-top: 1rem;
+    color: black;
+    font-family: var(--fuentePrincipal);
+}
+

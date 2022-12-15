@@ -47,6 +47,15 @@
 
         <div class="contenedorGrafica">
             <h2 class="titulo">GRÁFICA CALIDAD DEL AIRE</h2>
+
+            <!-------------------------------- ALERTA ------------------------------------>
+            <div class="alerta" id="alerta">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Hey! </strong>Los valores están multiplicados por 100 para que sean más faciles de visualizar.
+                </div>
+            </div>
+            <!------------------------------------------------------------------------------>
+
             <canvas id="grafica" ></canvas>
         </div>
 
@@ -123,6 +132,7 @@
         }
 
     </script>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
 <script src="js/grafica.js"></script>
 </body>
