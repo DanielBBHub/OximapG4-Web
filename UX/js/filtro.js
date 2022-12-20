@@ -36,7 +36,7 @@ export default class Filtro {
         var datos_cargar = []
         for( var i = 0; i< datos.length; i++){
             console.log(datos[i])
-            if(datos[i].Disponibilidad == true){
+            if(datos[i].Disponibilidad == false){
                 datos_cargar.push(datos[i])
             }
         }
