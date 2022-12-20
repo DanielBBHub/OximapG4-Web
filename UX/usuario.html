@@ -5,6 +5,13 @@
     <title>USUARIO</title>
     <link rel="stylesheet" type="text/css" href="src/app/css/usuario.css">
     <link rel="stylesheet" type="text/css" href="src/app/css/menu.css">
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+          rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
 </head>
 
 <body>
@@ -37,6 +44,21 @@
         </div>
 
     </div>
+
+        <div class="contenedorGrafica">
+            <h2 class="titulo">GRÁFICA CALIDAD DEL AIRE</h2>
+
+            <!-------------------------------- ALERTA ------------------------------------>
+            <div class="alerta" id="alerta">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Hey! </strong>Los valores están multiplicados por 100 para que sean más faciles de visualizar.
+                </div>
+            </div>
+            <!------------------------------------------------------------------------------>
+
+            <canvas id="grafica" ></canvas>
+        </div>
+
     </div>
     <!---------------------------------------------------------------------------------->
 
@@ -108,8 +130,11 @@
             
 
         }
-         
-    </script>  
+
+    </script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+<script src="js/grafica.js"></script>
 </body>
 
 

@@ -21,7 +21,15 @@
     width: 80%;
     text-align: center;
     margin: auto auto;
+}
 
+.contenedorGrafica{
+    margin: auto auto;
+    width: 80%;
+}
+
+#grafica{
+    margin-top: 2rem;
 
 }
 
@@ -96,3 +104,13 @@
 .verPerfil:hover{
     color: var(--colorPrincipal);
 }
+
+.alerta {
+    margin: auto auto;
+    text-align: center;
+    width: 50%;
+    margin-top: 1rem;
+    color: black;
+    font-family: var(--fuentePrincipal);
+}
+

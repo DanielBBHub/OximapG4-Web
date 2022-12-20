@@ -63,9 +63,8 @@ export default class FirebaseUtil{
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            escribir_mensaje_error(errorMessage)
-            
-
+            this.escribir_mensaje_error(errorMessage)
+            return errorMessage
         });
     }
 

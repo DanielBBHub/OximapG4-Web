@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root{
+    --centrar: 0 auto;
+    --colorPrincipal: #69D4B6;
+    --colorFondo: #fffff;
+    --colorTitulos: #51ADCF;
+    --colorSubTitulos: #0278AE;
+    --letras: #000000;
+    --tamTitulos: 2rem;
+    --tamTexto: 20px;
+    --tamMenu: 25px;
+    --fuentePrincipal: Montserrat;
+    --blanco: #ffffff;
+}
+
+/*Hacer que el scroll sea suave*/
+html {
+    scroll-behavior: smooth;
+}
+
+/*Hacer que el contenido de la pagina no se estire demasiado*/
+body {
+    margin: var(--centrar);
+    padding: 0;
+    max-width: 1900px;
+    background: var(--colorFondo);
+}
+
+
+/*Footer*/
+.copyright {
+    flex: 1 1 0;
+    text-decoration: none;
+    text-align: center;
+    color: darkgrey;
+    font-size: 1rem;
+    padding: 1rem 1rem;
+}
+
+footer{
+    bottom: 5px;
+    text-align: center;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+p {
+    margin-bottom: 20px;
+}
+
+header {
+    background: rgb(0,0,0);
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    margin-top: -7rem;
+    padding-bottom: 1rem;
+}
+
+.wrapper {
+    width: 80%;
+    margin: auto;
+    overflow:hidden;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+
+}
+nav ul {
+    list-style: none;
+    overflow: hidden; /* Limpiamos errores de float */
+
+}
+nav ul li {
+    float: left;
+    font-family: var(--fuentePrincipal);
+    font-size: 16px;
+    margin-top: 0.7rem;
+    margin-right: 3rem;
+}
+nav ul li a {
+    display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+    padding: 20px;
+    color: #fff;
+    text-decoration: none;
+
+}
+nav ul li a:hover {
+    color: var(--colorPrincipal);
+    text-decoration: none;
+}
+
+.logo {
+    margin-top: 0.5rem;
+    height: 5.5rem;
+    padding-top: 10px;
+}
+
+.login {
+    max-width: 8rem;
+    padding: 20px;
+}
+
+.folium-map{
+    margin-top: 7rem;
+}

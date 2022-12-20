@@ -109,7 +109,7 @@ header{
 
 }
 header {
-    background: rgba(0,0,0,0.9);
+    background: rgb(0,0,0);
     width: 100%;
     position: fixed;
     z-index: 10;

@@ -151,6 +151,9 @@
                         {
                             var res = await util.registrar_usuario_correo_contrasenya(email,password)
                         }
+                        else{
+                            document.getElementById("error").innerHTML = "Las contraseñas no coinciden"
+                        }
                     }
 
                     btn_cerrar.addEventListener("click", ()=>
