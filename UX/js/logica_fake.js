@@ -99,10 +99,10 @@ export default class LogicaFake {
    * @throws {Error}: Si el usuario no existe
    */
 
-  async EsUserAdmin(email) {
+  async EsUserAdmin(idUsuario) {
     var metodo = this;
     //Se crea la peticion /muestra
-    var url = IP_PUERTO + "/Roles?email=" + email;
+    var url = IP_PUERTO + "/Roles?idUsuario=" + idUsuario;
     console.log(url);
     await fetch(url, {
       method: "GET",
@@ -123,13 +123,13 @@ export default class LogicaFake {
    
   }
 
-  async asignarRol(correo)
+  async asignarRol(idUsuario)
   {
     var metodo = this;
     //Se crea la peticion /muestra
     var url = IP_PUERTO + "/asignarRol";
     console.log(url);
-    var datos_muestra = {correo: correo, rol: "user"}
+    var datos_muestra = {idUsuario: idUsuario, rol: "user"}
     await fetch(url, {
       method: "POST",
       headers: new Headers(

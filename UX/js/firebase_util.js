@@ -54,8 +54,7 @@ export default class FirebaseUtil{
             .then(() => {
                 // Signed in 
                 const user = userCredential.user;
-                console.log(user)
-                logica.asignarRol(email)
+                logica.asignarRol(user.uid)
                 modal3.showModal();
                 // ...
             });
@@ -98,11 +97,11 @@ export default class FirebaseUtil{
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
         .then(async (userCredential) => {
-            if (auth.currentUser.emailVerified) {
+            const user = userCredential.user;
+            console.log(user)
+            if (user.emailVerified) {
                 // Signed in 
-                const user = auth.currentUser.user;
-  
-                var respuesta = await logica.EsUserAdmin(email);
+                var respuesta = await logica.EsUserAdmin(user.uid);
                 
                 // ...
             } else {

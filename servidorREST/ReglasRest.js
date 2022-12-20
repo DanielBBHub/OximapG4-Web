@@ -130,12 +130,12 @@ module.exports.cargar = function (servidorExpress, laLogica, laLogicaMicros,laLo
   async function (peticion, respuesta){
       console.log(" * GET /Roles");
       var error = null
-      var email = peticion.query.email
+      var idUsuario = peticion.query.idUsuario
 
       try{
         //Buscar la medicion del ultimo id
-      
-        var res = await laLogicaRol.esUsuarioAdmin(email)
+        console.log("esUsuarioAdmin: ")
+        var res = await laLogicaRol.esUsuarioAdmin(idUsuario)
       }
 
       catch (e){

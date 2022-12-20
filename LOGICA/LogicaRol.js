@@ -19,8 +19,8 @@ module.exports = class LogicaRol{
 
     asignarRol(datos)
     {
-        var textoSQL = 'insert into Roles values( NULL, $correo, $rol);' // SQL
-        var valoresParaSQL = {$correo: datos.correo, $rol: datos.rol} // Valores para SQL
+        var textoSQL = 'insert into Roles values( NULL, $idUsuario, $rol);' // SQL
+        var valoresParaSQL = {$idUsuario: datos.idUsuario, $rol: datos.rol} // Valores para SQL
         return new Promise((resolver, rechazar) => { // Promesa
             this.laConexion.run(textoSQL, valoresParaSQL, function (err) { // Consulta
 
@@ -43,9 +43,9 @@ module.exports = class LogicaRol{
      * @returns 
      */
 
-    esUsuarioAdmin(email) {
-        var textoSQL = "SELECT rol FROM Roles WHERE CorreoUsuario=$email"; // SQL
-        var valores = {$email: email}
+    esUsuarioAdmin(idUsuario) {
+        var textoSQL = "SELECT rol FROM Roles WHERE idUsuario=$idUsuario"; // SQL
+        var valores = {$idUsuario: idUsuario}
         return new Promise((resolver, rechazar) => { // Promesa
             this.laConexion.all(textoSQL, valores, // Consulta
                 (err, res) => {
