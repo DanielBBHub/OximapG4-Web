@@ -229,7 +229,7 @@ module.exports = class LogicaMicros {
         * --> ObtenerUltimaVezActivo()
     */
     // .................................................................
-    obteberultimavezactivo( ) { // Obtiene los micros activos de la base de datos
+    obtenerUltimaVezActivo( ) { // Obtiene los micros activos de la base de datos
         var textoSQL = "SELECT UltimaVezActivo FROM Micros WHERE IDMicro=$IDMicro"
             return new Promise((resolver, rechazar) => { // Promesa
                 this.laConexion.all(textoSQL, [], // Consulta
