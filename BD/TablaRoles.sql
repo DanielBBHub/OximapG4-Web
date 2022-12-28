@@ -5,7 +5,7 @@ Drop table Roles;
 
 create table Roles (
     id INTEGER PRIMARY KEY,
-    idUsuario INTEGER NOT NULL, -- correo del usuario de la tabla Usuarios de firebase
+    idUsuario INTEGER NOT NULL, -- id del usuario de la tabla Usuarios de firebase
     rol char(8) NOT NULL -- El rol de cada usuario podrá ser admin o user
 );
 

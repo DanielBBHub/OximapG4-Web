@@ -26,7 +26,7 @@ describe("Test 3: Conectar, añadir, comprobar y cerrar [Roles]", function () { 
     // ....................................................
     it("puedo buscar un admin", // Puedo buscar la ultimamedicion en la base de datos
         async function () { // Función asíncrona para insertar valores y comprobar que se han insertado con callback
-            var usuario = await laLogicaRol.esUsuarioAdmin("carlosipiens@gmail.com") // Busca la medicion con el ID 2 llamando a la función buscarMedicion de la clase Logica (a la promesa)
+            var usuario = await laLogicaRol.esUsuarioAdmin("G322ky0TIzLFXlZqFtNMeCLSGjU2") // Busca la medicion con el ID 2 llamando a la función buscarMedicion de la clase Logica (a la promesa)
             //Comprueba que el ID debe ser 2
             assert.equal(usuario[0].rol, "admin") // Comprueba que el ID de la medicion es 2
             
@@ -37,11 +37,11 @@ describe("Test 3: Conectar, añadir, comprobar y cerrar [Roles]", function () { 
         async function () { // Función asíncrona para insertar valores y comprobar que se han insertado con callback
             await laLogicaRol.asignarRol( // Inserta una medicion llamando a la función insertarMedicion de la clase Logica (a la promesa)
                 {
-                    correo: "damnriven00@gmail.com", 
+                    idUsuario: "SAX3TZ7pJPewobMF3UwmlkvqXtN2", 
                     rol: "admin",    
                 })
             //Busca la medicion con el ID 2
-            var usuario = await laLogicaRol.esUsuarioAdmin("damnriven00@gmail.com") // Busca la medicion con el ID 2 llamando a la función buscarMedicion de la clase Logica (a la promesa)
+            var usuario = await laLogicaRol.esUsuarioAdmin("SAX3TZ7pJPewobMF3UwmlkvqXtN2") // Busca la medicion con el ID 2 llamando a la función buscarMedicion de la clase Logica (a la promesa)
             //Comprueba que el ID debe ser 2
             assert.equal(usuario[0].rol, "admin") // Comprueba que el ID de la medicion es 2
             
