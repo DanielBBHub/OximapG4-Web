@@ -61,7 +61,6 @@ module.exports.cargar = function (servidorExpress, laLogica, laLogicaMicros,laLo
               return
           }
       }
-        console.log(res)
         respuesta.send( JSON.stringify( res ) )
 
   }) // get /Medicion
@@ -82,7 +81,6 @@ module.exports.cargar = function (servidorExpress, laLogica, laLogicaMicros,laLo
   servidorExpress.post("/alta", async function (peticion, respuesta) {
     console.log(" * POST /alta ");
     var datos = JSON.parse(peticion.body);
-    console.log("Valor de medicion: " + datos.muestra);
 
     try{
 
@@ -134,7 +132,6 @@ module.exports.cargar = function (servidorExpress, laLogica, laLogicaMicros,laLo
 
       try{
         //Buscar la medicion del ultimo id
-        console.log("esUsuarioAdmin: ")
         var res = await laLogicaRol.esUsuarioAdmin(idUsuario)
       }
 
@@ -149,7 +146,6 @@ module.exports.cargar = function (servidorExpress, laLogica, laLogicaMicros,laLo
             return
         }
     }
-      console.log(res)
       respuesta.send( JSON.stringify( res ) )
   })
 
@@ -201,7 +197,6 @@ module.exports.cargar = function (servidorExpress, laLogica, laLogicaMicros,laLo
   async function (peticion, respuesta) {
     console.log(" * POST /ActualizarDisponibilidad ");
     var datos = JSON.parse(peticion.body);
-    console.log( datos.IdMicro);
 
     try{
 

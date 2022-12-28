@@ -33,8 +33,7 @@ const IP_PUERTO = "http://localhost:8080";
       headers : { 'User-Agent' : 'Daniel'}},
           function( err, respuesta, carga ) {
               var solucion = JSON.parse(carga)
-              console.log(solucion)
-              assert.equal( solucion[0].muestra, '12345', "¿La muestra no es 1234?" )
+              assert.equal( solucion[0].muestra, '1234', "¿La muestra no es 1234?" )
               hecho()
               } // callback
           ) // .get
@@ -45,6 +44,7 @@ const IP_PUERTO = "http://localhost:8080";
     it("probar POST /alta", function (hecho) { // Probar Post
       var datosMedicion = { // Datos de la medicion a enviar al servidor REST
         muestra: 12345, // Muestra de la medicion
+        tipo: "CO2",
         fecha: "2020-01-01", // Fecha de la medicion
         usuario: "Daniel", // Usuario de la medicion
         latitud: 38.999794344442414,
@@ -73,9 +73,7 @@ const IP_PUERTO = "http://localhost:8080";
       { url : IP_PUERTO+"/Micros",
       headers : { 'User-Agent' : 'Daniel'}},
           function( err, respuesta, carga ) {
-            console.log(carga)
               var solucion = JSON.parse(carga)
-              console.log(solucion)
               assert.equal( solucion[0].correoUser, 'alba.olivern@gmail.com', "¿El registro no coincide?" )
               hecho()
               } // callback
@@ -105,7 +103,7 @@ const IP_PUERTO = "http://localhost:8080";
       })//it
 
       it("probar POST /asignarRol", function (hecho) { // Probar Post
-        var datos = {correo: "ruxzfly@gmail.com", rol: "user"}
+        var datos = {idUsuario: "owVboXcSaHafSKBmkf9TKw1RPa52", rol: "user"}
         request.post(
           {
             headers: { "User-Agent": "Daniel", "Content-Type": "application/json" }, // Cabeceras de la peticion
